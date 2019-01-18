@@ -1,3 +1,4 @@
+[![Build Status](https://www.travis-ci.org/lHeng9/dida_frontend.svg?branch=master)](https://www.travis-ci.org/lHeng9/dida_frontend)
 # dida
 
 > A Vue.js project
