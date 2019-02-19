@@ -1,8 +1,4 @@
 @mixin border-image($images) {
-  -webkit-border-image: _border-add-prefix($images, webkit);
-     -moz-border-image: _border-add-prefix($images, moz);
-       -o-border-image: _border-add-prefix($images, o);
-          border-image: _border-add-prefix($images);
 }
 
 @function _border-add-prefix($images, $vendor: false) {
