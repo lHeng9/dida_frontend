@@ -1,23 +1,26 @@
 <template>
-  <div id="app">
-    <!--<img src="./assets/logo.png">-->
-    <router-view/>
-  </div>
+    <div id="app" style="background: #e7f0f2">
+        <head-nav></head-nav>
+        <br>
+        <router-view/>
+        <foot-nav title="这是底部导航"></foot-nav>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+    export default {
+        name: 'App'
+    }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+    #app {
+        /*fonts-family: 'Avenir', Helvetica, Arial, sans-serif;*/
+        /*-webkit-fonts-smoothing: antialiased;*/
+        /*-moz-osx-fonts-smoothing: grayscale;*/
+        /*text-align: center;*/
+        /*color: #2c3e50;*/
+        /*margin-top: 60px;*/
+        /*background: #e2e2e2;*/
+    }
 </style>
