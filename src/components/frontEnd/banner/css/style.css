@@ -1,0 +1,111 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif; }
+
+.yellow {
+  background-color: #ffdb56; }
+
+.btn {
+  width: 200px;
+  height: 55px;
+  border: 2px solid white;
+  color: white;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  line-height: 220%; }
+  .btn:hover {
+    background-color: white;
+    color: #ffdb56; }
+
+.hero {
+  width: 100%;
+  height: 80%;
+  min-height: 500px;
+  position: relative; }
+  .hero .container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    z-index: 999; }
+  .hero .tagline {
+    font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -3px;
+    width: 40%;
+    padding: 8% 0 0 0;
+    float: left;
+    color: white; }
+    .hero .tagline p {
+      font-size: 4rem;
+      line-height: 4rem;
+      margin-top: 10px; }
+      @media (max-width: 1450px) {
+        .hero .tagline p {
+          font-size: 2.8rem;
+          line-height: 2.8rem;
+          letter-spacing: -2px; } }
+      @media (max-width: 600px) {
+        .hero .tagline p {
+          font-size: 2rem; } }
+    .hero .tagline h1 {
+      font-weight: bold;
+      font-size: 7rem;
+      letter-spacing: -0.25rem;
+      line-height: 7rem; }
+      @media (max-width: 1450px) {
+        .hero .tagline h1 {
+          font-size: 5rem;
+          line-height: 5rem; } }
+    @media (max-width: 1450px) {
+      .hero .tagline {
+        padding: 9% 0 0 0; } }
+    @media (max-width: 800px) {
+      .hero .tagline {
+        float: none;
+        width: 100%;
+        margin-bottom: 70px; } }
+  .hero .downloads {
+    float: right;
+    width: 40%;
+    color: white;
+    font-family: "Helvetica Neue", "HelveticaNeue", "Helvetica-Neue", Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+    font-size: 1.5rem;
+    height: 100%;
+    position: relative; }
+    .hero .downloads .btn-container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%; }
+      .hero .downloads .btn-container .btn {
+        float: right;
+        text-align: center;
+        margin-left: 20px; }
+        @media (max-width: 800px) {
+          .hero .downloads .btn-container .btn {
+            float: left;
+            margin: 20px 20px 0 0; } }
+    @media (max-width: 800px) {
+      .hero .downloads {
+        float: none;
+        width: 100%;
+        height: auto; } }
+
