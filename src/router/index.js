@@ -21,7 +21,7 @@ import 'mavon-editor/dist/css/index.css'
 Vue.use(mavonEditor)
 
 import editor from '../components/frontEnd/blogArticle/editor'
-// import showMarkdown from '../components/frontEnd/blogArticle/showMarkdown'
+import showMarkdown from '../components/frontEnd/blogArticle/showMarkdown'
 
 
 Vue.use(ElementUI);
@@ -31,55 +31,55 @@ Vue.component('topMessage', topMessage);
 Vue.component('rightSecondary', rightSecondary);
 Vue.component('personalInformation', personalInformation);
 Vue.component('personalNav', personalNav)
-// Vue.component('showMarkdown', showMarkdown)
+Vue.component('showMarkdown', showMarkdown)
 Vue.component('comment', comment)
 
 
 export default new Router({
-    routes: [
-        {
-            name: 'Blog',
-            path: '/Blog',
-            component: Blog
-        },
-        {
-            name: 'forumIndex',
-            path: '/forumIndex',
-            component: forumIndex
-        },
-        {
-            name: 'banner.details',
-            path: '/banner/details',
-            component: bannerDetails
-        },
-        {
-            name: 'blogArticle',
-            path: '/blogArticle',
-            component: blogArticle
-        },
-        {
-            name: 'editor',
-            path: '/editor',
-            component: editor
-        },
-        {
-            name: 'personalBlogList',
-            path: '/personalBlogList',
-            component: personalBlogList
-        }, {
-            name: 'personalInformation',
-            path: '/personalInformation',
-            component: personalInformation
-        },
-        // {
-        //     name: 'showMarkdown',
-        //     path: '/showMarkdown',
-        //     component: showMarkdown
-        // },
-        {
-            name: 'Test',
-            path: '/Test',
-            component: Test
-        }
-    ]
+  routes: [
+    {
+      name: 'Blog',
+      path: '/Blog',
+      component: Blog
+    },
+    {
+      name: 'forumIndex',
+      path: '/forumIndex',
+      component: forumIndex
+    },
+    {
+      name: 'banner.details',
+      path: '/banner/details',
+      component: bannerDetails
+    },
+    {
+      name: 'blogArticle',
+      path: '/blogArticle',
+      component: blogArticle
+    },
+    {
+      name: 'editor',
+      path: '/editor',
+      component: editor
+    },
+    {
+      name: 'personalBlogList',
+      path: '/personalBlogList',
+      component: personalBlogList
+    }, {
+      name: 'personalInformation',
+      path: '/personalInformation',
+      component: personalInformation
+    },
+    {
+      name: 'showMarkdown',
+      path: '/showMarkdown',
+      component: showMarkdown
+    },
+    {
+      name: 'Test',
+      path: '/Test',
+      component: Test
+    }
+  ]
 })

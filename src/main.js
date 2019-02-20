@@ -16,8 +16,8 @@ import '../node_modules/cropper/dist/cropper.css'
 Axios.defaults.baseURL = 'http://tanzhouweb.com/vueProject/'
 Vue.prototype.$Axios = Axios
 Vue.prototype.dataURL = function (file, title, id) {
-    id = (id === undefined) ? '' : id;
-    return file + '?title' + title + id
+  id = (id === undefined) ? '' : id;
+  return file + '?title' + title + id
 }
 
 Vue.component('headNav', Head)
@@ -31,10 +31,10 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/googlecode.css'
 
 Vue.directive('highlight', (el) => {
-    let blocks = el.querySelectorAll('pre code')
-    blocks.forEach((block) => {
-        hljs.highlightBlock(block)
-    })
+  let blocks = el.querySelectorAll('pre code')
+  blocks.forEach((block) => {
+    hljs.highlightBlock(block)
+  })
 })
 // 为markDown文本阅读提供高亮结束
 
@@ -42,8 +42,8 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router,
-    components: { App },
-    template: '<App/>'
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
 })
