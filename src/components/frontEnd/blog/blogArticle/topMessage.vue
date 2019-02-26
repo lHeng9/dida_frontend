@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img id="face" src="../../../../static/images/face.jpg" alt=""/>
+    <img id="face" src="../../../../../static/images/face.jpg" alt=""/>
     <div class="top-message">
       <span style="font-size: 20px"><strong>玄青丶丶</strong></span>
       <span style="font-size: 10px"><strong>一只摸着石头过河的幼年程序员</strong></span>
