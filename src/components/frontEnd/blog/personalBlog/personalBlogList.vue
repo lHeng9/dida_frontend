@@ -1,207 +1,290 @@
 <template>
-  <div class="body">
-    <!--个人简要信息-->
-    <personalInformation></personalInformation>
-    <div class="content clearfix">
-      <!--个人导航-->
-      <personalNav></personalNav>
-      <div class=" left clearfix">
-        <!--单个卡片开始-->
-        <div class="content-card clearfix">
-          <ul>
-            <li v-for="(item, index) in card" :key="index">
-              <div class="card">
-                <div class="card-title">
-                  <h3>
-                    <router-link :to="{name:'blogArticle'}">
-                      {{item.title}}
-                    </router-link>
-                  </h3>
-                </div>
-                <div class="card-introduction">{{item.introduction}}</div>
-                <div class="card-time">{{item.time}}</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <!--单个卡片结束-->
-        <!--分页-->
-        <div class="page">
-          <el-pagination
-            background
-            layout="prev, pager, next"
-            :total="1000">
-          </el-pagination>
-        </div>
+    <div>
+        <personalInformation></personalInformation>
+        <div class="body clearfix">
+
+            <el-row :gutter="12">
+                <el-col :span="8">
+                    <el-card shadow="always">
 
 
-      </div>
-      <div class="right clearfix">
-        <!--课内课外分类-->
-        <div class="clearfix content-right ">
-          <el-collapse v-model="activeNames" @change="handleChange">
-            <el-collapse-item class="content-right-title" title="关注的标签" name="1">
-              <el-tag>标签一</el-tag>
-              <el-tag type="success">标签二</el-tag>
-              <el-tag type="info">标签三</el-tag>
-              <el-tag type="warning">标签四</el-tag>
-              <el-tag type="danger">标签五</el-tag>
-            </el-collapse-item>
-            <el-collapse-item class="content-right-title" title="关注的帖子" name="2">
-              <el-tag>标签一</el-tag>
-              <el-tag type="success">标签二</el-tag>
-              <el-tag type="info">标签三</el-tag>
-              <el-tag type="warning">标签四</el-tag>
-              <el-tag type="danger">标签五</el-tag>
-            </el-collapse-item>
-            <el-collapse-item class="content-right-title" title="个人创建的标签" name="3">
-              <el-tag>标签一</el-tag>
-              <el-tag type="success">标签二</el-tag>
-              <el-tag type="info">标签三</el-tag>
-              <el-tag type="warning">标签四</el-tag>
-              <el-tag type="danger">标签五</el-tag>
-            </el-collapse-item>
-            <el-collapse-item class="content-right-title" title="最新标签" name="4">
-              <el-tag>标签一</el-tag>
-              <el-tag type="success">标签二</el-tag>
-              <el-tag type="info">标签三</el-tag>
-              <el-tag type="warning">标签四</el-tag>
-              <el-tag type="danger">标签五</el-tag>
-            </el-collapse-item>
-          </el-collapse>
+                        <div class="content clearfix">
+                            <div class="content-nav clearfix">
+                                <blogTagsMenu></blogTagsMenu>
+                            </div>
+                            <!--左侧主栏-->
+                            <div class="left clearfix ">
+                                <cards></cards>
+                                <!--加载中-->
+                                <div class="wait">
+                                    <el-button id="loding" style="width: 100px" type="primary" :loading="true">加载中
+                                    </el-button>
+                                </div>
+                            </div>
+                            <!--右侧复栏-->
+                            <div class="right clearfix">
+                                <!--活跃教师-->
+                                <div>
+                                    <el-card class="box-card" shadow="hover">
+                                        <div slot="header" class="clearfix">
+                                            <span><strong>活跃学生</strong></span>
+                                        </div>
+                                        <ul>
+                                            <li v-for="(item, index) in 5" :key="index">
+                                                <div class="active">
+                                                    <img class="activeFace" src="../../../../../static/images/face.jpg">
+                                                    <div class="activeName">玄青丶丶</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </el-card>
+                                </div>
+                                <!--活跃学生-->
+                                <div>
+                                    <el-card class="box-card" shadow="hover">
+                                        <div slot="header" class="clearfix">
+                                            <span><strong>活跃教师</strong></span>
+                                        </div>
+                                        <ul>
+                                            <li v-for="(item, index) in 5" :key="index">
+                                                <div class="active">
+                                                    <img class="activeFace" src="../../../../../static/images/face.jpg">
+                                                    <div class="activeName">玄青丶丶</div>
+                                                </div>
+
+                                            </li>
+                                        </ul>
+
+                                    </el-card>
+                                </div>
+                                <!--课内课外分类-->
+                                <div class="clearfix content-right ">
+                                    <el-card class="box-card" shadow="hover">
+                                        <div slot="header" class="clearfix">
+                                            <span><strong>标签专栏</strong></span>
+                                        </div>
+                                        <el-collapse v-model="activeNames" @change="handleChange">
+                                            <el-collapse-item class="content-right-title" title="课外" name="1">
+                                                <el-tag>JavaScript</el-tag>
+                                                <el-tag type="success">Vue</el-tag>
+                                                <el-tag type="info">Spring</el-tag>
+                                                <el-tag type="warning">Node.js</el-tag>
+                                                <el-tag type="danger">MongoDB</el-tag>
+                                            </el-collapse-item>
+                                            <el-collapse-item class="content-right-title" title="热门标签" name="2">
+                                                <el-tag>标签一</el-tag>
+                                                <el-tag type="success">标签二</el-tag>
+                                                <el-tag type="info">标签三</el-tag>
+                                                <el-tag type="warning">标签四</el-tag>
+                                                <el-tag type="danger">标签五</el-tag>
+                                            </el-collapse-item>
+                                            <el-collapse-item class="content-right-title" title="最新标签" name="3">
+                                                <el-tag>标签一</el-tag>
+                                                <el-tag type="success">标签二</el-tag>
+                                                <el-tag type="info">标签三</el-tag>
+                                                <el-tag type="warning">标签四</el-tag>
+                                                <el-tag type="danger">标签五</el-tag>
+                                            </el-collapse-item>
+                                        </el-collapse>
+                                    </el-card>
+                                </div>
+                                <!--右侧今日热门文章-->
+                                <div class="right-windows">
+                                    <el-card class="box-card" shadow="hover">
+                                        <div slot="header" class="clearfix">
+                                            <span><strong>最新发布</strong></span>
+                                        </div>
+                                        <ul>
+                                            <li v-for="(item, index) in hot_card" :key="index">
+                                                <div class="content-right-top">
+                                                    <div class="card-title">
+                                                        <h4>{{item.title}}</h4>
+                                                    </div>
+                                                    <div class="card-introduction overflow-hidden">{{item.introduction}}</div>
+                                                    <div class="card-author-time"><span><img class="face" src="../../../../../static/images/face.jpg"></span>
+                                                        <span class="card-el"><router-link
+                                                                :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
+                                                        <span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>
+                                                    </div>
+                                                    <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;" />
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </el-card>
+                                </div>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-col>
+            </el-row>
         </div>
-        <!--右侧今日热门文章-->
-      </div>
     </div>
-  </div>
+
 
 </template>
 
 <script>
-  export default {
-    name: "personalBlogList",
-    data() {
-      return {
-        currentDate: new Date(),
-        activeNames: ['1'],
-        card: [
-          {
-            title: '你算什么男人',
-            time: '2015',
-            introduction: '亲吻你的手，还靠着你的头，让你挡胸口，那个人已不是我 ...',
-            author: '周杰伦'
-          },
-          {
-            title: '你算什么男人',
-            time: '2015',
-            introduction: '亲吻你的手，还靠着你的头，让你挡胸口，那个人已不是我 ...',
-            author: '周杰伦'
-          },
-          {
-            title: '你算什么男人',
-            time: '2015',
-            introduction: '亲吻你的手，还靠着你的头，让你挡胸口，那个人已不是我 ...',
-            author: '周杰伦'
-          },
-          {
-            title: '你算什么男人',
-            time: '2015',
-            introduction: '亲吻你的手，还靠着你的头，让你挡胸口，那个人已不是我 ...',
-            author: '周杰伦'
-          },
-          {
-            title: '你算什么男人',
-            time: '2015',
-            introduction: '亲吻你的手，还靠着你的头，让你挡胸口，那个人已不是我 ...',
-            author: '周杰伦'
-          },
-          {
-            title: '你算什么男人',
-            time: '2015',
-            introduction: '亲吻你的手，还靠着你的头，让你挡胸口，那个人已不是我 ...',
-            author: '周杰伦'
-          }
-        ],
-        title: '',
-      }
-    },
-    created() {
-
-    },
-    methods: {}
-  }
+    export default {
+        name: "index",
+        data() {
+            return {
+                banner1: [],
+                currentDate: new Date(),
+                activeNames: ['1'],
+                hot_card: [
+                    {
+                        title: '从零开始Win10搭建TensorFlow开发环境',
+                        time: '2018',
+                        introduction: '到官网下载Anaconda最新版本：https://www.anaconda.com/distribution/ ，选择对应版本进行下载。',
+                        author: ' winp'
+                    },
+                    {
+                        title: 'Python制作快递查询系统，再一次感受到了Python的强大',
+                        time: '2019',
+                        introduction: 'win10 使用时出现了在资源管理器或者桌面右键文件时会卡住的情况，' +
+                            '每次卡住几十秒。但又不是一定会出现，出现一次后隔一段时间才会再出现一次，似乎没有发现什么规律。win10 使用时出现了在资源管理器或者桌面右键文件时会卡住的情况，\' +\n' +
+                            '                            \'每次卡住几十秒。但又不是一定会出现，出现一次后隔一段时间才会再出现一次，似乎没有发现什么规律。',
+                        author: ' hongguifengd'
+                    },
+                    {
+                        title: '从零开始Win10搭建TensorFlow开发环境',
+                        time: '2018',
+                        introduction: '到官网下载Anaconda最新版本：https://www.anaconda.com/distribution/ ，选择对应版本进行下载。',
+                        author: ' winp'
+                    },
+                    {
+                        title: '一种 win10 右键卡住转圈问题的排查过程',
+                        time: '2019',
+                        introduction: 'win10 使用时出现了在资源管理器或者桌面右键文件时会卡住的情况，每次卡住几十秒。但又不是一定会出现，出现一次后隔一段时间才会再出现一次，似乎没有发现什么规律。',
+                        author: ' hongguifengd'
+                    },
+                ],
+                title: '',
+                // activeName2: 'first',
+                tabPosition: 'bottom'
+            }
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+            },
+            handleChange(val) {
+                console.log(val);
+            }
+        }
+    }
 </script>
 
 <style scoped>
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-  li {
-    margin: 0 10px;
-  }
+    li {
+        margin: 0 10px;
+        display: inline-block;
+    }
 
-  .left {
-    float: left;
-    width: 70%;
-  }
+    .el-col {
+        width: 100%;
+    }
 
-  .right {
-    float: right;
-    width: 25%;
-    background: #d9edf7;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+    .left {
+        float: left;
+        width: 70%;
+    }
 
-  .clearfix::after {
-    content: ""; /*这个里面不填内容，填了会原样显示在页面上。*/
-    display: block;
-    clear: both;
-    /*不管是左还是右浮动，都能消除*/
-  }
+    .right {
+        float: right;
+        width: 28%;
+    }
 
-  .content {
-    width: 80%;
-    background: #d9edf7;
-    /*height: 1000px;*/
-    margin: 0 auto;
-    position: relative;
-    /*top: -340px;*/
-    float: left;
-    margin-left: 50%;
-    left: -630px;
-    float: left;
-  }
-  /*卡片效果开始*/
-  .card {
-    background: white;
-    width: 100%;
-    height: 150px;
-    padding: 25px;
-    margin: 10px;
-    float: left;
-    border-radius: 5px;
-    border-right: 2px solid #d1d1d1;
-    border-bottom: 2px solid #d1d1d1;
+    /*清除浮动*/
+    .clearfix::after {
+        content: ""; /*这个里面不填内容，填了会原样显示在页面上。*/
+        display: block;
+        clear: both;
+        /*不管是左还是右浮动，都能消除*/
+    }
 
-  }
+    .content-nav {
+        padding-top: 20px;
+        padding-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-  /*卡片效果结束*/
-  .content-right {
-    /*float: right;*/
-    background: #f5f5f5;
-    border-right: 2px solid #d1d1d1;
-    padding-left: 15px;
-    /*width: 25%;*/
-  }
+    .el-tag {
+        margin: 5px;
+    }
 
-  .page {
-    margin: 20px auto;
-    display: inline-block;
-    position: relative;
-    left: 212px;
-  }
+    .content {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    /*右侧热门推荐开始*/
+    .content-right-top {
+        width: 100%;
+        font-size: 10px;
+        margin: 0 auto 20px;
+
+    }
+
+    /*右侧热门推荐结束*/
+
+    .wait {
+        position: center;
+        margin: 30px auto;
+        width: 100%;
+    }
+
+    #loding {
+        width: 100px;
+        margin-left: 50%;
+        left: -50px;
+    }
+
+    .active {
+        display: inline-block;
+    }
+
+    .activeFace {
+        border-radius: 50%;
+        /*width:15%;*/
+        width: 30px;
+        float: left;
+        margin: 10px 10px 10px 20px;
+    }
+
+    .activeName {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .card-title{
+        margin-bottom: 5px;
+    }
+    .overflow-hidden{
+        height: 50px;
+        overflow:hidden;
+    }
+    .card-author-time {
+        display: inline-block;
+        font-size: 8px;
+        margin: 10px 0;
+    }
+
+    .face {
+        width: 20px;
+        border-radius: 50%;
+    }
+
+    .card-el {
+        margin: 0 10px;
+    }
 
 </style>
