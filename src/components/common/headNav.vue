@@ -37,7 +37,7 @@
 
                 </el-submenu>
                 <el-menu-item index="8">
-                    <router-link :to="{name:'editor'}">写博客</router-link>
+                    <router-link :to="{name:'editor'}"><i class="el-icon-edit"></i>写博客</router-link>
                 </el-menu-item>
                 <el-menu-item index="10">
                     <router-link :to="{name:'Test'}">测试接口</router-link>
@@ -110,7 +110,6 @@
         left: 0;
         top: 0;
         width: 100%;
-        /*height: 150px;*/
         /*透明度开始*/
         filter: alpha(Opacity=80);
         -moz-opacity: 0.5;
@@ -130,19 +129,15 @@
         width: 40px;
         height: 40px;
         float: right;
-
-        /*margin-left: 280px;*/
     }
 
     #le-menu-item {
         position: relative;
-        /*left: 150px;*/
         right: -3%;
     }
 
     #face {
         position: relative;
-        /*left: 180px;*/
         right: -3%;
     }
 </style>

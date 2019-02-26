@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import Blog from '../components/frontEnd/blog/index/body'
-// import forumIndex from '../components/frontEnd/blogArticle/forumIndex'
 import bannerDetails from '../components/frontEnd/banner/bannerDetails'
 import Banner from '../components/frontEnd/banner/banner'
 import blogArticle from '../components/frontEnd/blog/blogArticle/blogArticle'
@@ -13,10 +12,11 @@ import rightSecondary from '../components/frontEnd/blog/blogArticle/rightSeconda
 import personalBlogList from '../components/frontEnd/blog/personalBlog/personalBlogList'
 import personalNav from '../components/frontEnd/blog/personalBlog/personalNav'
 import comment from '../components/frontEnd/blog/blogArticle/comment'
-import Test from '../components/frontEnd/blog/blogArticle/cards'
-import cards from '../components/frontEnd/blog/blogArticle/cards'
+import Test from '../components/frontEnd/blog/index/cards'
+import cards from '../components/frontEnd/blog/index/cards'
 import index from '../components'
 import notfound from '../components/common/404'
+import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
 
 // 编辑器
 import mavonEditor from 'mavon-editor'
@@ -24,7 +24,7 @@ import 'mavon-editor/dist/css/index.css'
 
 Vue.use(mavonEditor)
 
-import editor from '../components/frontEnd/blog/blogArticle/editor'
+import editor from '../components/frontEnd/blog/editor/editor'
 import showMarkdown from '../components/frontEnd/blog/blogArticle/showMarkdown'
 import forumIndex from "../components/frontEnd/forum/forumIndex";
 
@@ -39,6 +39,7 @@ Vue.component('personalNav', personalNav)
 Vue.component('showMarkdown', showMarkdown)
 Vue.component('comment', comment)
 Vue.component('cards', cards)
+Vue.component('blogTagsMenu', blogTagsMenu)
 
 
 
