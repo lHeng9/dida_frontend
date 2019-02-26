@@ -7,7 +7,7 @@
                         <router-link :to="{name:'blogArticle'}"><h3>{{item.title}}</h3></router-link>
                     </div>
                     <div class="text item">
-                        <div class="card-introduction overflow-hidden">{{item.introduction}}</div>
+                        <div class="card-introduction overflow-hidden">&emsp;&emsp;{{item.introduction}}</div>
                         <div class="card-author-time">
                             <span>
                                 <img class="face" src="../../../../../static/images/face.jpg">
@@ -126,7 +126,7 @@
     /*card原始样式开始*/
     .text {
         font-size: 14px;
-        line-height: 20px;
+        line-height: 25px;
     }
 
     .item {
@@ -150,13 +150,18 @@
 
     /*card原始样式开结束*/
 
-    .overflow-hidden{
-        height: 62px;
-        overflow:hidden;
+    .overflow-hidden {
+        height: 57px;
+        overflow: hidden;
     }
 
-    .card-title{
-        display:block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;width:680px;
+    /*标题超出宽度隐藏*/
+    .card-title {
+        display: block;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 680px;
     }
 
     .card-author-time {

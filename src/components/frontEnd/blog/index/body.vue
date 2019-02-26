@@ -234,6 +234,7 @@
         width: 100%;
         font-size: 10px;
         margin: 0 auto 20px;
+        line-height: 18px;
 
     }
 
@@ -257,7 +258,6 @@
 
     .activeFace {
         border-radius: 50%;
-        /*width:15%;*/
         width: 30px;
         float: left;
         margin: 10px 10px 10px 20px;
@@ -272,7 +272,7 @@
         margin-bottom: 5px;
     }
     .overflow-hidden{
-        height: 50px;
+        height: 38px;
         overflow:hidden;
     }
     .card-author-time {
