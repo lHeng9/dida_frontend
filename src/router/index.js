@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/index.css'
 import Blog from '../components/frontEnd/blog/index/body'
 import bannerDetails from '../components/frontEnd/banner/bannerDetails'
 import Banner from '../components/frontEnd/banner/banner'
