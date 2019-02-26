@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import Cropper from '../../../../../../../../qq下载/test_8/src/directives/Cropper'
+  import Cropper from '../../../directives/Cropper'
 
   export default {
     directives: {

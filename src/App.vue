@@ -1,5 +1,5 @@
 <template>
-  <div id="app" style="background: #e7f0f2">
+  <div id="app" >
     <head-nav></head-nav><br>
     <router-view/>
     <foot-nav title="这是底部导航"></foot-nav>

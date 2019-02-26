@@ -3,10 +3,7 @@
 // gradients, or for stringing multiple gradients together.
 //************************************************************************//
 
-@mixin background-image($images...) {
-  background-image: _add-prefix($images, webkit);
-  background-image: _add-prefix($images);
-}
+
 
 @function _add-prefix($images, $vendor: false) {
   $images-prefixed: ();
