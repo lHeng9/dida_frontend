@@ -22,14 +22,14 @@
     $fallback-color: $fallback;
   }
   @else {
-    $fallback-color: _extract-background-color($backgrounds);
+    //$fallback-color: _extract-background-color($backgrounds);
   }
 
   @if $fallback-color {
     background-color: $fallback-color;
   }
-  background: _background-add-prefix($backgrounds, webkit);
-  background: _background-add-prefix($backgrounds);
+  //background: _background-add-prefix($backgrounds, webkit);
+  //background: _background-add-prefix($backgrounds);
 }
 
 @function _extract-background-color($backgrounds) {

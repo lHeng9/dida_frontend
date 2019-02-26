@@ -3,10 +3,9 @@ import Router from 'vue-router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import Blog from '../components/frontEnd/index/body'
-import forumIndex from '../components/frontEnd/forum/forumIndex'
+// import forumIndex from '../components/frontEnd/blogArticle/forumIndex'
 import bannerDetails from '../components/frontEnd/banner/bannerDetails'
 import Banner from '../components/frontEnd/banner/banner'
-import ForumBanner from '../components/frontEnd/forum/banner/banner'
 import blogArticle from '../components/frontEnd/blogArticle/blogArticle'
 import personalInformation from '../components/frontEnd/personalBlog/personalInformation'
 import topMessage from '../components/frontEnd/blogArticle/topMessage'
@@ -14,9 +13,9 @@ import rightSecondary from '../components/frontEnd/blogArticle/rightSecondary'
 import personalBlogList from '../components/frontEnd/personalBlog/personalBlogList'
 import personalNav from '../components/frontEnd/personalBlog/personalNav'
 import comment from '../components/frontEnd/blogArticle/comment'
-import Test from '../components/frontEnd/banner/banner'
-import index from '../components/frontEnd/index/index'
-import notfound from '../components/common/404'
+import Test from '../components/frontEnd/blogArticle/cards'
+import cards from '../components/frontEnd/blogArticle/cards'
+
 // 编辑器
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
@@ -30,37 +29,21 @@ import showMarkdown from '../components/frontEnd/blogArticle/showMarkdown'
 Vue.use(ElementUI);
 Vue.use(Router);
 Vue.component('banner', Banner);
-Vue.component('ForumBanner',ForumBanner);
 Vue.component('topMessage', topMessage);
 Vue.component('rightSecondary', rightSecondary);
 Vue.component('personalInformation', personalInformation);
 Vue.component('personalNav', personalNav)
 Vue.component('showMarkdown', showMarkdown)
 Vue.component('comment', comment)
+Vue.component('cards', cards)
 
 
 export default new Router({
     routes: [
         {
-            path:'/',//初始重定向首页
-            redirect:{
-                name:'index'
-            }
-        },
-        {
-            path:'index.html',
-            name:'index',
-            component:index
-        },
-        {
             name: 'Blog',
             path: '/Blog',
             component: Blog
-        },
-        {
-            name: 'Forum',
-            path: '/Forum',
-            component: forumIndex
         },
         {
             name: 'banner.details',
@@ -93,13 +76,8 @@ export default new Router({
         },
         {
             name: 'Test',
-            path: '/Test',
+            path: 'Test',
             component: Test
-        },
-        {
-            path:'*',//404
-            component:notfound
         }
-    
     ]
 })

@@ -1,6 +1,3 @@
-@mixin border-image($images) {
-
-}
 
 @function _border-add-prefix($images, $vendor: false) {
   $border-image: null;

@@ -1,44 +1,77 @@
 <template>
     <div>
+        <!--<div class="line"></div>-->
         <div class="head clearfix">
-            <!--<h1 v-text="title" class="title">title</h1>-->
             <el-menu
-                :default-active="activeIndex2"
-                class="el-menu-demo"
-                mode="horizontal"
-                @select="handleSelect"
-                background-color="#000"
-                text-color="#fff"
-                active-text-color="#ffd04b">
-                <el-menu-item style="padding-left:100px" index="0">
-                    <router-link :to="{name:'index'}"><h1>滴答学习</h1></router-link>
-                </el-menu-item>
+                    :default-active="activeIndex2"
+                    class="el-menu-demo"
+                    mode="horizontal"
+                    @select="handleSelect"
+                    background-color="#000"
+                    text-color="#fff"
+                    active-text-color="#ffd04b">
+                <el-menu-item style="padding-left:100px" index="0"><h1>滴答学习</h1></el-menu-item>
                 <el-menu-item index="1">
                     <router-link :to="{name:'Blog'}">博客</router-link>
                 </el-menu-item>
-                <el-menu-item index="2">
-                    <router-link :to="{name:'Forum'}">论坛</router-link>
-                </el-menu-item>
+                <el-menu-item index="2">论坛</el-menu-item>
                 <el-menu-item index="4">内推</el-menu-item>
-                <el-menu-item index="5">博客</el-menu-item>
-                <el-menu-item index="6">排行榜</el-menu-item>
-                <el-menu-item index="7">消息中心</el-menu-item>
+                <el-submenu index="6">
+                    <template slot="title">排行榜</template>
+                    <el-menu-item index="2-1">博客排行</el-menu-item>
+                    <el-menu-item index="2-2">论坛排行</el-menu-item>
+                    <el-menu-item index="2-3">活跃度排行</el-menu-item>
+                </el-submenu>
+                <el-submenu index="7">
+                    <template slot="title">消息中心</template>
+                    <el-menu-item index="2-0">全部未读</el-menu-item>
+                    <el-menu-item index="2-1">回复我的</el-menu-item>
+                    <el-menu-item index="2-2">@&nbsp;我的</el-menu-item>
+                    <el-menu-item index="2-3">收到的赞</el-menu-item>
+                    <el-menu-item index="2-4">系统通知</el-menu-item>
+                    <el-menu-item index="2-5">消息设置</el-menu-item>
 
-                <el-menu-item index="9">
-                    <router-link :to="{name:'showMarkdown'}">markdown展示</router-link>
-                </el-menu-item>
+                </el-submenu>
                 <el-menu-item index="8">
                     <router-link :to="{name:'editor'}">写博客</router-link>
                 </el-menu-item>
                 <el-menu-item index="10">
                     <router-link :to="{name:'Test'}">测试接口</router-link>
                 </el-menu-item>
-                <el-menu-item index="11">
+                <el-menu-item index="11" id="le-menu-item">
                     <el-input
-                        placeholder="请输入内容"
-                        v-model="input">
+                            size="small"
+                            placeholder="请输入内容"
+                            v-model="input">
                         <i slot="prefix" class="el-input__icon el-icon-search"></i>
                     </el-input>
+                </el-menu-item>
+                <el-menu-item index="12" id="face">
+                    <!--头像-->
+                    <el-row class="block-col-2">
+                        <el-col :span="12">
+                            <el-dropdown>
+              <span class="el-dropdown-link">
+                <div>
+                  <img class="face" src="../../../static/images/face.jpg">
+                </div>
+              </span>
+                                <el-dropdown-menu slot="dropdown">
+                                    <el-dropdown-item>个人中心</el-dropdown-item>
+                                    <el-dropdown-item>我的关注</el-dropdown-item>
+                                    <el-dropdown-item>我的收藏</el-dropdown-item>
+                                    <el-dropdown-item>我的评论</el-dropdown-item>
+                                    <el-dropdown-item>账号设置</el-dropdown-item>
+                                    <hr>
+                                    <el-dropdown-item>管理博客</el-dropdown-item>
+                                    <el-dropdown-item>管理帖子</el-dropdown-item>
+                                    <hr>
+                                    <el-dropdown-item>帮助</el-dropdown-item>
+                                    <el-dropdown-item>注销</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </el-dropdown>
+                        </el-col>
+                    </el-row>
                 </el-menu-item>
 
 
@@ -58,7 +91,7 @@
 
             };
         },
-        template: '<router-link></router-link>>',
+        template: '<router-link></router-link>',
         methods: {
             handleSelect(key, keyPath) {
                 // console.log(key, keyPath);
@@ -79,7 +112,6 @@
         -moz-opacity: 0.5;
         opacity: 0.8;
         /*透明度结束*/
-
     }
 
     .clearfix::after {
@@ -87,5 +119,26 @@
         display: block;
         clear: both;
         /*不管是左还是右浮动，都能消除*/
+    }
+
+    .face {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        float: right;
+
+        /*margin-left: 280px;*/
+    }
+
+    #le-menu-item {
+        position: relative;
+        /*left: 150px;*/
+        right: -3%;
+    }
+
+    #face {
+        position: relative;
+        /*left: 180px;*/
+        right: -3%;
     }
 </style>

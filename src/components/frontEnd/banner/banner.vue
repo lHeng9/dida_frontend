@@ -71,8 +71,8 @@
 </script>
 
 <style scoped>
-  @import 'css/reset.css';
-  @import 'css/style.css';
+  @import '../../../components/frontEnd/banner/css/reset.css';
+  @import '../../../components/frontEnd/banner/css/style.css';
 
 .hero{
   margin-top: 38px;

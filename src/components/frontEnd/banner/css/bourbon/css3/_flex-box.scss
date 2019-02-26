@@ -11,7 +11,7 @@
 @mixin display-box {
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  //display: box;
 }
 
 @mixin box-orient($orient: inline-axis) {

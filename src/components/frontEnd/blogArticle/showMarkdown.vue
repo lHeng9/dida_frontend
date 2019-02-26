@@ -30,7 +30,7 @@
   import highlightjs from 'highlight.js';
   // 引入marked，用来将Markdown转换成HTML
   import marked from 'marked';
-  import vueTest from '../../../../../../../../qq下载/test_8/vueTest.md'
+  import vueTest from '../../../../vueTest.md'
   // 配置marked
   marked.setOptions({
     // 配置高亮
@@ -39,7 +39,7 @@
     }
   });
   export default {
-    data () {
+    data() {
       return {
         articleContent: ''
       }
@@ -58,10 +58,12 @@
 <style lang="scss" rel="stylesheet/scss" scoped>
 
   // 引入颜色css
-  @import "../../../../../../../../qq下载/test_8/static/css/markdown/color";
-.container{
-  /*<!--background: $grey300;-->*/
-}
+  @import "../../../../static/css/markdown/color";
+
+  .container {
+    /*<!--background: $grey300;-->*/
+  }
+
   .page {
     display: flex;
     flex-direction: column;
@@ -90,51 +92,63 @@
   tt, code, kbd, samp {
     font-family: consolas;
   }
+
   .prettyprint, pre.prettyprint {
-    background-color:#272822;
-    border:1px solid #272822;
+    background-color: #272822;
+    border: 1px solid #272822;
     overflow: hidden;
-    margin:10px;
-    font-family:Helvetica,"Hiragino Sans GB","微软雅黑","Microsoft YaHei UI",SimSun,SimHei, arial, sans-serif;
+    margin: 10px;
+    font-family: Helvetica, "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei UI", SimSun, SimHei, arial, sans-serif;
   }
+
   .prettyprint.linenums, pre.prettyprint.linenums {
     -webkit-box-shadow: inset 40px 0 0 #39382E, inset 41px 0 0 #464741;
     -moz-box-shadow: inset 40px 0 0 #39382E, inset 41px 0 0 #464741;
     box-shadow: inset 40px 0 0 #39382E, inset 41px 0 0 #464741;
   }
+
   .prettyprint.linenums ol, pre.prettyprint.linenums ol {
-    padding-left:28px!important;
-    margin:0000px;
+    padding-left: 28px !important;
+    margin: 0000px;
   }
+
   .prettyprint.linenums ol li, pre.prettyprint.linenums ol li {
-    padding-left:12px;
-    color:#bebec5;
-    line-height:20px;
-    margin-left:0;
-    margin:5px;
-    list-style:decimal;
+    padding-left: 12px;
+    color: #bebec5;
+    line-height: 20px;
+    margin-left: 0;
+    margin: 5px;
+    list-style: decimal;
   }
+
   .prettyprint .com {
-    color:#93a1a1;
+    color: #93a1a1;
   }
+
   .prettyprint .lit {
-    color:#AE81FF;
+    color: #AE81FF;
   }
-  .prettyprint .pun,.prettyprint .opn,.prettyprint .clo {
-    color:#F8F8F2;
+
+  .prettyprint .pun, .prettyprint .opn, .prettyprint .clo {
+    color: #F8F8F2;
   }
+
   .prettyprint .fun {
-    color:#dc322f;
+    color: #dc322f;
   }
-  .prettyprint .str,.prettyprint .atv {
-    color:#E6DB74;
+
+  .prettyprint .str, .prettyprint .atv {
+    color: #E6DB74;
   }
-  .prettyprint .kwd,.prettyprint .tag {
-    color:#F92659;
+
+  .prettyprint .kwd, .prettyprint .tag {
+    color: #F92659;
   }
-  .prettyprint .typ,.prettyprint .atn,.prettyprint .dec,.prettyprint .var{
-    color:#A6E22E;
+
+  .prettyprint .typ, .prettyprint .atn, .prettyprint .dec, .prettyprint .var {
+    color: #A6E22E;
   }
+
   .prettyprint .pln {
     color: #66D9EF;
   }
