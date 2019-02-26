@@ -6,13 +6,13 @@
         <div class="body clearfix">
 
             <!--<el-row :gutter="12">-->
-                <!--<el-col :span="8">-->
-                    <!--<el-card shadow="always">-->
+            <!--<el-col :span="8">-->
+            <!--<el-card shadow="always">-->
 
 
-                        <!---->
-                    <!--</el-card>-->
-                <!--</el-col>-->
+            <!---->
+            <!--</el-card>-->
+            <!--</el-col>-->
             <!--</el-row>-->
             <div class="content clearfix">
                 <div class="content-nav clearfix">
@@ -20,7 +20,7 @@
                 </div>
                 <!--左侧主栏-->
                 <div class="left clearfix ">
-                    <cards></cards>
+                    <blogCards></blogCards>
                     <!--加载中-->
                     <div class="wait">
                         <el-button id="loding" style="width: 100px" type="primary" :loading="true">加载中
@@ -107,13 +107,16 @@
                                         <div class="card-title">
                                             <h4>{{item.title}}</h4>
                                         </div>
-                                        <div class="card-introduction overflow-hidden">{{item.introduction}}</div>
-                                        <div class="card-author-time"><span><img class="face" src="../../../../../static/images/face.jpg"></span>
+                                        <div class="card-introduction overflow-hidden">
+                                            &emsp;&emsp;{{item.introduction}}
+                                        </div>
+                                        <div class="card-author-time"><span><img class="face"
+                                                                                 src="../../../../../static/images/face.jpg"></span>
                                             <span class="card-el"><router-link
                                                     :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
                                             <span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>
                                         </div>
-                                        <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;" />
+                                        <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;"/>
                                     </div>
                                 </li>
                             </ul>
@@ -191,10 +194,6 @@
         display: inline-block;
     }
 
-    .el-col {
-        width: 100%;
-    }
-
     .left {
         float: left;
         width: 70%;
@@ -202,7 +201,7 @@
 
     .right {
         float: right;
-        width: 28%;
+        width: 29%;
     }
 
     /*清除浮动*/
@@ -220,8 +219,16 @@
         margin-right: auto;
     }
 
+    .el-col {
+        width: 100%;
+    }
+
     .el-tag {
         margin: 5px;
+    }
+
+    .el-card {
+        margin-bottom: 10px;
     }
 
     .content {
@@ -235,7 +242,6 @@
         font-size: 10px;
         margin: 0 auto 20px;
         line-height: 18px;
-
     }
 
     /*右侧热门推荐结束*/
@@ -268,13 +274,15 @@
         text-align: center;
     }
 
-    .card-title{
+    .card-title {
         margin-bottom: 5px;
     }
-    .overflow-hidden{
+
+    .overflow-hidden {
         height: 38px;
-        overflow:hidden;
+        overflow: hidden;
     }
+
     .card-author-time {
         display: inline-block;
         font-size: 8px;

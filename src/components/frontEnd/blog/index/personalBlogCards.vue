@@ -9,11 +9,6 @@
                     <div class="text item">
                         <div class="card-introduction overflow-hidden">&emsp;&emsp;{{item.introduction}}</div>
                         <div class="card-author-time">
-                            <span>
-                                <img class="face" src="../../../../../static/images/face.jpg">
-                            </span>
-                            <span class="card-el "><router-link
-                                    :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
                             <span class="card-el">
                                 <i class="el-icon-time"></i>
                                 {{item.time}}
@@ -23,7 +18,8 @@
                                 浏览量：1000
                             </span>
                             <span class="card-el">
-                                <i class="el-icon-star-off"></i>
+                                <!--<i class="el-icon-star-off"></i>-->
+                                <a-icon type="heart" spin="true"/>
                                 点赞量：100
                             </span>
                         </div>

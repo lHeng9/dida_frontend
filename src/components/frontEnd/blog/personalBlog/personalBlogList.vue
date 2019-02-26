@@ -3,122 +3,106 @@
         <personalInformation></personalInformation>
         <div class="body clearfix">
 
-            <el-row :gutter="12">
-                <el-col :span="8">
-                    <el-card shadow="always">
+            <div class="content clearfix">
+                <div class="content-nav clearfix">
+                    <personalTagsMenu></personalTagsMenu>
+                </div>
+                <!--左侧主栏-->
+                <div class="left clearfix ">
+                    <personalBlogCards></personalBlogCards>
+                    <!--分页条-->
+                    <div class="wait">
 
-
-                        <div class="content clearfix">
-                            <div class="content-nav clearfix">
-                                <blogTagsMenu></blogTagsMenu>
+                    </div>
+                </div>
+                <!--右侧复栏-->
+                <div class="right clearfix">
+                    <!--个人荣誉-->
+                    <div>
+                        <el-card class="box-card" shadow="hover">
+                            <div slot="header" class="clearfix">
+                                <span><strong>个人荣誉</strong></span>
                             </div>
-                            <!--左侧主栏-->
-                            <div class="left clearfix ">
-                                <cards></cards>
-                                <!--加载中-->
-                                <div class="wait">
-                                    <el-button id="loding" style="width: 100px" type="primary" :loading="true">加载中
-                                    </el-button>
-                                </div>
-                            </div>
-                            <!--右侧复栏-->
-                            <div class="right clearfix">
-                                <!--活跃教师-->
+                        </el-card>
+                    </div>
+                    <!--关注者与关注人-->
+                    <div>
+                        <el-card class="box-card" shadow="hover">
+                            <div class="attention">
                                 <div>
-                                    <el-card class="box-card" shadow="hover">
-                                        <div slot="header" class="clearfix">
-                                            <span><strong>活跃学生</strong></span>
-                                        </div>
-                                        <ul>
-                                            <li v-for="(item, index) in 5" :key="index">
-                                                <div class="active">
-                                                    <img class="activeFace" src="../../../../../static/images/face.jpg">
-                                                    <div class="activeName">玄青丶丶</div>
-                                                </div>
-                                            </li>
-                                        </ul>
-
-                                    </el-card>
+                                    <span >关注者</span>
+                                    <span style="font-size: 30px">1000</span>
                                 </div>
-                                <!--活跃学生-->
-                                <div>
-                                    <el-card class="box-card" shadow="hover">
-                                        <div slot="header" class="clearfix">
-                                            <span><strong>活跃教师</strong></span>
-                                        </div>
-                                        <ul>
-                                            <li v-for="(item, index) in 5" :key="index">
-                                                <div class="active">
-                                                    <img class="activeFace" src="../../../../../static/images/face.jpg">
-                                                    <div class="activeName">玄青丶丶</div>
-                                                </div>
 
-                                            </li>
-                                        </ul>
-
-                                    </el-card>
-                                </div>
-                                <!--课内课外分类-->
-                                <div class="clearfix content-right ">
-                                    <el-card class="box-card" shadow="hover">
-                                        <div slot="header" class="clearfix">
-                                            <span><strong>标签专栏</strong></span>
-                                        </div>
-                                        <el-collapse v-model="activeNames" @change="handleChange">
-                                            <el-collapse-item class="content-right-title" title="课外" name="1">
-                                                <el-tag>JavaScript</el-tag>
-                                                <el-tag type="success">Vue</el-tag>
-                                                <el-tag type="info">Spring</el-tag>
-                                                <el-tag type="warning">Node.js</el-tag>
-                                                <el-tag type="danger">MongoDB</el-tag>
-                                            </el-collapse-item>
-                                            <el-collapse-item class="content-right-title" title="热门标签" name="2">
-                                                <el-tag>标签一</el-tag>
-                                                <el-tag type="success">标签二</el-tag>
-                                                <el-tag type="info">标签三</el-tag>
-                                                <el-tag type="warning">标签四</el-tag>
-                                                <el-tag type="danger">标签五</el-tag>
-                                            </el-collapse-item>
-                                            <el-collapse-item class="content-right-title" title="最新标签" name="3">
-                                                <el-tag>标签一</el-tag>
-                                                <el-tag type="success">标签二</el-tag>
-                                                <el-tag type="info">标签三</el-tag>
-                                                <el-tag type="warning">标签四</el-tag>
-                                                <el-tag type="danger">标签五</el-tag>
-                                            </el-collapse-item>
-                                        </el-collapse>
-                                    </el-card>
-                                </div>
-                                <!--右侧今日热门文章-->
-                                <div class="right-windows">
-                                    <el-card class="box-card" shadow="hover">
-                                        <div slot="header" class="clearfix">
-                                            <span><strong>最新发布</strong></span>
-                                        </div>
-                                        <ul>
-                                            <li v-for="(item, index) in hot_card" :key="index">
-                                                <div class="content-right-top">
-                                                    <div class="card-title">
-                                                        <h4>{{item.title}}</h4>
-                                                    </div>
-                                                    <div class="card-introduction overflow-hidden">{{item.introduction}}</div>
-                                                    <div class="card-author-time"><span><img class="face" src="../../../../../static/images/face.jpg"></span>
-                                                        <span class="card-el"><router-link
-                                                                :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
-                                                        <span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>
-                                                    </div>
-                                                    <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;" />
-                                                </div>
-                                            </li>
-                                        </ul>
-
-                                    </el-card>
-                                </div>
                             </div>
-                        </div>
-                    </el-card>
-                </el-col>
-            </el-row>
+                            <div id="attentionMiddle"></div>
+                            <div class="attention">
+                                <div>
+                                    <span >关注人</span>
+                                    <span style="font-size: 30px">1000</span>
+                                </div>
+
+                            </div>
+                        </el-card>
+                    </div>
+                    <!--课内课外分类-->
+                    <div class="clearfix content-right ">
+                        <el-card class="box-card" shadow="hover">
+                            <div slot="header" class="clearfix">
+                                <span><strong>标签专栏</strong></span>
+                            </div>
+                            <el-collapse v-model="activeNames" @change="handleChange">
+                                <el-collapse-item class="content-right-title" title="擅长方向" name="1">
+                                    <el-tag>JavaScript</el-tag>
+                                    <el-tag type="success">Vue</el-tag>
+                                    <el-tag type="info">Spring</el-tag>
+                                    <el-tag type="warning">Node.js</el-tag>
+                                    <el-tag type="danger">MongoDB</el-tag>
+                                </el-collapse-item>
+                                <el-collapse-item class="content-right-title" title="自定义标签" name="2">
+                                    <el-tag>标签一</el-tag>
+                                    <el-tag type="success">标签二</el-tag>
+                                    <el-tag type="info">标签三</el-tag>
+                                    <el-tag type="warning">标签四</el-tag>
+                                    <el-tag type="danger">标签五</el-tag>
+                                </el-collapse-item>
+                                <el-collapse-item class="content-right-title" title="最新标签" name="3">
+                                    <el-tag>标签一</el-tag>
+                                    <el-tag type="success">标签二</el-tag>
+                                    <el-tag type="info">标签三</el-tag>
+                                    <el-tag type="warning">标签四</el-tag>
+                                    <el-tag type="danger">标签五</el-tag>
+                                </el-collapse-item>
+                            </el-collapse>
+                        </el-card>
+                    </div>
+                    <!--右侧今日热门文章-->
+                    <div class="right-windows">
+                        <el-card class="box-card" shadow="hover">
+                            <div slot="header" class="clearfix">
+                                <span><strong>最新发布</strong></span>
+                            </div>
+                            <ul>
+                                <li v-for="(item, index) in hot_card" :key="index">
+                                    <div class="content-right-top">
+                                        <div class="card-title">
+                                            <h4>{{item.title}}</h4>
+                                        </div>
+                                        <div class="card-introduction overflow-hidden">&emsp;&emsp;{{item.introduction}}</div>
+                                        <div class="card-author-time"><span><img class="face" src="../../../../../static/images/face.jpg"></span>
+                                            <span class="card-el"><router-link
+                                                    :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
+                                            <span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>
+                                        </div>
+                                        <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;" />
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </el-card>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -188,10 +172,6 @@
         display: inline-block;
     }
 
-    .el-col {
-        width: 100%;
-    }
-
     .left {
         float: left;
         width: 70%;
@@ -199,7 +179,8 @@
 
     .right {
         float: right;
-        width: 28%;
+        width: 29%;
+        margin-bottom: 10px;
     }
 
     /*清除浮动*/
@@ -216,9 +197,15 @@
         margin-left: auto;
         margin-right: auto;
     }
-
+    .el-col {
+        width: 100%;
+    }
     .el-tag {
         margin: 5px;
+    }
+
+    .el-card{
+        margin-bottom: 10px;
     }
 
     .content {
@@ -231,6 +218,7 @@
         width: 100%;
         font-size: 10px;
         margin: 0 auto 20px;
+        line-height: 18px;
 
     }
 
@@ -242,34 +230,12 @@
         width: 100%;
     }
 
-    #loding {
-        width: 100px;
-        margin-left: 50%;
-        left: -50px;
-    }
-
-    .active {
-        display: inline-block;
-    }
-
-    .activeFace {
-        border-radius: 50%;
-        /*width:15%;*/
-        width: 30px;
-        float: left;
-        margin: 10px 10px 10px 20px;
-    }
-
-    .activeName {
-        font-size: 8px;
-        text-align: center;
-    }
 
     .card-title{
         margin-bottom: 5px;
     }
     .overflow-hidden{
-        height: 50px;
+        height: 38px;
         overflow:hidden;
     }
     .card-author-time {
@@ -287,4 +253,19 @@
         margin: 0 10px;
     }
 
+    .attention{
+        display: inline-block;
+        width: 48%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        line-height: 80px;
+    }
+
+    #attentionMiddle{
+        height: 80px;
+        width: 2px;
+        background: #f5f5f5;
+        display: inline-block;
+    }
 </style>
