@@ -1,27 +1,49 @@
 <template>
     <div>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-dropdown trigger="click">
+            <el-button size="small">
+                操作系统
+                <el-badge :value="1" :max="99" class="item" type="primary"/>
+            </el-button>
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item class="clearfix">
+                    评论
+                    <el-badge class="mark" :value="12"/>
+                </el-dropdown-item>
+                <el-dropdown-item class="clearfix">
+                    回复
+                    <el-badge class="mark" :value="3"/>
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
+        <el-button size="small">
+            数据结构
+            <el-badge :value="1" :max="99" class="item" type="primary"/>
+        </el-button>
+        <el-button size="small">
+            java
+            <el-badge :value="999" :max="99" class="item" type="primary"/>
+        </el-button>
+        <el-button size="small">
+            评论
+            <el-badge :value="1" :max="99" class="item" type="primary"/>
+        </el-button>
+        <el-dropdown trigger="click">
+            <span class="el-dropdown-link">
+                更多<i class="el-icon-caret-bottom el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item class="clearfix">
+                    评论
+                    <el-badge class="mark" :value="12"/>
+                </el-dropdown-item>
+                <el-dropdown-item class="clearfix">
+                    回复
+                    <el-badge class="mark" :value="3"/>
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
 
-            <el-badge  class="item" type="primary">
-                <el-menu-item index="1">数据结构</el-menu-item>
-            </el-badge>
-            <el-badge :value="200" :max="99" class="item" type="primary">
-                <el-submenu index="2">
-                    <template slot="title">操作系统</template>
-                    <el-menu-item index="2-1">选项1</el-menu-item>
-                    <el-menu-item index="2-2">选项2</el-menu-item>
-                    <el-menu-item index="2-3">选项3</el-menu-item>
-                </el-submenu>
-            </el-badge>
-            <el-badge :value="1" class="item" type="primary">
-                <el-submenu index="3">
-                    <template slot="title">java</template>
-                    <el-menu-item index="3-1">选项1</el-menu-item>
-                    <el-menu-item index="3-2">选项2</el-menu-item>
-                    <el-menu-item index="3-3">选项3</el-menu-item>
-                </el-submenu>
-            </el-badge>
-        </el-menu>
     </div>
 </template>
 
@@ -31,8 +53,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-    .item {
-        margin-top: 10px;
-        margin-right: 40px;
+    .el-dropdown-link{
+        margin-left:10px;
+        font-size:12px;
+        color:deepskyblue;
     }
 </style>

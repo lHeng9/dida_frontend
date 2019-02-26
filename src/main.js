@@ -11,6 +11,7 @@ import $ from 'jquery'  // 引入jQuery
 import '../node_modules/cropper/dist/cropper.css'
 import tagMenu from './components/frontEnd/forum/tagMenu/menu'
 import ForumBanner from './components/frontEnd/forum/banner/banner'
+import fcard from './components/frontEnd/forum/forum-cards/fcards'
 // import MyCropper from 'cropper'
 
 
@@ -25,7 +26,7 @@ Vue.component('headNav', Head)
 Vue.component('footNav', Foot)
 Vue.component('tagMenu', tagMenu)
 Vue.component('ForumBanner',ForumBanner)
-// Vue.component('MyCropper', MyCropper)
+Vue.component('fcards',fcard)
 Vue.use(ElementUI);
 Vue.prototype.$ = $
 

@@ -89,8 +89,8 @@
     export default {
         data() {
             return {
-                activeIndex: '1',
-                activeIndex2: '1',
+                activeIndex: '0',
+                activeIndex2: '0',
                 input: ''
 
             };
