@@ -1,11 +1,11 @@
 <template>
   <div class="personalInformation">
     <div class="background_image">
-      <img id="background_image" src="../../../../static/images/xiyang.gif" alt="">
+      <img id="background_image" src="../../../../../static/images/xiyang.gif" alt="">
     </div>
     <div class="message">
       <div id="background_message_card"></div>
-      <img id="face" src="../../../../static/images/face.jpg" alt=""/>
+      <img id="face" src="../../../../../static/images/face.jpg" alt=""/>
       <div id="background_message_sp">
         <div class="message-sp">
           <span style="font-size: 30px">玄青丶丶</span><br>

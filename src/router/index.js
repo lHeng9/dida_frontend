@@ -2,19 +2,21 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import Blog from '../components/frontEnd/index/body'
+import Blog from '../components/frontEnd/blog/index/body'
 // import forumIndex from '../components/frontEnd/blogArticle/forumIndex'
 import bannerDetails from '../components/frontEnd/banner/bannerDetails'
 import Banner from '../components/frontEnd/banner/banner'
-import blogArticle from '../components/frontEnd/blogArticle/blogArticle'
-import personalInformation from '../components/frontEnd/personalBlog/personalInformation'
-import topMessage from '../components/frontEnd/blogArticle/topMessage'
-import rightSecondary from '../components/frontEnd/blogArticle/rightSecondary'
-import personalBlogList from '../components/frontEnd/personalBlog/personalBlogList'
-import personalNav from '../components/frontEnd/personalBlog/personalNav'
-import comment from '../components/frontEnd/blogArticle/comment'
-import Test from '../components/frontEnd/blogArticle/cards'
-import cards from '../components/frontEnd/blogArticle/cards'
+import blogArticle from '../components/frontEnd/blog/blogArticle/blogArticle'
+import personalInformation from '../components/frontEnd/blog/personalBlog/personalInformation'
+import topMessage from '../components/frontEnd/blog/blogArticle/topMessage'
+import rightSecondary from '../components/frontEnd/blog/blogArticle/rightSecondary'
+import personalBlogList from '../components/frontEnd/blog/personalBlog/personalBlogList'
+import personalNav from '../components/frontEnd/blog/personalBlog/personalNav'
+import comment from '../components/frontEnd/blog/blogArticle/comment'
+import Test from '../components/frontEnd/blog/blogArticle/cards'
+import cards from '../components/frontEnd/blog/blogArticle/cards'
+import index from '../components'
+import notfound from '../components/common/404'
 
 // 编辑器
 import mavonEditor from 'mavon-editor'
@@ -22,8 +24,9 @@ import 'mavon-editor/dist/css/index.css'
 
 Vue.use(mavonEditor)
 
-import editor from '../components/frontEnd/blogArticle/editor'
-import showMarkdown from '../components/frontEnd/blogArticle/showMarkdown'
+import editor from '../components/frontEnd/blog/blogArticle/editor'
+import showMarkdown from '../components/frontEnd/blog/blogArticle/showMarkdown'
+import forumIndex from "../components/frontEnd/forum/forumIndex";
 
 
 Vue.use(ElementUI);
@@ -38,8 +41,26 @@ Vue.component('comment', comment)
 Vue.component('cards', cards)
 
 
+
+
 export default new Router({
     routes: [
+        {
+            path:'/',
+            redirect:{
+                name:'index'//重定向
+            }
+        },
+        {
+            path:'/index.html',
+            name:'index',
+            component:index
+        },
+        {
+            path:'/Forum',
+            name:'Forum',
+            component:forumIndex
+        },
         {
             name: 'Blog',
             path: '/Blog',
@@ -78,6 +99,10 @@ export default new Router({
             name: 'Test',
             path: 'Test',
             component: Test
+        },
+        {
+            path:"*",
+            component:notfound
         }
     ]
 })

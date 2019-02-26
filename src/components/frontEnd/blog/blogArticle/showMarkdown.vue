@@ -30,7 +30,7 @@
   import highlightjs from 'highlight.js';
   // 引入marked，用来将Markdown转换成HTML
   import marked from 'marked';
-  import vueTest from '../../../../vueTest.md'
+  import vueTest from '../../../../../vueTest.md'
   // 配置marked
   marked.setOptions({
     // 配置高亮
@@ -58,7 +58,7 @@
 <style lang="scss" rel="stylesheet/scss" scoped>
 
   // 引入颜色css
-  @import "../../../../static/css/markdown/color";
+  @import "../../../../../static/css/markdown/color";
 
   .container {
     /*<!--background: $grey300;-->*/

@@ -10,11 +10,15 @@
                     background-color="#000"
                     text-color="#fff"
                     active-text-color="#ffd04b">
-                <el-menu-item style="padding-left:100px" index="0"><h1>滴答学习</h1></el-menu-item>
+                <el-menu-item style="padding-left:100px" index="0">
+                    <router-link :to="{name:'index'}"><h1>滴答学习</h1></router-link>
+                </el-menu-item>
                 <el-menu-item index="1">
                     <router-link :to="{name:'Blog'}">博客</router-link>
                 </el-menu-item>
-                <el-menu-item index="2">论坛</el-menu-item>
+                <el-menu-item index="2">
+                    <router-link :to="{name:'Forum'}">论坛</router-link>
+                </el-menu-item>
                 <el-menu-item index="4">内推</el-menu-item>
                 <el-submenu index="6">
                     <template slot="title">排行榜</template>
