@@ -28,12 +28,12 @@
                                 <span><strong>个人成就</strong></span>
                             </div>
                             <div style="line-height: 30px; padding-left: 20px">
-                                <div><a-icon type="like" />&emsp;获得&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次点赞</div>
-                                <div><a-icon type="star" />&emsp;获得&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次收藏</div>
-                                <div><a-icon type="bulb" />&emsp;参与&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次讨论</div>
-                                <div><a-icon type="solution" />&emsp;回答&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次问题</div>
-                                <div><a-icon type="alert" />&emsp;收到&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次邀请</div>
-                                <div><a-icon type="fire" />&emsp;活跃度为&nbsp;<strong style="font-size: 18px">1234</strong></div>
+                                <div><a-icon type="like" />&emsp;获得&nbsp;<span style="font-size: 18px;color: #40a9ff">1234</span>&nbsp;次点赞</div>
+                                <div><a-icon type="star" />&emsp;获得&nbsp;<span style="font-size: 18px;color: #40a9ff">1234</span>&nbsp;次收藏</div>
+                                <div><a-icon type="bulb" />&emsp;参与&nbsp;<span style="font-size: 18px;color: #40a9ff">1234</span>&nbsp;次讨论</div>
+                                <div><a-icon type="solution" />&emsp;回答&nbsp;<span style="font-size: 18px;color: #40a9ff">1234</span>&nbsp;次问题</div>
+                                <div><a-icon type="alert" />&emsp;收到&nbsp;<span style="font-size: 18px;color: #40a9ff">1234</span>&nbsp;次邀请</div>
+                                <div><a-icon type="fire" />&emsp;活跃度为&nbsp;<span style="font-size: 18px;color: #40a9ff">1234</span></div>
                             </div>
                         </el-card>
                     </div>
