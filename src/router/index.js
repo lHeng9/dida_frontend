@@ -21,7 +21,8 @@ import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
 import Vuex from 'vuex'
 import personalTagsMenu from '../components/frontEnd/blog/personalBlog/personalTagsMenu'
 import forumDetail from '../components/frontEnd/forum/forumDetail/forumDetail'
-import test from '../components/frontEnd/blog/blogArticle/comment'
+import test from '../components/frontEnd/blog/index/test'
+import clickBar from '../components/frontEnd/blog/blogArticle/clickBar'
 
 
 // 编辑器
@@ -51,6 +52,7 @@ Vue.component('personalBlogCards', personalBlogCards)
 Vue.component('blogTagsMenu', blogTagsMenu)
 Vue.component('personalTagsMenu', personalTagsMenu)
 Vue.component('forumDetail',forumDetail)
+Vue.component('clickBar', clickBar)
 
 export default new Router({
     routes: [
