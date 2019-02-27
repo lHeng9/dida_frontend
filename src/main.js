@@ -13,6 +13,7 @@ import 'ant-design-vue/dist/antd.css'//引入组件库
 import '../node_modules/cropper/dist/cropper.css'
 import tagMenu from './components/frontEnd/forum/tagMenu/menu'
 import ForumBanner from './components/frontEnd/forum/banner/banner'
+import fcard from './components/frontEnd/forum/forum-cards/fcards'
 // import MyCropper from 'cropper'
 
 
@@ -28,8 +29,9 @@ Vue.component('headNav', Head)
 Vue.component('footNav', Foot)
 Vue.component('tagMenu', tagMenu)
 Vue.component('ForumBanner',ForumBanner)
-// Vue.component('MyCropper', MyCropper)
+
 Vue.use(Antd)
+Vue.component('fcards',fcard)
 Vue.use(ElementUI);
 Vue.prototype.$ = $
 
