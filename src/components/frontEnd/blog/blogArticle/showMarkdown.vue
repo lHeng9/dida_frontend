@@ -1,6 +1,6 @@
 // ArticleDetail.vue
 <template>
-  <div class="container">
+  <div class="content">
     <section class="page">
       <!--顶部工具栏-->
       <mu-appbar class="app-bar" title="从零开始，教你用Webpack构建React基础工程">
@@ -59,10 +59,6 @@
 
   // 引入颜色css
   @import "../../../../../static/css/markdown/color";
-
-  .container {
-    /*<!--background: $grey300;-->*/
-  }
 
   .page {
     display: flex;

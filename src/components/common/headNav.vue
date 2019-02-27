@@ -11,7 +11,7 @@
                     text-color="#fff"
                     active-text-color="#ffd04b">
                 <el-menu-item style="padding-left:100px" index="0">
-                    <router-link :to="{name:'index'}"><h1>滴答学习</h1></router-link>
+                    <router-link :to="{name:'index'}"><h1 style="color: white">滴答学习</h1></router-link>
                 </el-menu-item>
                 <el-menu-item index="1">
                     <router-link :to="{name:'Blog'}">博客</router-link>
@@ -40,7 +40,7 @@
                     <router-link :to="{name:'editor'}"><i class="el-icon-edit"></i>写博客</router-link>
                 </el-menu-item>
                 <el-menu-item index="10">
-                    <router-link :to="{name:'Test'}">测试接口</router-link>
+                    <router-link :to="{name:'test'}">测试接口</router-link>
                 </el-menu-item>
                 <el-menu-item index="11" id="le-menu-item">
                     <el-input

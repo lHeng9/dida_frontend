@@ -20,6 +20,7 @@ import notfound from '../components/common/404'
 import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
 import Vuex from 'vuex'
 import personalTagsMenu from '../components/frontEnd/blog/personalBlog/personalTagsMenu'
+import test from '../components/frontEnd/blog/blogArticle/comment'
 
 
 // 编辑器
@@ -52,6 +53,11 @@ Vue.component('personalTagsMenu', personalTagsMenu)
 
 export default new Router({
     routes: [
+        {
+          name: 'test',
+          path: 'test',
+          component: test
+        },
         {
             path: '/',
             redirect: {

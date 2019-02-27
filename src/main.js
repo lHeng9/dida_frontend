@@ -28,6 +28,11 @@ Vue.prototype.dataURL = function (file, title, id) {
     return file + '?title' + title + id
 }
 
+// 自动置顶
+router.afterEach((to,from,next) => {
+    window.scrollTo(0,0);
+});
+
 
 Vue.component('headNav', Head)
 Vue.component('footNav', Foot)

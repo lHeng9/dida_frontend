@@ -11,7 +11,7 @@
 
     <div class="container">
       <div class="tagline">
-        <h1>滴答学习.</h1><br><br>
+        <h1 style="color: white;">滴答学习.</h1><br><br>
         <p style="color: white">相信 <br> 每一滴水的力量</p>
       </div>
       <div class="downloads">
