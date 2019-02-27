@@ -13,11 +13,12 @@ import rightSecondary from '../components/frontEnd/blog/blogArticle/rightSeconda
 import personalBlogList from '../components/frontEnd/blog/personalBlog/personalBlogList'
 import personalNav from '../components/frontEnd/blog/personalBlog/personalNav'
 import comment from '../components/frontEnd/blog/blogArticle/comment'
-import Test from '../components/frontEnd/blog/index/cards'
-import cards from '../components/frontEnd/blog/index/cards'
+import personalBlogCards from '../components/frontEnd/blog/index/personalBlogCards'
+import blogCards from '../components/frontEnd/blog/index/blogCards'
 import index from '../components'
 import notfound from '../components/common/404'
 import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
+import personalTagsMenu from '../components/frontEnd/blog/personalBlog/personalTagsMenu'
 
 // 编辑器
 import mavonEditor from 'mavon-editor'
@@ -39,29 +40,29 @@ Vue.component('personalInformation', personalInformation);
 Vue.component('personalNav', personalNav)
 Vue.component('showMarkdown', showMarkdown)
 Vue.component('comment', comment)
-Vue.component('cards', cards)
+Vue.component('blogCards', blogCards)
+Vue.component('personalBlogCards', personalBlogCards)
 Vue.component('blogTagsMenu', blogTagsMenu)
-
-
+Vue.component('personalTagsMenu', personalTagsMenu)
 
 
 export default new Router({
     routes: [
         {
-            path:'/',
-            redirect:{
-                name:'index'//重定向
+            path: '/',
+            redirect: {
+                name: 'index'//重定向
             }
         },
         {
-            path:'/index.html',
-            name:'index',
-            component:index
+            path: '/index.html',
+            name: 'index',
+            component: index
         },
         {
-            path:'/Forum',
-            name:'Forum',
-            component:forumIndex
+            path: '/Forum',
+            name: 'Forum',
+            component: forumIndex
         },
         {
             name: 'Blog',
@@ -98,13 +99,8 @@ export default new Router({
             component: showMarkdown
         },
         {
-            name: 'Test',
-            path: 'Test',
-            component: Test
-        },
-        {
-            path:"*",
-            component:notfound
+            path: "*",
+            component: notfound
         }
     ]
 })
