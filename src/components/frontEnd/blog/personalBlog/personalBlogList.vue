@@ -14,19 +14,26 @@
                     <!--分页条-->
                     <div class="page">
                         <div style="margin: 30px 25%; ">
-                        <!--<div>-->
+                            <!--<div>-->
                             <a-pagination :defaultCurrent="1" :total="500"/>
                         </div>
-
                     </div>
                 </div>
                 <!--右侧复栏-->
                 <div class="right clearfix">
-                    <!--个人荣誉-->
+                    <!--个人成就-->
                     <div>
                         <el-card class="box-card" shadow="hover">
                             <div slot="header" class="clearfix">
-                                <span><strong>个人荣誉</strong></span>
+                                <span><strong>个人成就</strong></span>
+                            </div>
+                            <div style="line-height: 30px; padding-left: 20px">
+                                <div><a-icon type="like" />&emsp;获得&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次点赞</div>
+                                <div><a-icon type="star" />&emsp;获得&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次收藏</div>
+                                <div><a-icon type="bulb" />&emsp;参与&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次讨论</div>
+                                <div><a-icon type="solution" />&emsp;回答&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次问题</div>
+                                <div><a-icon type="alert" />&emsp;收到&nbsp;<strong style="font-size: 18px">1234</strong>&nbsp;次邀请</div>
+                                <div><a-icon type="fire" />&emsp;活跃度为&nbsp;<strong style="font-size: 18px">1234</strong></div>
                             </div>
                         </el-card>
                     </div>
@@ -35,15 +42,21 @@
                         <el-card class="box-card reset-el-card" shadow="hover">
                             <div class="attention">
                                 <div>
-                                    <span style="display: block;">关注者</span>
-                                    <span style="font-size: 30px">1,000</span>
+                                    <router-link :to="{name:''}">
+                                        <span style="display: block;">关注者</span>
+                                        <span style="font-size: 30px">1,000</span>
+                                    </router-link>
+
                                 </div>
                             </div>
                             <div id="attentionMiddle"></div>
                             <div class="attention">
                                 <div>
-                                    <span style="display: block;">关注人</span>
-                                    <span style="font-size: 30px">1,000</span>
+                                    <router-link :to="{name:''}">
+                                        <span style="display: block;">关注人</span>
+                                        <span style="font-size: 30px">1,000</span>
+                                    </router-link>
+
                                 </div>
                             </div>
                         </el-card>
@@ -79,11 +92,11 @@
                             </el-collapse>
                         </el-card>
                     </div>
-                    <!--右侧今日热门文章-->
+                    <!--我的热门-->
                     <div class="right-windows">
                         <el-card class="box-card" shadow="hover">
                             <div slot="header" class="clearfix">
-                                <span><strong>最新发布</strong></span>
+                                <span><strong>我的热门</strong></span>
                             </div>
                             <ul>
                                 <li v-for="(item, index) in hot_card" :key="index">
@@ -94,11 +107,12 @@
                                         <div class="card-introduction overflow-hidden">
                                             &emsp;&emsp;{{item.introduction}}
                                         </div>
-                                        <div class="card-author-time"><span><img class="face"
-                                                                                 src="../../../../../static/images/face.jpg"></span>
-                                            <span class="card-el"><router-link
-                                                    :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
-                                            <span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>
+                                        <div class="card-author-time">
+                                            <!--<span><img class="face" src="../../../../../static/images/face.jpg"></span>-->
+                                            <!--<span class="card-el"><router-link :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>-->
+                                            <!--<span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>-->
+                                            <span class="card-el"><i class="el-icon-view"></i>浏览量：1000</span>
+                                            <span class="card-el"><a-icon type="heart" spin="true"/>点赞量：100</span>
                                         </div>
                                         <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;"/>
                                     </div>
