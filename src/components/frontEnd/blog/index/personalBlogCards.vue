@@ -4,7 +4,7 @@
             <li v-for="(item, index) in card" :key="index">
                 <el-card class="box-card" shadow="hover">
                     <div slot="header" class="clearfix card-title">
-                        <router-link :to="{name:'blogArticle'}"><h3>{{item.title}}</h3></router-link>
+                        <router-link :to="{name:'blogArticle'}"><h3 style="font-weight: bold; font-size: 16px">{{item.title}}</h3></router-link>
                     </div>
                     <div class="text item">
                         <div class="card-introduction overflow-hidden">&emsp;&emsp;{{item.introduction}}</div>
@@ -21,6 +21,11 @@
                                 <!--<i class="el-icon-star-off"></i>-->
                                 <a-icon type="heart" spin="true"/>
                                 点赞量：100
+                            </span>
+                            <span class="card-el">
+                                <!--<i class="el-icon-star-off"></i>-->
+                                <a-icon type="message" />
+                                探讨：100
                             </span>
                         </div>
 

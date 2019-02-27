@@ -94,32 +94,32 @@
                     </div>
                     <!--我的热门-->
                     <div class="right-windows">
-                        <el-card class="box-card" shadow="hover">
-                            <div slot="header" class="clearfix">
-                                <span><strong>我的热门</strong></span>
-                            </div>
-                            <ul>
-                                <li v-for="(item, index) in hot_card" :key="index">
-                                    <div class="content-right-top">
-                                        <div class="card-title">
-                                            <h4>{{item.title}}</h4>
+                        <a-affix :offsetTop="this.top">
+                            <el-card class="box-card" shadow="hover">
+                                <div slot="header" class="clearfix">
+                                    <span><strong>我的热门</strong></span>
+                                </div>
+                                <ul>
+                                    <li v-for="(item, index) in hot_card" :key="index">
+                                        <div class="content-right-top">
+                                            <div class="card-title">
+                                                <h4>{{item.title}}</h4>
+                                            </div>
+                                            <div class="card-introduction overflow-hidden">
+                                                &emsp;&emsp;{{item.introduction}}
+                                            </div>
+                                            <div class="card-author-time">
+                                                <span class="card-el"><i class="el-icon-view"></i>浏览量：1000</span>
+                                                <span class="card-el"><a-icon type="heart" spin="true"/>点赞量：100</span>
+                                            </div>
+                                            <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;"/>
                                         </div>
-                                        <div class="card-introduction overflow-hidden">
-                                            &emsp;&emsp;{{item.introduction}}
-                                        </div>
-                                        <div class="card-author-time">
-                                            <!--<span><img class="face" src="../../../../../static/images/face.jpg"></span>-->
-                                            <!--<span class="card-el"><router-link :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>-->
-                                            <!--<span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>-->
-                                            <span class="card-el"><i class="el-icon-view"></i>浏览量：1000</span>
-                                            <span class="card-el"><a-icon type="heart" spin="true"/>点赞量：100</span>
-                                        </div>
-                                        <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;"/>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
 
-                        </el-card>
+                            </el-card>
+                        </a-affix>
+
                     </div>
                 </div>
             </div>
