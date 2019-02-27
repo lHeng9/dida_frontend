@@ -9,9 +9,14 @@
                 </div>
                 <!--左侧主栏-->
                 <div class="left clearfix ">
+                    <!--列表内容-->
                     <personalBlogCards></personalBlogCards>
                     <!--分页条-->
-                    <div class="wait">
+                    <div class="page">
+                        <div style="margin: 30px 25%; ">
+                        <!--<div>-->
+                            <a-pagination :defaultCurrent="1" :total="500"/>
+                        </div>
 
                     </div>
                 </div>
@@ -27,21 +32,19 @@
                     </div>
                     <!--关注者与关注人-->
                     <div>
-                        <el-card class="box-card" shadow="hover">
+                        <el-card class="box-card reset-el-card" shadow="hover">
                             <div class="attention">
                                 <div>
-                                    <span >关注者</span>
-                                    <span style="font-size: 30px">1000</span>
+                                    <span style="display: block;">关注者</span>
+                                    <span style="font-size: 30px">1,000</span>
                                 </div>
-
                             </div>
                             <div id="attentionMiddle"></div>
                             <div class="attention">
                                 <div>
-                                    <span >关注人</span>
-                                    <span style="font-size: 30px">1000</span>
+                                    <span style="display: block;">关注人</span>
+                                    <span style="font-size: 30px">1,000</span>
                                 </div>
-
                             </div>
                         </el-card>
                     </div>
@@ -88,13 +91,16 @@
                                         <div class="card-title">
                                             <h4>{{item.title}}</h4>
                                         </div>
-                                        <div class="card-introduction overflow-hidden">&emsp;&emsp;{{item.introduction}}</div>
-                                        <div class="card-author-time"><span><img class="face" src="../../../../../static/images/face.jpg"></span>
+                                        <div class="card-introduction overflow-hidden">
+                                            &emsp;&emsp;{{item.introduction}}
+                                        </div>
+                                        <div class="card-author-time"><span><img class="face"
+                                                                                 src="../../../../../static/images/face.jpg"></span>
                                             <span class="card-el"><router-link
                                                     :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
                                             <span class="card-el"><i class="el-icon-time"></i>{{item.time}}</span>
                                         </div>
-                                        <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;" />
+                                        <hr style="height:1px;border:none;border-top:1px dashed #b5b5b5;"/>
                                     </div>
                                 </li>
                             </ul>
@@ -147,7 +153,9 @@
                 ],
                 title: '',
                 // activeName2: 'first',
-                tabPosition: 'bottom'
+                tabPosition: 'bottom',
+                // page: '',
+                // pageSize: ''
             }
         },
         methods: {
@@ -156,7 +164,13 @@
             },
             handleChange(val) {
                 console.log(val);
-            }
+            },
+            // change(page, pageSize){
+            //
+            // },
+            // showSizeChange(current, size){
+            //
+            // }
         }
     }
 </script>
@@ -197,15 +211,23 @@
         margin-left: auto;
         margin-right: auto;
     }
+
     .el-col {
         width: 100%;
     }
+
     .el-tag {
         margin: 5px;
     }
 
-    .el-card{
+    .el-card {
         margin-bottom: 10px;
+    }
+
+    .reset-el-card el-card__body {
+        padding: 0;
+        /*margin: 0;*/
+
     }
 
     .content {
@@ -224,20 +246,24 @@
 
     /*右侧热门推荐结束*/
 
-    .wait {
-        position: center;
+    .page {
+        /*display: inline-block;*/
+        /*position: center;*/
         margin: 30px auto;
         width: 100%;
+        /*float: left;*/
     }
 
 
-    .card-title{
+    .card-title {
         margin-bottom: 5px;
     }
-    .overflow-hidden{
+
+    .overflow-hidden {
         height: 38px;
-        overflow:hidden;
+        overflow: hidden;
     }
+
     .card-author-time {
         display: inline-block;
         font-size: 8px;
@@ -253,19 +279,17 @@
         margin: 0 10px;
     }
 
-    .attention{
+    .attention {
         display: inline-block;
         width: 48%;
-        margin: 0;
-        padding: 0;
         text-align: center;
-        line-height: 80px;
+        /*line-height: 80px;*/
     }
 
-    #attentionMiddle{
-        height: 80px;
+    #attentionMiddle {
+        height: 55px;
         width: 2px;
-        background: #f5f5f5;
+        background: #e6e6e6;
         display: inline-block;
     }
 </style>
