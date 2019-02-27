@@ -1,51 +1,10 @@
 <template>
-    <div style="margin: 50px auto">
-        <a-comment>
-            <span slot="actions">Reply to</span>
-            <a slot="author">Han Solo</a>
-            <a-avatar
-                    slot="avatar"
-                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                    alt="Han Solo"
-            />
-            <p slot="content">We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>
-            <a-comment>
-                <span slot="actions">Reply to</span>
-                <a slot="author">Han Solo</a>
-                <a-avatar
-                        slot="avatar"
-                        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                        alt="Han Solo"
-                />
-                <p slot="content">We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>
-                <a-comment>
-                    <span slot="actions">Reply to</span>
-                    <a slot="author">Han Solo</a>
-                    <a-avatar
-                            slot="avatar"
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                            alt="Han Solo"
-                    />
-                    <p slot="content">We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>
-                </a-comment>
-                <a-comment>
-                    <span slot="actions">Reply to</span>
-                    <a slot="author">Han Solo</a>
-                    <a-avatar
-                            slot="avatar"
-                            src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                            alt="Han Solo"
-                    />
-                    <p slot="content">We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>
-                </a-comment>
-            </a-comment>
-        </a-comment>
-
+    <div style="margin: 0 auto; padding: 0 48px">
         <div>
             <a-list
                     v-if="comments.length"
                     :dataSource="comments"
-                    :header="`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`"
+                    :header="`${comments.length} ${comments.length > 1 ? 'replies' : '条评论'}`"
                     itemLayout="horizontal"
             >
                 <a-list-item slot="renderItem" slot-scope="item, index">
@@ -75,7 +34,7 @@
                                 @click="handleSubmit"
                                 type="primary"
                         >
-                            Add Comment
+                            提交评论
                         </a-button>
                     </a-form-item>
                 </div>
@@ -109,6 +68,7 @@
                         {
                             author: 'Han Solo',
                             avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+                            // avatar: '',
                             content: this.value,
                             datetime: moment().fromNow(),
                         },

@@ -65,9 +65,6 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 20px;
-    /*width: 70%;*/
-    /*margin: 0 auto;*/
-    /*background: white;*/
   }
 
   .app-bar {
@@ -75,7 +72,6 @@
   }
 
   .article {
-    /*width: 90%;*/
     margin-top: 24px;
     padding: 48px;
   }
@@ -84,7 +80,7 @@
     width: 100%;
   }
 
-  /*markdown 代码样式*/
+  /*markdown 代码样式开始*/
   tt, code, kbd, samp {
     font-family: consolas;
   }
@@ -148,4 +144,5 @@
   .prettyprint .pln {
     color: #66D9EF;
   }
+  /*markdown 代码样式结束*/
 </style>
