@@ -11,7 +11,7 @@
                     text-color="#fff"
                     active-text-color="#ffd04b">
                 <el-menu-item style="padding-left:100px" index="0">
-                    <router-link :to="{name:'index'}"><h1 style="color: white">滴答学习</h1></router-link>
+                    <router-link :to="{name:'index'}"><h1 style="color:white;">滴答学习</h1></router-link>
                 </el-menu-item>
                 <el-menu-item index="1">
                     <router-link :to="{name:'Blog'}">博客</router-link>

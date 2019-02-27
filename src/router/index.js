@@ -20,6 +20,7 @@ import notfound from '../components/common/404'
 import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
 import Vuex from 'vuex'
 import personalTagsMenu from '../components/frontEnd/blog/personalBlog/personalTagsMenu'
+import forumDetail from '../components/frontEnd/forum/forumDetail/forumDetail'
 import test from '../components/frontEnd/blog/blogArticle/comment'
 
 
@@ -49,7 +50,7 @@ Vue.component('blogCards', blogCards)
 Vue.component('personalBlogCards', personalBlogCards)
 Vue.component('blogTagsMenu', blogTagsMenu)
 Vue.component('personalTagsMenu', personalTagsMenu)
-
+Vue.component('forumDetail',forumDetail)
 
 export default new Router({
     routes: [
@@ -73,6 +74,11 @@ export default new Router({
             path: '/Forum',
             name: 'Forum',
             component: forumIndex
+        },
+        {
+            path:'/forumDetail',
+            name:'ForumDetail',
+            component:forumDetail
         },
         {
             name: 'Blog',

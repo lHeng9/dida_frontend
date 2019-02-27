@@ -1,6 +1,7 @@
 <template>
     <div>
         <div class="clearfix content-right ">
+            <Affix :offset-top="0" @on-change="change">
             <el-card class="box-card" shadow="hover">
                 <div slot="header" class="clearfix">
                     <span><strong>标签专栏</strong></span>
@@ -29,7 +30,9 @@
                     </el-collapse-item>
                 </el-collapse>
             </el-card>
+            </Affix>
         </div>
+
     </div>
 </template>
 
@@ -53,5 +56,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+    .el-tag{
+        margin:5px 5px;
+    }
 </style>

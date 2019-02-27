@@ -24,7 +24,7 @@
     .main {
         /*border:1px solid red;*/
         margin-top: 38px;
-        background-color:#000;
+        /*background-color:#000;*/
     }
 
     .menu {

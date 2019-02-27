@@ -2,7 +2,8 @@
     <div :on-reach-bottom="handleReachBottom">
         <div class="box-card" v-for="(item,index) in listcard" :key="index">
             <img src="../../../../../static/images/xiyang.gif" alt="">
-            <div class="title">解放军山东矿机{{item}}</div>
+            <router-link :to="{name:'ForumDetail'}" class="title">解放军山东矿机{{item}}</router-link>
+            <br><br>
             <el-tag type="info" size="mini">标签三</el-tag>  &nbsp;•&nbsp;
             <div class="author">lheng</div>&nbsp;•&nbsp;
             <div class="time">2018-12-12</div>
@@ -16,7 +17,7 @@
     export default {
         data(){
             return {
-                listcard:[1,2,3,4,5,6,7,8,9,10]
+                listcard:[1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10]
             }
         },
         methods: {
@@ -65,7 +66,7 @@
     }
     .box-card .item{
         float:right;
-        margin-bottom:10px;
+        margin-top:3px;
         margin-right:10px;
     }
     .box-card .author{
