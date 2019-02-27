@@ -8,6 +8,8 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import Axios from 'axios'
 import $ from 'jquery'  // 引入jQuery
+import Antd from 'ant-design-vue'//引入组件库
+import 'ant-design-vue/dist/antd.css'//引入组件库
 import '../node_modules/cropper/dist/cropper.css'
 import tagMenu from './components/frontEnd/forum/tagMenu/menu'
 import ForumBanner from './components/frontEnd/forum/banner/banner'
@@ -26,10 +28,13 @@ Vue.prototype.dataURL = function (file, title, id) {
     return file + '?title' + title + id
 }
 
+
 Vue.component('headNav', Head)
 Vue.component('footNav', Foot)
 Vue.component('tagMenu', tagMenu)
 Vue.component('ForumBanner',ForumBanner)
+
+Vue.use(Antd)
 Vue.component('fcards',fcard)
 Vue.component('ftags',ftags)
 Vue.use(ElementUI);
