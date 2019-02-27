@@ -18,7 +18,7 @@ import cards from '../components/frontEnd/blog/index/cards'
 import index from '../components'
 import notfound from '../components/common/404'
 import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
-
+import Vuex from 'vuex'
 // 编辑器
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
@@ -32,6 +32,8 @@ import forumIndex from "../components/frontEnd/forum/forumIndex";
 
 Vue.use(ElementUI);
 Vue.use(Router);
+Vue.use(Vuex)
+
 Vue.component('banner', Banner);
 Vue.component('topMessage', topMessage);
 Vue.component('rightSecondary', rightSecondary);
