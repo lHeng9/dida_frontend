@@ -41,6 +41,8 @@
                 </el-menu-item>
                 <el-menu-item index="10">
                     <router-link :to="{name:'test'}">测试接口</router-link>
+                </el-menu-item><el-menu-item index="10">
+                    <router-link :to="{name:'test2'}">测试接口</router-link>
                 </el-menu-item>
                 <el-menu-item index="11" id="le-menu-item">
                     <el-input
