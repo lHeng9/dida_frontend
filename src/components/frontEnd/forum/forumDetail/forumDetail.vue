@@ -14,14 +14,17 @@
                         </Card>
                     </Affix>
                 </div>
-                <Card class="item" :bordered="false" v-for="index in 6">
+                <Card class="item" :bordered="false" >
                     <p>Content of no border type. Content of no border type. Content of no border type. Content of no border type. </p>
                 </Card>
 
                 <li v-for="index in 400">index</li>
             </div>
             <div class="right">1234</div>
+
         </div>
+        <back-top></back-top>
+
     </div>
 </template>
 
@@ -36,7 +39,7 @@
         width: 100%;
         height:100%;
         /*background-color: blue;*/
-
+        background-color:#dddddd;
     }
 
     .main {
@@ -44,6 +47,8 @@
         height:100%;
         margin: 44px auto;
         /*border: 1px solid blue;*/
+        display:table;
+
     }
 
     .main .left {
@@ -89,6 +94,7 @@
     }
     .titleCard{
         border-bottom:1px solid grey;
+        margin-bottom:20px;
     }
     .item{
         margin-top:20px;
