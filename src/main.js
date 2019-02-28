@@ -18,6 +18,13 @@ import ftags from './components/frontEnd/forum/forum-tags/fftags'
 import store from './store'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
+import forumBody from './components/frontEnd/forum/forumDetail/forumBody'
+import star from './components/frontEnd/forum/forumDetail/detailFooter/star'
+import report from './components/frontEnd/forum/forumDetail/detailFooter/report'
+import comment from './components/frontEnd/forum/forumDetail/detailFooter/comment'
+import sendComment from "./components/frontEnd/forum/forumDetail/sendComment";
+
+
 // import MyCropper from 'cropper'
 
 
@@ -38,10 +45,16 @@ Vue.component('headNav', Head)
 Vue.component('footNav', Foot)
 Vue.component('tagMenu', tagMenu)
 Vue.component('ForumBanner',ForumBanner)
-
-Vue.use(Antd)
+Vue.component('forumBody',forumBody)
 Vue.component('fcards',fcard)
 Vue.component('ftags',ftags)
+Vue.component('star',star)
+Vue.component('report',report)
+Vue.component('comment',comment)
+Vue.component('sendComment',sendComment)
+
+
+Vue.use(Antd)
 Vue.use(ElementUI);
 Vue.use(iView);
 Vue.prototype.$ = $;
