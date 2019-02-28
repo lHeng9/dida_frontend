@@ -47,7 +47,7 @@ Vue.use(iView);
 Vue.prototype.$ = $;
 // 为markDown文本阅读提供高亮开始
 import hljs from 'highlight.js'
-import 'highlight.js/styles/googlecode.css'
+import 'highlight.js/styles/a11y-dark.css'
 Vue.directive('highlight', (el) => {
     let blocks = el.querySelectorAll('pre code')
     blocks.forEach((block) => {

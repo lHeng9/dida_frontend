@@ -1,75 +1,185 @@
-#  **__get__  和  __getattr__  和  __getattribute__  的区别于联系**
+# Highlight.js
 
-## get，getattr,  getattribute  都是访问属性的方法，但是不太相同
+[![Build Status](https://travis-ci.org/highlightjs/highlight.js.svg?branch=master)](https://travis-ci.org/highlightjs/highlight.js) [![Greenkeeper badge](https://badges.greenkeeper.io/highlightjs/highlight.js.svg)](https://greenkeeper.io/)
 
- 1. "object._______getattribute_______(self, name)"
- 无条件的被调用，通过实例访问实例。如果class中定义了 __getattr__() ，则__getattr__() 不会被调用，除非显示调用或引发attributeERROR异常
+Highlight.js is a syntax highlighter written in JavaScript. It works in
+the browser as well as on the server. It works with pretty much any
+markup, doesn’t depend on any framework, and has automatic language
+detection.
 
- 2. object._______getattr_______(self, name)
-      当一般位置找不到属性时，会调用getattr，返回一个值或 AttributeError 异常
-   
- 3. object._______get_______(self, instance, owner)
- 如果类中重写了它，则这个类就可以称为“描述符”。拥有者是所有者的类，实例是访问描述符的实例，如果不是通过实例访问，而是通过类访问的话，实例则为空。（描述符的实例自己访问自己是不会触发__get__，而会触发call，只有描述符作为其他类的属性才有意义。）（所以下文的 a1 是作为 B 的一个属性被调用）
+## Getting Started
 
+The bare minimum for using highlight.js on a web page is linking to the
+library along with one of the styles and calling
+[`initHighlightingOnLoad`][1]:
 
-```python
-class A:
-    att = 'abc'
-    def __getattribute__(self, item):
-        print("触发了 __getattribut__()")
-        return object.__getattribute__(self, item) + ' from getattribute'
-
-    def __getattr__(self, item):
-        print("触发了 __getattr__() 方法")
-        return item + " form getatter"
-
-    def __get__(self, instance, owner):
-        print("触发了 __get__()方法", instance, owner)
-        return self
-
-class B:
-    a1 = A()
-
-if __name__ == '__main__':
-    a2 = A()
-    b = B()
-
-    print('————————————————————————————————————————')
-    print(a2.att)
-    print('————————————————————————————————————————')
-    print(a2.ppppppppp)
-    print('————————————————————————————————————————')
-    b.a1
-    print('————————————————————————————————————————')
-    print(b.a1.att)
-
-
+```html
+<link rel="stylesheet" href="/path/to/styles/default.css">
+<script src="/path/to/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 ```
-————————————————————————————————————————
 
-触发了 __getattribut__()
-abc from getattribute
+This will find and highlight code inside of `<pre><code>` tags; it tries
+to detect the language automatically. If automatic detection doesn’t
+work for you, you can specify the language in the `class` attribute:
 
-————————————————————————————————————————
+```html
+<pre><code class="html">...</code></pre>
+```
 
-触发了 __getattribut__()
-触发了 __getattr__() 方法
-ppppppppp form getatter
+The list of supported language classes is available in the [class
+reference][2].  Classes can also be prefixed with either `language-` or
+`lang-`.
 
-————————————————————————————————————————
+To make arbitrary text look like code, but without highlighting, use the
+`plaintext` class:
 
-触发了 __get__()方法 <__main__.B object at 0x000001C55187A5F8> <class '__main__.B'>
+```html
+<pre><code class="plaintext">...</code></pre>
+```
 
-————————————————————————————————————————
+To disable highlighting altogether use the `nohighlight` class:
 
-触发了 __get__()方法 <__main__.B object at 0x000001C55187A5F8> <class '__main__.B'>
-触发了 __getattribut__()
-abc from getattribute
+```html
+<pre><code class="nohighlight">...</code></pre>
+```
 
-上例中，描述符就是class A，因为它重写了__get__()
+## Custom Initialization
 
-由上述例子看出：
-​	1. 每次通过实例访问属性，都会触发__getattribute__方法。
-​	2. 当通过实例访问的属性不存在时，仍然触发 __getattribute__，不过接着要触发 __getattr__，这是个异常处理
-​	3. 每次访问 描述符（即实现了__get__的类），都会先经过 __get__方法。
-​	4. 需要注意的是，当使用类访问不存在的变量时，不会触发 __getattr__ 方法。而描述符不存在此问题，只是把实例 标识为None 而已。
+When you need a bit more control over the initialization of
+highlight.js, you can use the [`highlightBlock`][3] and [`configure`][4]
+functions. This allows you to control *what* to highlight and *when*.
+
+Here’s an equivalent way to calling [`initHighlightingOnLoad`][1] using
+vanilla JS:
+
+```js
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
+  });
+});
+```
+
+You can use any tags instead of `<pre><code>` to mark up your code. If
+you don't use a container that preserves line breaks you will need to
+configure highlight.js to use the `<br>` tag:
+
+```js
+hljs.configure({useBR: true});
+
+document.querySelectorAll('div.code').forEach((block) => {
+  hljs.highlightBlock(block);
+});
+```
+
+For other options refer to the documentation for [`configure`][4].
+
+## Web Workers
+
+You can run highlighting inside a web worker to avoid freezing the browser
+window while dealing with very big chunks of code.
+
+In your main script:
+
+```js
+addEventListener('load', () => {
+  const code = document.querySelector('#code');
+  const worker = new Worker('worker.js');
+  worker.onmessage = (event) => { code.innerHTML = event.data; }
+  worker.postMessage(code.textContent);
+});
+```
+
+In worker.js:
+
+```js
+onmessage = (event) => {
+  importScripts('<path>/highlight.pack.js');
+  const result = self.hljs.highlightAuto(event.data);
+  postMessage(result.value);
+};
+```
+
+## Getting the Library
+
+You can get highlight.js as a hosted, or custom-build, browser script or
+as a server module. Right out of the box the browser script supports
+both AMD and CommonJS, so if you wish you can use RequireJS or
+Browserify without having to build from source. The server module also
+works perfectly fine with Browserify, but there is the option to use a
+build specific to browsers rather than something meant for a server.
+Head over to the [download page][5] for all the options.
+
+**Don't link to GitHub directly.** The library is not supposed to work straight
+from the source, it requires building. If none of the pre-packaged options
+work for you refer to the [building documentation][6].
+
+**The CDN-hosted package doesn't have all the languages.** Otherwise it'd be
+too big. If you don't see the language you need in the ["Common" section][5],
+it can be added manually:
+
+```html
+<script
+ charset="UTF-8"
+ src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+```
+
+**On Almond.** You need to use the optimizer to give the module a name. For
+example:
+
+```bash
+r.js -o name=hljs paths.hljs=/path/to/highlight out=highlight.js
+```
+
+### CommonJS
+
+You can import Highlight.js as a CommonJS-module:
+
+```bash
+npm install highlight.js --save
+```
+
+In your application:
+
+```js
+import hljs from 'highlight.js';
+```
+
+The default import imports all languages! Therefore it is likely to be more efficient to import only the library and the languages you need:
+
+```js
+import hljs from 'highlight.js/lib/highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+hljs.registerLanguage('javascript', javascript);
+```
+
+To set the syntax highlighting style, if your build tool processes CSS from your JavaScript entry point, you can import the stylesheet directly into your CommonJS-module:
+
+```js
+import hljs from 'highlight.js/lib/highlight';
+import 'highlight.js/styles/github.css';
+```
+
+## License
+
+Highlight.js is released under the BSD License. See [LICENSE][7] file
+for details.
+
+## Links
+
+The official site for the library is at <https://highlightjs.org/>.
+
+Further in-depth documentation for the API and other topics is at
+<http://highlightjs.readthedocs.io/>.
+
+Authors and contributors are listed in the [AUTHORS.en.txt][8] file.
+
+[1]: http://highlightjs.readthedocs.io/en/latest/api.html#inithighlightingonload
+[2]: http://highlightjs.readthedocs.io/en/latest/css-classes-reference.html
+[3]: http://highlightjs.readthedocs.io/en/latest/api.html#highlightblock-block
+[4]: http://highlightjs.readthedocs.io/en/latest/api.html#configure-options
+[5]: https://highlightjs.org/download/
+[6]: http://highlightjs.readthedocs.io/en/latest/building-testing.html
+[7]: https://github.com/highlightjs/highlight.js/blob/master/LICENSE
+[8]: https://github.com/highlightjs/highlight.js/blob/master/AUTHORS.en.txt
