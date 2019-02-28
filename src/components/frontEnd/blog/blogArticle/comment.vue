@@ -1,5 +1,11 @@
 <template>
     <div style="margin: 0 auto; padding: 0 48px">
+
+        <div id="comment" style="margin: 0 20px" >
+            <el-card style="padding: 0" class="box-card" shadow="never">
+                说出你的想法吧~
+            </el-card>
+        </div>
         <div>
             <a-list
                     v-if="comments.length"

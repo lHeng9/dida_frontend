@@ -22,6 +22,7 @@ import Vuex from 'vuex'
 import personalTagsMenu from '../components/frontEnd/blog/personalBlog/personalTagsMenu'
 import forumDetail from '../components/frontEnd/forum/forumDetail/forumDetail'
 import test from '../components/frontEnd/blog/index/test'
+import test2 from '../components/frontEnd/blog/index/test2'
 import clickBar from '../components/frontEnd/blog/blogArticle/clickBar'
 
 
@@ -53,6 +54,8 @@ Vue.component('blogTagsMenu', blogTagsMenu)
 Vue.component('personalTagsMenu', personalTagsMenu)
 Vue.component('forumDetail',forumDetail)
 Vue.component('clickBar', clickBar)
+Vue.component('test', test)
+
 
 export default new Router({
     routes: [
@@ -60,6 +63,11 @@ export default new Router({
           name: 'test',
           path: 'test',
           component: test
+        },
+        {
+          name: 'test2',
+          path: 'test2',
+          component: test2
         },
         {
             path: '/',
@@ -122,3 +130,4 @@ export default new Router({
         }
     ]
 })
+
