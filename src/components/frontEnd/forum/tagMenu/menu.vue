@@ -58,4 +58,10 @@
         font-size:12px;
         color:deepskyblue;
     }
+    .el-button{
+        margin-right:5px;
+    }
+    .el-badge{
+        /*border:1px solid red;*/
+    }
 </style>

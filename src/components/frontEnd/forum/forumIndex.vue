@@ -12,6 +12,7 @@
             <fcards class="fcard"></fcards>
             <ftags class="ftag"></ftags>
         </div>
+        <back-top></back-top>
     </div>
 </template>
 
@@ -25,6 +26,8 @@
         /*border:1px solid red;*/
         margin-top: 38px;
         /*background-color:#000;*/
+        background-color:#ddd;
+
     }
 
     .menu {
