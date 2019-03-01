@@ -23,9 +23,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .main {
-        /*border:1px solid red;*/
         margin-top: 38px;
-        /*background-color:#000;*/
         background-color:#ddd;
 
     }
@@ -69,6 +67,7 @@
         margin: 0 auto;
         border: 1px solid red;
         margin-top: 10px;
+        display:table;
     }
 
     .fcard {

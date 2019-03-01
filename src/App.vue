@@ -24,6 +24,8 @@
             $route(to,from){
                 if(to.name == 'Forum'){
                     this.$store.dispatch('hideFooter')
+                }else{
+                    this.$store.dispatch('showFooter')
                 }
             }
         }
