@@ -24,8 +24,7 @@ import forumDetail from '../components/frontEnd/forum/forumDetail/forumDetail'
 import test from '../components/frontEnd/blog/index/test'
 import test2 from '../components/frontEnd/blog/index/test2'
 import clickBar from '../components/frontEnd/blog/blogArticle/clickBar'
-
-
+import forumEditIndex from '../components/frontEnd/forum/forumEdit/index'
 // 编辑器
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
@@ -56,7 +55,6 @@ Vue.component('forumDetail',forumDetail)
 Vue.component('clickBar', clickBar)
 Vue.component('test', test)
 
-
 export default new Router({
     routes: [
         {
@@ -86,9 +84,14 @@ export default new Router({
             component: forumIndex
         },
         {
-            path:'/forumDetail',
+            path:'/Forum/forumDetail',
             name:'ForumDetail',
             component:forumDetail
+        },
+        {
+            path:'/Forum/edit',
+            name:'ForumEdit',
+            component:forumEditIndex
         },
         {
             name: 'Blog',

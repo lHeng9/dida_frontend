@@ -39,6 +39,9 @@
                 <el-menu-item index="8">
                     <router-link :to="{name:'editor'}"><i class="el-icon-edit"></i>写博客</router-link>
                 </el-menu-item>
+                <el-menu-item index="9">
+                    <router-link :to="{name:'ForumEdit'}"><i class="el-icon-edit"></i>发帖</router-link>
+                </el-menu-item>
                 <el-menu-item index="10">
                     <router-link :to="{name:'test'}">测试接口</router-link>
                 </el-menu-item><el-menu-item index="10">

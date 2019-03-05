@@ -10,7 +10,7 @@ import Axios from 'axios'
 import $ from 'jquery'  // 引入jQuery
 import Antd from 'ant-design-vue'//引入组件库
 import 'ant-design-vue/dist/antd.css'//引入组件库
-import '../node_modules/cropper/dist/cropper.css'
+// import '../node_modules/cropper/dist/cropper.css'
 import tagMenu from './components/frontEnd/forum/tagMenu/menu'
 import ForumBanner from './components/frontEnd/forum/banner/banner'
 import fcard from './components/frontEnd/forum/forum-cards/fcards'
@@ -23,10 +23,11 @@ import star from './components/frontEnd/forum/forumDetail/detailFooter/star'
 import report from './components/frontEnd/forum/forumDetail/detailFooter/report'
 import comment from './components/frontEnd/forum/forumDetail/detailFooter/comment'
 import sendComment from "./components/frontEnd/forum/forumDetail/sendComment";
-
-
+import persionalInf from "./components/frontEnd/forum/forumDetail/personalInf"
+import forumNews from "./components/frontEnd/forum/forum-news/forumNews"
+import forumEdit from './components/frontEnd/forum/forumEdit/forumEdit'
 // import MyCropper from 'cropper'
-
+import selectTag from './components/frontEnd/forum/forumEdit/selectTag'
 
 Axios.defaults.baseURL = 'http://tanzhouweb.com/vueProject/'
 Vue.prototype.$Axios = Axios
@@ -52,7 +53,10 @@ Vue.component('star',star)
 Vue.component('report',report)
 Vue.component('comment',comment)
 Vue.component('sendComment',sendComment)
-
+Vue.component('person',persionalInf)
+Vue.component('forumNews',forumNews)
+Vue.component('forumEdit',forumEdit)
+Vue.component('selectTag',selectTag)
 
 Vue.use(Antd)
 Vue.use(ElementUI);

@@ -1,11 +1,13 @@
 <template>
     <div>
         <div class="clearfix content-right ">
-            <Affix :offset-top="0" @on-change="change">
+
             <el-card class="box-card" shadow="hover">
                 <div slot="header" class="clearfix">
                     <span><strong>标签专栏</strong></span>
                 </div>
+                <!--<p slot="title">标签专栏</p>-->
+
                 <el-collapse v-model="activeNames" @change="handleChange">
                     <el-collapse-item class="content-right-title" title="课外" name="1">
                         <el-tag>JavaScript</el-tag>
@@ -30,7 +32,6 @@
                     </el-collapse-item>
                 </el-collapse>
             </el-card>
-            </Affix>
         </div>
 
     </div>

@@ -5,7 +5,6 @@
             <div class="left">
                 <div class="main-top">
                     <Affix class="top" :offset-top="0" >
-
                         <Card class="titleCard" :bordered="false">
                             <p slot="title">为什么索引等相同下,数据量123123123123123到达一定量级时候， 会听说 mongodb 比 mysql 快</p>
                             <el-tag type="info" size="mini">标签三</el-tag>
@@ -13,7 +12,7 @@
                             <el-tag type="info" size="mini">标签三</el-tag>
                             <div class="btn">
                                 <Button type="primary" shape="circle" icon="md-create">回答该问题</Button>
-                                &nbsp;
+                                &nbsp
                                 <Button type="primary" shape="circle">关注该问题</Button>
                             </div>
                         </Card>
@@ -26,10 +25,8 @@
                     <div class="contentRight">
                         <div class="authorName">lheng</div>
                         <div class="time"> <Time :time="time3" :interval="1" /></div>
-
                         <div class="context">
                             <p>导语，如果你被裁了...咖啡我请！
-
 
                                 （一）裁员大潮，第一浪，被裁啦！
                                 如果一天，我被裁了，我会到点正常出门！
@@ -81,7 +78,12 @@
                 <forum-body></forum-body>
                 <send-comment></send-comment>
             </div>
-            <div class="right">1234</div>
+            <Affix>
+            <div class="right">
+                <person class="person"></person>
+                <forum-news></forum-news>
+            </div>
+            </Affix>
 
         </div>
         <back-top></back-top>
@@ -127,7 +129,7 @@
     .main .right {
         width: 28%;
         float: right;
-        border: 1px solid red;
+        /*border: 1px solid red;*/
     }
 
     .main .left .title {
@@ -182,6 +184,7 @@
         float: right;
         width: 87%;
         /*border:1px solid red;*/
+        padding-right:10px;
     }
 
     .authorContent .contentRight .authorName {
@@ -197,12 +200,13 @@
         font-size: 12px;
         margin-left: 20px;
         color: grey;
-        /*border:1px solid red;*/
     }
 
     .authorContent .contentRight .context {
         margin-top: 10px;
         margin-bottom: 10px;
+        /*border:1px solid red;*/
+
     }
     .left .answer{
         width:100%;
@@ -222,6 +226,9 @@
     }
     .left .answer .btn{
         float:right;
+    }
+    .main .right .person{
+        margin-bottom:10px;
     }
 
 </style>

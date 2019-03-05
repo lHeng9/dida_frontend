@@ -91,6 +91,8 @@
         float:right;
         width:87%;
         /*border:1px solid red;*/
+        padding-right:10px;
+
     }
     .authorContent .contentRight .authorName {
         font-size:13px;
