@@ -10,7 +10,13 @@
         </div>
         <div class="in-class-main">
             <fcards class="fcard"></fcards>
-            <ftags class="ftag"></ftags>
+            <div class="right">
+                <ftags class="ftag"></ftags>
+                <Affix :offset-top="0">
+                    <forum-news class="news"></forum-news>
+                </Affix>
+            </div>
+
         </div>
         <back-top></back-top>
     </div>
@@ -24,7 +30,7 @@
 <style scoped>
     .main {
         margin-top: 38px;
-        background-color:#ddd;
+        background-color: #ddd;
 
     }
 
@@ -65,20 +71,28 @@
     .in-class-main {
         width: 80%;
         margin: 0 auto;
-        border: 1px solid red;
+        /*border: 1px solid red;*/
         margin-top: 10px;
-        display:table;
+        display: table;
     }
 
     .fcard {
         width: 70%;
         /*border:1px solid red;*/
-        float:left;
+        float: left;
     }
-    .ftag{
-        width:28%;
-        float:right;
-        /*margin-top:7px;*/
+
+    .in-class-main .right {
+        width: 28%;
+        float: right;
     }
+
+
+
+    .ftag {
+        margin-bottom: 10px;
+
+    }
+
 
 </style>
