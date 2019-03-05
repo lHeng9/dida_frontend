@@ -2050,6 +2050,7 @@ body.tox-dialog__disable-scroll {
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
+
 }
 .tox .tox-tooltip--up .tox-tooltip__arrow {
   border-bottom: 8px solid #3d546f;
