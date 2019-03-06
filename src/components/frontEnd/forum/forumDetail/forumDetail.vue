@@ -68,7 +68,7 @@
                     </div>
                 </Card>
                 <div class="answer">
-                    <img src="../../../../../static/images/植物.png" height="200" width="200"/>
+                    <!--<img src="../../../../../static/images/植物.png" height="200" width="200"/>-->
                     answer
                     <a-radio-group class="btn" defaultValue="a" size="small">
                         <a-radio-button value="a">按时间排序</a-radio-button>

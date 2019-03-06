@@ -12,7 +12,7 @@ import topMessage from '../components/frontEnd/blog/blogArticle/topMessage'
 import rightSecondary from '../components/frontEnd/blog/blogArticle/rightSecondary'
 import personalBlogList from '../components/frontEnd/blog/personalBlog/personalBlogList'
 import personalNav from '../components/frontEnd/blog/personalBlog/personalNav'
-import comment from '../components/frontEnd/blog/blogArticle/comment'
+import blogComment from '../components/frontEnd/blog/blogArticle/comment'
 import personalBlogCards from '../components/frontEnd/blog/index/personalBlogCards'
 import blogCards from '../components/frontEnd/blog/index/blogCards'
 import index from '../components'
@@ -46,7 +46,7 @@ Vue.component('rightSecondary', rightSecondary);
 Vue.component('personalInformation', personalInformation);
 Vue.component('personalNav', personalNav)
 Vue.component('showMarkdown', showMarkdown)
-Vue.component('comment', comment)
+Vue.component('blogComment', blogComment)
 Vue.component('blogCards', blogCards)
 Vue.component('personalBlogCards', personalBlogCards)
 Vue.component('blogTagsMenu', blogTagsMenu)
