@@ -12,7 +12,7 @@ import topMessage from '../components/frontEnd/blog/blogArticle/topMessage'
 import rightSecondary from '../components/frontEnd/blog/blogArticle/rightSecondary'
 import personalBlogList from '../components/frontEnd/blog/personalBlog/personalBlogList'
 import personalNav from '../components/frontEnd/blog/personalBlog/personalNav'
-import comment from '../components/frontEnd/blog/blogArticle/comment'
+import blogComment from '../components/frontEnd/blog/blogArticle/comment'
 import personalBlogCards from '../components/frontEnd/blog/index/personalBlogCards'
 import blogCards from '../components/frontEnd/blog/index/blogCards'
 import index from '../components'
@@ -21,10 +21,14 @@ import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
 import Vuex from 'vuex'
 import personalTagsMenu from '../components/frontEnd/blog/personalBlog/personalTagsMenu'
 import forumDetail from '../components/frontEnd/forum/forumDetail/forumDetail'
-import test from '../components/frontEnd/blog/index/test'
+import test from '../components/afterEnd/userManage/userIndex'
 import test2 from '../components/frontEnd/blog/index/test2'
 import clickBar from '../components/frontEnd/blog/blogArticle/clickBar'
 import forumEditIndex from '../components/frontEnd/forum/forumEdit/index'
+import afterEnd from '../components/afterEnd/homePage/home'
+import afterEnd_menu from '../components/afterEnd/common/menu'
+import afterEnd_index from '../components/afterEnd/homePage/index'
+import afterEnd_breadcrumb from '../components/afterEnd/homePage/breadcrumb'
 // 编辑器
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
@@ -46,26 +50,29 @@ Vue.component('rightSecondary', rightSecondary);
 Vue.component('personalInformation', personalInformation);
 Vue.component('personalNav', personalNav)
 Vue.component('showMarkdown', showMarkdown)
-Vue.component('comment', comment)
+Vue.component('blogComment', blogComment)
 Vue.component('blogCards', blogCards)
 Vue.component('personalBlogCards', personalBlogCards)
 Vue.component('blogTagsMenu', blogTagsMenu)
 Vue.component('personalTagsMenu', personalTagsMenu)
-Vue.component('forumDetail',forumDetail)
+Vue.component('forumDetail', forumDetail)
 Vue.component('clickBar', clickBar)
 Vue.component('test', test)
+Vue.component('afterEnd_menu', afterEnd_menu)
+Vue.component('afterEnd_index', afterEnd_index)
+Vue.component('afterEnd_breadcrumb', afterEnd_breadcrumb)
 
 export default new Router({
     routes: [
         {
-          name: 'test',
-          path: 'test',
-          component: test
+            name: 'test',
+            path: 'test',
+            component: test
         },
         {
-          name: 'test2',
-          path: 'test2',
-          component: test2
+            name: 'test2',
+            path: 'test2',
+            component: test2
         },
         {
             path: '/',
@@ -84,14 +91,14 @@ export default new Router({
             component: forumIndex
         },
         {
-            path:'/Forum/forumDetail',
-            name:'ForumDetail',
-            component:forumDetail
+            path: '/Forum/forumDetail',
+            name: 'ForumDetail',
+            component: forumDetail
         },
         {
-            path:'/Forum/edit',
-            name:'ForumEdit',
-            component:forumEditIndex
+            path: '/Forum/edit',
+            name: 'ForumEdit',
+            component: forumEditIndex
         },
         {
             name: 'Blog',
@@ -126,6 +133,11 @@ export default new Router({
             name: 'showMarkdown',
             path: '/showMarkdown',
             component: showMarkdown
+        },
+        {
+            name: 'afterEnd',
+            path: '/afterEnd',
+            component: afterEnd
         },
         {
             path: "*",

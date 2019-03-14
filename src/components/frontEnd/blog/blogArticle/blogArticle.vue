@@ -4,7 +4,7 @@
         <topMessage class="left"></topMessage>
         <div class="container">
             <showMarkdown></showMarkdown>
-            <comment></comment>
+            <blogComment></blogComment>
             <!--<h1>这是文章页面</h1>-->
         </div>
     </div>
