@@ -10,7 +10,6 @@ import Axios from 'axios'
 import $ from 'jquery'  // 引入jQuery
 import Antd from 'ant-design-vue'//引入组件库
 import 'ant-design-vue/dist/antd.css'//引入组件库
-// import '../node_modules/cropper/dist/cropper.css'
 import tagMenu from './components/frontEnd/forum/tagMenu/menu'
 import ForumBanner from './components/frontEnd/forum/banner/banner'
 import fcard from './components/frontEnd/forum/forum-cards/fcards'
