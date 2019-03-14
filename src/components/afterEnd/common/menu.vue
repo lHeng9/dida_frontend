@@ -1,156 +1,110 @@
 <template>
     <div>
-        <div class="message">
-        </div>
-        <div class="menu">
-            <el-menu default-active="1-4-1" class="el-menu-vertical-demo el-menu-background-image" @open="handleOpen"
-                     @close="handleClose" :collapse="isCollapse">
-                <el-submenu index="1" class="el-menu-background" show-timeout="1000">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-location"></i>
-                        <span slot="title">进入首页</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="1-1" class="el-menu-background">首页</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
 
-                <el-submenu index="2" class="el-menu-background" show-timeout="5000">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-news"></i>
-                        <span slot="title">用户管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background" show-timeout="5000">
-                        <el-menu-item index="2-1">搜索用户</el-menu-item>
-                        <el-menu-item index="2-2">添加用户</el-menu-item>
-                        <el-menu-item index="2-3">用户列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+        <div class="menu" >
+            <div>
+                <div style="background: white; width: 100%; height: 200px; line-height: 100px">
+                    <img src="../../../../static/images/face.jpg" style="width: 100px;border-radius: 50%; line-height: 200px; margin-top: 30px; margin-left: 45px" alt="">
+                    <div style="padding: 10px;  width: 80%; height: 50px; margin: 0 auto; text-align: center; line-height: 50px">
+                        <span><a-icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" /></span>
+                        <span style="font-size: 16px"> 玄青丶丶</span>
+                    </div>
+                </div>
+                <a-menu
+                        :defaultSelectedKeys="['1']"
+                        :defaultOpenKeys="['sub1']"
+                        mode="inline"
+                        theme="light"
+                        :inlineCollapsed="collapsed"
+                >
 
-                <el-submenu index="3" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-document"></i>
-                        <span slot="title">帖子管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="3-1">搜索帖子</el-menu-item>
-                        <el-menu-item index="3-2">帖子列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub1">
+                        <span slot="title"><a-icon type="mail" /><span>首页</span></span>
+                        <a-menu-item key="1">
+                            <router-link :to="{name:'afterEnd_index'}">后台首页</router-link>
 
-                <el-submenu index="4" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-document"></i>
-                        <span slot="title">回帖管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="4-1">搜索回帖</el-menu-item>
-                        <el-menu-item index="4-2">回帖列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                        </a-menu-item>
+                    </a-sub-menu>
+                    <a-sub-menu key="sub2">
+                        <span slot="title"><a-icon type="user" /><span>用户管理</span></span>
+                        <a-menu-item key="2">用户列表</a-menu-item>
+                        <a-menu-item key="3">添加用户</a-menu-item>
+                        <a-menu-item key="4">搜索用户</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="12" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-tickets"></i>
-                        <span slot="title">博客管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="12-1">搜索博客</el-menu-item>
-                        <el-menu-item index="12-3">博客列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub3">
+                        <span slot="title"><a-icon type="profile" /><span>帖子管理</span></span>
+                        <a-menu-item key="5">搜索帖子</a-menu-item>
+                        <a-menu-item key="6">帖子列表</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="5" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-location"></i>
-                        <span slot="title">领域管理</span>
-                    </template>
-                    <el-menu-item-group class="el-icon-location-outline">
-                        <el-menu-item index="5-1">搜索领域</el-menu-item>
-                        <el-menu-item index="5-2">添加领域</el-menu-item>
-                        <el-menu-item index="5-3">领域列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub4">
+                        <span slot="title"><a-icon type="read" /><span>博客管理</span></span>
+                        <a-menu-item key="7">搜索文章</a-menu-item>
+                        <a-menu-item key="8">文章列表</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="6" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-circle-plus-outline"></i>
-                        <span slot="title">标签管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="6-1">搜索标签</el-menu-item>
-                        <el-menu-item index="6-2">添加标签</el-menu-item>
-                        <el-menu-item index="6-3">标签列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub5">
+                        <span slot="title"><a-icon type="file-done" /><span>回帖管理</span></span>
+                        <a-menu-item key="9">回帖列表</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="7" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-bell"></i>
-                        <span slot="title">保留管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="7-1">搜索保留词</el-menu-item>
-                        <el-menu-item index="7-2">添加保留词</el-menu-item>
-                        <el-menu-item index="7-3">保留词列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub6">
+                        <span slot="title"><a-icon type="build" /><span>领域管理</span></span>
+                        <a-menu-item key="10">添加领域</a-menu-item>
+                        <a-menu-item key="11">领域列表</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="8" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-phone"></i>
-                        <span slot="title">举报管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="8-1">举报列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub7">
+                        <span slot="title"><a-icon type="tag" /><span>标签管理</span></span>
+                        <a-menu-item key="12">标签查询</a-menu-item>
+                        <a-menu-item key="13">标签列表</a-menu-item>
+                        <a-menu-item key="14">添加标签</a-menu-item>
+                    </a-sub-menu>
+                    <a-sub-menu key="sub8">
+                        <span slot="title"><a-icon type="key" /><span>保留词管理</span></span>
+                        <a-menu-item key="15">添加保留词</a-menu-item>
+                        <a-menu-item key="16">保留词列表</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="9" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-more-outline"></i>
-                        <span slot="title">其他管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="9-1">允许发布帖子</el-menu-item>
-                        <el-menu-item index="9-2">允许发布博客</el-menu-item>
-                        <el-menu-item index="9-3">允许注册</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub9">
+                        <span slot="title"><a-icon type="phone" /><span>举报管理</span></span>
+                        <a-menu-item key="17">被举报列表</a-menu-item>
+                        <a-menu-item key="18">添加举报类型</a-menu-item>
+                        <a-menu-item key="19">已处理</a-menu-item>
+                        <a-menu-item key="20">未处理</a-menu-item>
+                    </a-sub-menu>
+                    <a-sub-menu key="sub10">
+                        <span slot="title"><a-icon type="gateway" /><span>其他管理</span></span>
+                        <a-menu-item key="21">添加允许发布类型</a-menu-item>
+                        <a-menu-item key="22">已添加列表</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="10" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-warning"></i>
-                        <span slot="title">公报管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="10-1">搜索公告</el-menu-item>
-                        <el-menu-item index="10-2">发布公告</el-menu-item>
-                        <el-menu-item index="10-3">公告列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub11">
+                        <span slot="title"><a-icon type="sound" /><span>公告管理</span></span>
+                        <a-menu-item key="23">发布公告</a-menu-item>
+                        <a-menu-item key="24">历史公告</a-menu-item>
+                    </a-sub-menu>
+                    <a-sub-menu key="sub12">
+                        <span slot="title"><a-icon type="team" /><span>ROOT</span></span>
+                        <a-menu-item key="25">添加管理员</a-menu-item>
+                        <a-menu-item key="26">管理员列表</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="11" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-view"></i>
-                        <span slot="title">Root管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="11-1">Root管理</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
+                    <a-sub-menu key="sub13">
+                        <span slot="title"><a-icon type="file-search" /><span>日志管理</span></span>
+                        <a-menu-item key="27">系统日志</a-menu-item>
+                        <a-menu-item key="28">管理日志</a-menu-item>
+                    </a-sub-menu>
 
-                <el-submenu index="13" class="el-menu-background">
-                    <template slot="title" class="el-menu-background">
-                        <i class="el-icon-date"></i>
-                        <span slot="title">日志管理</span>
-                    </template>
-                    <el-menu-item-group class="el-menu-background">
-                        <el-menu-item index="13-1">搜索日志</el-menu-item>
-                        <el-menu-item index="13-2">日志列表</el-menu-item>
-                    </el-menu-item-group>
-                </el-submenu>
-            </el-menu>
+                </a-menu>
+            </div>
+
+
+
+
+
+
 
         </div>
 
@@ -164,38 +118,20 @@
 </template>
 
 <style>
-    .el-menu-vertical-demo:not(.el-menu--collapse) {
-        /*width: 230px;*/
-        min-height: 430px;
-        show-timeout: 1000
-    }
 
-    .el-menu-background-image {
-        /*background-image: url("../../../../static/images/菜单背景3.jpg");*/
-    }
-
-    .el-menu-background {
-        /*background:rgba(255,255,255,0.5)*/
-        /*opacity:0.5;*/
-        flite: blur(3px)
-    }
 </style>
 
 <script>
     export default {
-
-        data() {
+        data () {
             return {
-                isCollapse: false
-            };
+                collapsed: false,
+            }
         },
         methods: {
-            handleOpen(key, keyPath) {
-                console.log(key, keyPath);
+            toggleCollapsed () {
+                this.collapsed = !this.collapsed
             },
-            handleClose(key, keyPath) {
-                console.log(key, keyPath);
-            }
-        }
+        },
     }
 </script>
