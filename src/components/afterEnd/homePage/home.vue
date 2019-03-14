@@ -1,77 +1,58 @@
 <template>
     <div style="margin-top: 40px">
-        <el-container style="height: 561px">
-
-            <el-header style="text-align: right; font-size: 12px">
-                <afterEnd_breadcrumb></afterEnd_breadcrumb>
-
-                <el-dropdown>
-                    <i class="el-icon-setting" style="margin-right: 15px"></i>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>查看</el-dropdown-item>
-                        <el-dropdown-item>新增</el-dropdown-item>
-                        <el-dropdown-item>删除</el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
-                <span>玄青丶丶</span>
-            </el-header>
-
-
-            <el-container>
-
-                <el-aside class="scrollbar">
-                    <el-menu >
-                        <afterEnd_menu></afterEnd_menu>
-                    </el-menu>
-                </el-aside>
-
-                <el-main style="float: right; width: 70%; display: inline-block">
+        <a-layout id="components-layout-demo-custom-trigger">
+            <a-layout-sider
+                    :trigger="null"
+                    collapsible
+                    v-model="collapsed"
+            >
+                <afterEnd_menu></afterEnd_menu>
+            </a-layout-sider>
+            <a-layout>
+                <a-layout-header style="background: #fff; padding: 0">
+                    <a-icon
+                            class="trigger"
+                            :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+                            @click="()=> collapsed = !collapsed"
+                    />
+                </a-layout-header>
+                <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
                     <afterEnd_index></afterEnd_index>
-                </el-main>
-
-            </el-container>
-        </el-container>
+                </a-layout-content>
+            </a-layout>
+        </a-layout>
     </div>
 </template>
 
 <script>
     export default {
-
+        data(){
+            return {
+                collapsed: false,
+            }
+        },
     }
 </script>
+<style>
 
-<style scoped>
-
-    .scrollbar::-webkit-scrollbar { /*滚动条整体样式*/
-        width: 7px; /*高宽分别对应横竖滚动条的尺寸*/
-        height: 1px;
+    .a-layout-sider{
+        height: 561px;
+    }
+    #components-layout-demo-custom-trigger .trigger {
+        font-size: 18px;
+        line-height: 64px;
+        padding: 0 24px;
+        cursor: pointer;
+        transition: color .3s;
     }
 
-    .scrollbar::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
-        -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-        background: white;
+    #components-layout-demo-custom-trigger .trigger:hover {
+        color: #1890ff;
     }
 
-    .scrollbar::-webkit-scrollbar-track { /*滚动条里面轨道*/
-        -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.8);
-        background: #EDEDED;
+    #components-layout-demo-custom-trigger .logo {
+        height: 32px;
+        background: rgba(255,255,255,.2);
+        margin: 16px;
     }
-
-
-    .el-header {
-        background-color: white;
-        color: #333;
-        line-height: 60px;
-    }
-
-    .el-aside {
-        color: #333;
-        width: 15%;
-        float: left;
-        display: inline-block;
-    }
-
-
-
-
 </style>

@@ -134,11 +134,18 @@ export default new Router({
             path: '/showMarkdown',
             component: showMarkdown
         },
+        // 后台路由集合开始
         {
             name: 'afterEnd',
             path: '/afterEnd',
             component: afterEnd
         },
+        {
+            name: 'afterEnd_index',
+            path: 'afterEnd_index',
+            component: afterEnd_index
+        },
+        // 后台路由集合结束
         {
             path: "*",
             component: notfound
