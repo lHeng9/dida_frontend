@@ -30,7 +30,7 @@
 <style scoped>
     .main {
         margin-top: 38px;
-        background-color: #ddd;
+        background-color: rgb(245,245,245);
 
     }
 

@@ -6,10 +6,10 @@
                 <div class="main-top">
                     <Affix class="top" :offset-top="0" >
                         <Card class="titleCard" :bordered="false">
-                            <p slot="title">为什么索引等相同下,数据量123123123123123到达一定量级时候， 会听说 mongodb 比 mysql 快</p>
-                            <el-tag type="info" size="mini">标签三</el-tag>
-                            <el-tag type="info" size="mini">标签三</el-tag>
-                            <el-tag type="info" size="mini">标签三</el-tag>
+                            <p slot="title">关于肺结节检测相关的FROC曲线和目标检测</p>
+                            <el-tag type="info" size="mini">人工智能</el-tag>
+                            <el-tag type="info" size="mini">FROC</el-tag>
+                            <el-tag type="info" size="mini">目标检测</el-tag>
                             <div class="btn">
                                 <Button type="primary" shape="circle" icon="md-create">回答该问题</Button>
                                 &nbsp
@@ -108,7 +108,7 @@
         width: 100%;
         height: 100%;
         /*background-color: blue;*/
-        background-color: #dddddd;
+        background-color: rgb(245,245,245);
     }
 
     .main {
@@ -203,8 +203,8 @@
     }
 
     .authorContent .contentRight .context {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         /*border:1px solid red;*/
 
     }

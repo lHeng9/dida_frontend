@@ -44,10 +44,12 @@
                 </el-menu-item>
                 <el-menu-item index="10">
                     <router-link :to="{name:'test'}">测试接口</router-link>
-                </el-menu-item><el-menu-item index="10">
+                </el-menu-item>
+                <el-menu-item index="11">
                     <router-link :to="{name:'afterEnd'}">后台入口</router-link>
                 </el-menu-item>
-                <el-menu-item index="11" id="le-menu-item">
+
+                <el-menu-item index="12" id="le-menu-item">
                     <!--搜索框-->
                     <div class="certain-category-search-wrapper" style="width: 250px;height: 30px">
                         <a-auto-complete
@@ -96,7 +98,7 @@
                         </a-auto-complete>
                     </div>
                 </el-menu-item>
-                <el-menu-item index="12" id="face">
+                <el-menu-item index="14" id="face">
                     <!--头像-->
                     <el-row class="block-col-2">
                         <el-col :span="12">

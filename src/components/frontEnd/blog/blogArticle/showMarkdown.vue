@@ -7,7 +7,6 @@
 <script>
     import VueMarkdown from 'vue-markdown'  //直接作为一个组件引入
     import text from '../../../../../vueTest.md'
-
     export default {
         name: 'demo',
         data() {

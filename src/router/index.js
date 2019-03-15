@@ -33,16 +33,17 @@ import afterEnd_breadcrumb from '../components/afterEnd/homePage/breadcrumb'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 
-Vue.use(mavonEditor)
+Vue.use(mavonEditor);
 
 import editor from '../components/frontEnd/blog/editor/editor'
 import showMarkdown from '../components/frontEnd/blog/blogArticle/showMarkdown'
 import forumIndex from "../components/frontEnd/forum/forumIndex";
+import login from "../components/frontEnd/login/login";
 
 
 Vue.use(ElementUI);
 Vue.use(Router);
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 Vue.component('banner', Banner);
 Vue.component('topMessage', topMessage);
@@ -62,7 +63,7 @@ Vue.component('afterEnd_menu', afterEnd_menu)
 Vue.component('afterEnd_index', afterEnd_index)
 Vue.component('afterEnd_breadcrumb', afterEnd_breadcrumb)
 
-export default new Router({
+const router = new Router({
     routes: [
         {
             name: 'test',
@@ -77,8 +78,13 @@ export default new Router({
         {
             path: '/',
             redirect: {
-                name: 'index'//重定向
+                name: 'Blog'//重定向
             }
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: login
         },
         {
             path: '/index.html',
@@ -151,5 +157,25 @@ export default new Router({
             component: notfound
         }
     ]
-})
+});
+
+// 导航守卫
+// 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
+//
+// router.beforeEach((to,from,next)=>{
+//     if(to.path === '/login'){
+//         next()
+//         console.log(123)
+//     }else{
+//         let token = localStorage.getItem('Authorization')
+//         console.log(token)
+//         if(token === null || token === ''){
+//             next('/login')
+//         }else{
+//             next()
+//         }
+//     }
+// });
+export default router
+
 

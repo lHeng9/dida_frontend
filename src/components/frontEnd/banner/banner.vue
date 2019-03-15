@@ -2,9 +2,9 @@
 
   <div class="hero">
     <el-carousel :interval="4000" arrow="always" height="600px">
-      <el-carousel-item v-for="(item, index) in banner1" :key="item.id">
+      <el-carousel-item v-for="(item, index) in banner1" :key="index">
         <router-link :to="{name:'banner.details',query: {id:item.id, title:'banner'}}">
-          <img :src="item.picUrl" width="100%" height="100%" alt="">
+          <img :src="item" width="100%" height="100%" alt="">
         </router-link>
       </el-carousel-item>
     </el-carousel>
@@ -14,17 +14,17 @@
         <h1 style="color: white;">滴答学习.</h1><br><br>
         <p style="color: white">相信 <br> 每一滴水的力量</p>
       </div>
-      <div class="downloads">
-        <div class="btn-container">
-          <a href="" target="_blank">
-            <div class="btn">登录</div>
-          </a>
-          <a href="" target="_blank">
-            <div class="btn">注册</div>
-          </a>
-        </div>
+      <!--<div class="downloads">-->
+        <!--<div class="btn-container">-->
+          <!--<a href="" target="_blank">-->
+            <!--<div class="btn">登录</div>-->
+          <!--</a>-->
+          <!--<a href="" target="_blank">-->
+            <!--<div class="btn">注册</div>-->
+          <!--</a>-->
+        <!--</div>-->
 
-      </div>
+      <!--</div>-->
     </div>
   </div>
 </template>
@@ -35,32 +35,42 @@
   // import img3 from 'img/test3.jpg'
   // import img4 from 'img/test4.jpg'
   // import img5 from 'img/test5.jpg'
-
+  import img1 from '../../../../static/images/banner/test1.jpg'
+  import img2 from '../../../../static/images/banner/test2.jpg'
+  import img3 from '../../../../static/images/banner/test3.jpg'
+  import img4 from '../../../../static/images/banner/test4.jpg'
+  import img5 from '../../../../static/images/banner/test5.jpg'
   export default {
 
     name: "banner",
 
     data() {
       return {
-        // banner1: [img1, img2, img3, img4, img5],
-        banner1: [],
+        banner1: [
+            '../../../../static/images/banner/test1.jpg',
+            '../../../../static/images/banner/test2.jpg',
+            '../../../../static/images/banner/test3.jpg',
+            '../../../../static/images/banner/test4.jpg',
+            '../../../../static/images/banner/test5.jpg'
+        ],
+        // banner1: [],
         banner2: ''
       }
     },
-    created() {
-      this.$Axios.get('vue.php?title=banner')
-        .then((res) => {
-          this.banner1 = res.data
-          // console.log(this.banner1)
-        });
-
-      // console.log(this.dataURL('vue.php', 'vueTitle'));
-      this.$Axios.get(this.dataURL('vue.php', 'vueTitle'))
-        .then((res) => {
-          console.log(res.data)
-          this.title = res.data
-        });
-    },
+    // created() {
+    //   this.$Axios.get('vue.php?title=banner')
+    //     .then((res) => {
+    //       this.banner1 = res.data
+    //       // console.log(this.banner1)
+    //     });
+    //
+    //   // console.log(this.dataURL('vue.php', 'vueTitle'));
+    //   this.$Axios.get(this.dataURL('vue.php', 'vueTitle'))
+    //     .then((res) => {
+    //       console.log(res.data)
+    //       this.title = res.data
+    //     });
+    // },
     methods: {},
 
     mounted() {
