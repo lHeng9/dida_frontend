@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {//初始化数据
-    showFooter: true
+    showFooter: true,
+    Authorization: localStorage.getItem('Authorization') ? localStorage.getItem('Authorization') : ''
 }
 
 const getters = {//监视数据变化，类似于vue中的computed
@@ -19,7 +20,13 @@ const mutations = {//改变数据的方法
     },
     hide(state) {
         state.showFooter = false
+    },
+    changeLogin (state, user) {// 修改token，并将token存入localStorage
+        state.Authorization = user.Authorization;
+        localStorage.setItem('Authorization', user.Authorization);
     }
+
+
 }
 
 const actions ={//触发数据改变方法的方法 context 和 store具有相同的属性和方法

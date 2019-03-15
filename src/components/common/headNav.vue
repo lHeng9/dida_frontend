@@ -44,10 +44,11 @@
                 </el-menu-item>
                 <el-menu-item index="10">
                     <router-link :to="{name:'test'}">测试接口</router-link>
-                </el-menu-item><el-menu-item index="10">
+                </el-menu-item>
+                <el-menu-item index="11">
                     <router-link :to="{name:'afterEnd'}">后台入口</router-link>
                 </el-menu-item>
-                <el-menu-item index="11" id="le-menu-item">
+                <el-menu-item index="13" id="le-menu-item">
                     <el-input
                             size="small"
                             placeholder="请输入内容"
@@ -55,7 +56,7 @@
                         <i slot="prefix" class="el-input__icon el-icon-search"></i>
                     </el-input>
                 </el-menu-item>
-                <el-menu-item index="12" id="face">
+                <el-menu-item index="14" id="face">
                     <!--头像-->
                     <el-row class="block-col-2">
                         <el-col :span="12">

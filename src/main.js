@@ -28,34 +28,63 @@ import forumEdit from './components/frontEnd/forum/forumEdit/forumEdit'
 // import MyCropper from 'cropper'
 import selectTag from './components/frontEnd/forum/forumEdit/selectTag'
 
-Axios.defaults.baseURL = 'http://tanzhouweb.com/vueProject/'
+// Axios.defaults.baseURL = 'http://tanzhouweb.com/vueProject/'
+Axios.defaults.baseURL = 'http://localhost:8080'
 Vue.prototype.$Axios = Axios
 Vue.prototype.dataURL = function (file, title, id) {
     id = (id === undefined) ? '' : id;
     return file + '?title' + title + id
 }
+//请求头加token
+Axios.interceptors.request.use(
+    config => {
+        if (localStorage.getItem('Authorization')) {
+            config.headers.Authorization = localStorage.getItem('Authorization');
+        }
+        
+        return config;
+    },
+    error => {
+        return Promise.reject(error);
+    });
+Axios.interceptors.response.use(
+    response => {
+        return response;
+    },
+    error => {
+        if (error.response) {
+            switch (error.response.status) {
+                case 403:
+                    // 返回 403 清除token信息并跳转到登录页面
+                    localStorage.removeItem('Authorization');
+                    this.$router.push('/login');
+            }
+        }
+        return Promise.reject(error.response.data)
+    } // 返回接口返回的错误信息
+)
 
 // 自动置顶
-router.afterEach((to,from,next) => {
-    window.scrollTo(0,0);
+router.afterEach((to, from, next) => {
+    window.scrollTo(0, 0);
 });
 
 
 Vue.component('headNav', Head)
 Vue.component('footNav', Foot)
 Vue.component('tagMenu', tagMenu)
-Vue.component('ForumBanner',ForumBanner)
-Vue.component('forumBody',forumBody)
-Vue.component('fcards',fcard)
-Vue.component('ftags',ftags)
-Vue.component('star',star)
-Vue.component('report',report)
-Vue.component('comment',comment)
-Vue.component('sendComment',sendComment)
-Vue.component('person',persionalInf)
-Vue.component('forumNews',forumNews)
-Vue.component('forumEdit',forumEdit)
-Vue.component('selectTag',selectTag)
+Vue.component('ForumBanner', ForumBanner)
+Vue.component('forumBody', forumBody)
+Vue.component('fcards', fcard)
+Vue.component('ftags', ftags)
+Vue.component('star', star)
+Vue.component('report', report)
+Vue.component('comment', comment)
+Vue.component('sendComment', sendComment)
+Vue.component('person', persionalInf)
+Vue.component('forumNews', forumNews)
+Vue.component('forumEdit', forumEdit)
+Vue.component('selectTag', selectTag)
 
 Vue.use(Antd)
 Vue.use(ElementUI);
@@ -64,6 +93,7 @@ Vue.prototype.$ = $;
 // 为markDown文本阅读提供高亮开始
 import hljs from 'highlight.js'
 import 'highlight.js/styles/a11y-dark.css'
+
 Vue.directive('highlight', (el) => {
     let blocks = el.querySelectorAll('pre code')
     blocks.forEach((block) => {
