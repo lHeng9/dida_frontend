@@ -1,7 +1,7 @@
 <template>
 
   <div class="hero">
-    <el-carousel :interval="4000" arrow="always" height="600px">
+    <el-carousel :interval="4000" arrow="always" height="800px">
       <el-carousel-item v-for="(item, index) in banner1" :key="item.id">
         <router-link :to="{name:'banner.details',query: {id:item.id, title:'banner'}}">
           <img :src="item" width="100%" height="100%" alt="">
@@ -58,7 +58,7 @@
 
 <style scoped>
 .hero{
-  margin-top: 38px;
+  margin-top: 60px;
 }
   .el-carousel__item h3 {
     color: #475669;

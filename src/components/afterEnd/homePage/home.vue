@@ -1,63 +1,99 @@
 <template>
-    <div style="margin-top: 40px">
-        <a-layout id="components-layout-demo-custom-trigger">
-            <a-layout-sider
-                    :trigger="null"
-                    collapsible
-                    v-model="collapsed"
-            >
-                <afterEnd_menu></afterEnd_menu>
-            </a-layout-sider>
-            <a-layout>
-                <a-layout-header style="background: #fff; padding: 0">
+    <div>
+        <div class="left scrollBar">
+            <afterEnd_menu></afterEnd_menu>
+        </div>
+        <a-affix :offsetTop="this.top">
+            <div class="top">
+                <afterEnd_breadcrumb></afterEnd_breadcrumb>
+            </div>
+        </a-affix>
+        <div class="right">
+            <div class="content">
 
-                    <a-icon
-                            class="trigger"
-                            :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-                            @click="()=> collapsed = !collapsed"
-                    />
-
-                </a-layout-header>
-
-                <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '300px' }">
-                    <afterEnd_breadcrumb></afterEnd_breadcrumb><br>
-
-                    <afterEnd_index></afterEnd_index>
-                </a-layout-content>
-            </a-layout>
-        </a-layout>
+                <router-view/>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
     export default {
-        data(){
+        data() {
             return {
                 collapsed: false,
             }
         },
     }
 </script>
-<style>
+<style scoped>
 
-    .a-layout-sider{
-        height: 561px;
-    }
-    #components-layout-demo-custom-trigger .trigger {
-        font-size: 18px;
-        line-height: 64px;
-        padding: 0 24px;
-        cursor: pointer;
-        transition: color .3s;
-    }
 
-    #components-layout-demo-custom-trigger .trigger:hover {
-        color: #1890ff;
+    .left {
+        width: 16%;
+        float: left;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+
     }
 
-    #components-layout-demo-custom-trigger .logo {
-        height: 32px;
-        background: rgba(255,255,255,.2);
-        margin: 16px;
+    .right {
+        width: 84%;
+        float: right;
+        padding:0  25px;
+        background-color: white;
     }
+
+    .top {
+        width: 84%;
+        height: 65px;
+        background-color: white;
+        float: right;
+        /*添加阴影*/
+        -webkit-box-shadow: #666  0 0 30px ;
+    }
+
+
+    /*修改浏览器默认的滚动条*/
+    ::-webkit-scrollbar-track-piece {
+    / / 滚动条凹槽的颜色，还可以设置边框属性 background-color: #f8f8f8;
+    }
+
+    ::-webkit-scrollbar {
+    / / 滚动条的宽度 width: 15px;
+        height: 15px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    / / 滚动条的设置 background-color: #dddddd;
+        background-clip: padding-box;
+        min-height: 15px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #b4d7ff;
+    }
+
+    /*为左侧设置的滚动条*/
+    .scrollBar::-webkit-scrollbar {
+        width: 2px;
+        margin-right: 10px;
+    }
+
+    .scrollBar::-webkit-scrollbar-track {
+        /*background-color:red;*/
+        -webkit-border-radius: 1em;
+        -moz-border-radius: 1em;
+        border-radius: 1em;
+    }
+
+    .scrollBar::-webkit-scrollbar-thumb {
+        background-color: #e5f6fe;
+        -webkit-border-radius: 1em;
+        -moz-border-radius: 1em;
+        border-radius: 1em;
+    }
+
+
 </style>
