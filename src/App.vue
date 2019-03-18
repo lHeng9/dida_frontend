@@ -1,9 +1,10 @@
 <template>
     <div id="app" style="background: #f5f5f5">
-        <head-nav></head-nav>
-        <br>
+        <head-nav  v-if="isshowhead"></head-nav>
+        <!--<br>-->
         <router-view/>
         <foot-nav v-if="isshow" title="这是底部导航"></foot-nav>
+
     </div>
 </template>
 
@@ -18,15 +19,32 @@
         computed:{
             isshow(){
                 return this.$store.getters.isShow
+            },
+            isshowhead(){
+                return this.$store.getters.isShow
             }
         },
         watch:{
             $route(to,from){
-                if(to.name == 'Forum'){
-                    this.$store.dispatch('hideFooter')
-                }else{
-                    this.$store.dispatch('showFooter')
-                }
+                // if(to.name == 'Forum' ){
+                //     this.$store.dispatch('hideFooter')
+                // }else{
+                //     this.$store.dispatch('showFooter')
+                // };
+
+                // if(
+                //     to.name == 'afterEnd_index' ||
+                //      'afterEnd_userList' ||
+                //      'afterEnd_userInsert'
+                // ){
+                //     this.$store.dispatch('hideFooter')
+                // }else{
+                //     this.$store.dispatch('showFooter')
+                // }
+
+
+
+
             }
         }
     }

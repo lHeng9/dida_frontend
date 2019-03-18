@@ -1,276 +1,461 @@
 <template>
     <div>
-        <a-table :columns="columns" :dataSource="data" :scroll="{ x: 1500, y: 480}">
-            <a slot="action"  @click="showDrawer" slot-scope="text" href="javascript:;">action</a>
-        </a-table>
+        <h1>基本统计信息</h1>
+        <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
+        <div class="message">
+            <!--单个卡片-->
 
-        <!--抽屉信息-->
-        <div>
-            <a-drawer
-                    title="Basic Drawer"
-                    placement="right"
-                    :closable="false"
-                    @close="onClose"
-                    width="650px"
-                    :visible="visible"
-            >
-
-                <div>
-                    <a-card
-                            hoverable
-                            style="width: 240px"
-                    >
-                        <img
-                                alt="example"
-                                src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                                slot="cover"
-                        />
-                        <a-card-meta
-                                title="Europe Street beat">
-                            <template slot="description">www.instagram.com</template>
-                        </a-card-meta>
-                    </a-card>
-
-
-                    <a-card title="Card Title">
-                        <a-card-grid style="width:25%;textAlign:'center'">Content</a-card-grid>
-                        <a-card-grid style="width:25%;textAlign:'center'">Content</a-card-grid>
-                        <a-card-grid style="width:25%;textAlign:'center'">Content</a-card-grid>
-                        <a-card-grid style="width:25%;textAlign:'center'">Content</a-card-grid>
-                        <a-card-grid style="width:25%;textAlign:'center'">Content</a-card-grid>
-                        <a-card-grid style="width:25%;textAlign:'center'">Content</a-card-grid>
-                        <a-card-grid style="width:25%;textAlign:'center'">Content</a-card-grid>
-                    </a-card>
-
-                    <a-form>
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Fail"
-                                validate-status="error"
-                                help="Should be combination of numbers & alphabets"
-                        >
-                            <a-input
-                                    id="error"
-                                    placeholder="unavailable choice"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Warning"
-                                validate-status="warning"
-                        >
-                            <a-input
-                                    id="warning"
-                                    placeholder="Warning"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Validating"
-                                has-feedback
-                                validate-status="validating"
-                                help="The information is being validated..."
-                        >
-                            <a-input
-                                    id="validating"
-                                    placeholder="I'm the content is being validated"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Success"
-                                has-feedback
-                                validate-status="success"
-                        >
-                            <a-input
-                                    id="success"
-                                    placeholder="I'm the content"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Warning"
-                                has-feedback
-                                validate-status="warning"
-                        >
-                            <a-input
-                                    id="warning"
-                                    placeholder="Warning"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Fail"
-                                has-feedback
-                                validate-status="error"
-                                help="Should be combination of numbers & alphabets"
-                        >
-                            <a-input
-                                    id="error"
-                                    placeholder="unavailable choice"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Success"
-                                has-feedback
-                                validate-status="success"
-                        >
-                            <a-date-picker style="width: 100%" />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Warning"
-                                has-feedback
-                                validate-status="warning"
-                        >
-                            <a-time-picker style="width: 100%" />
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Error"
-                                has-feedback
-                                validate-status="error"
-                        >
-                            <a-select default-value="1">
-                                <a-select-option value="1">
-                                    Option 1
-                                </a-select-option>
-                                <a-select-option value="2">
-                                    Option 2
-                                </a-select-option>
-                                <a-select-option value="3">
-                                    Option 3
-                                </a-select-option>
-                            </a-select>
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Validating"
-                                has-feedback
-                                validate-status="validating"
-                                help="The information is being validated..."
-                        >
-                            <a-cascader
-                                    :default-value="['1']"
-                                    :options="[]"
-                            />
-                        </a-form-item>
-
-                        <a-form-item
-                                label="inline"
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                style="margin-bottom:0;"
-                        >
-                            <a-form-item
-                                    validate-status="error"
-                                    help="Please select the correct date"
-                                    :style="{ display: 'inline-block', width: 'calc(50% - 12px)' }"
-                            >
-                                <a-date-picker style="width: 100%" />
-                            </a-form-item>
-                            <span :style="{ display: 'inline-block', width: '24px', textAlign: 'center' }">
-        -
-      </span>
-                            <a-form-item :style="{ display: 'inline-block', width: 'calc(50% - 12px)' }">
-                                <a-date-picker style="width: 100%" />
-                            </a-form-item>
-                        </a-form-item>
-
-                        <a-form-item
-                                :label-col="labelCol"
-                                :wrapper-col="wrapperCol"
-                                label="Success"
-                                has-feedback
-                                validate-status="success"
-                        >
-                            <a-input-number style="width: 100%" />
-                        </a-form-item>
-                    </a-form>
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+                        当前在线
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
                 </div>
-            </a-drawer>
+                <div class="remark hover">
+                    <sapn style="float: left">当前在线的所有人</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="check-circle" />
+                        最高在线
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">历史最高在线人数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                       <a-icon type="team" />
+                        注册学生
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">已注册学生总人数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="user"/>
+                        注册教师
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">已注册教师总人数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span><a-icon type="build"/>&nbsp;领域数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">现存领域种类</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="read"/>
+                        &nbsp;文章数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前发表文章总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="profile"/>
+                        &nbsp;帖子数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前发表帖子总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="file"/>
+                        &nbsp;回帖数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前发表回帖总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="tag"/>
+                        &nbsp;课内标签</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前注册的课内标签总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="tags"/>
+                        &nbsp;自主标签</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前注册的自定义的标签总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="key"/>
+                        &nbsp;保留词数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前注册的保留词的总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="phone"/>
+                        &nbsp;举报次数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前举报人次累计总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="team"/>
+                        &nbsp;管理员数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目现役管理员总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+        </div>
+
+        <h1>基本统计信息</h1>
+        <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
+        <div class="message">
+            <!--单个卡片-->
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+                        当前在线
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">当前在线的所有人</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="check-circle" />
+                        最高在线
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">历史最高在线人数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                       <a-icon type="team" />
+                        注册学生
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">已注册学生总人数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="user"/>
+                        注册教师
+                    </span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">已注册教师总人数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span><a-icon type="build"/>&nbsp;领域数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">现存领域种类</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="read"/>
+                        &nbsp;文章数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前发表文章总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="profile"/>
+                        &nbsp;帖子数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前发表帖子总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="file"/>
+                        &nbsp;回帖数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前发表回帖总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="tag"/>
+                        &nbsp;课内标签</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前注册的课内标签总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="tags"/>
+                        &nbsp;自主标签</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前注册的自定义的标签总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="key"/>
+                        &nbsp;保留词数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前注册的保留词的总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="phone"/>
+                        &nbsp;举报次数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目前举报人次累计总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
+            <el-card shadow="always" class="box-card">
+                <div slot="header" class="clearfix header">
+                    <span>
+                        <a-icon type="team"/>
+                        &nbsp;管理员数</span>
+                    <div class="text item hover">
+                        1234
+                    </div>
+                </div>
+                <div class="remark hover">
+                    <sapn style="float: left">目现役管理员总数</sapn>
+                    <span style="float: right"><a-icon type="reload" />&nbsp;刷新</span>
+                </div>
+            </el-card>
+
         </div>
     </div>
-</template>
 
-<script>
-    const columns = [
-        { title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
-        { title: 'Age', width: 50, dataIndex: 'age', key: 'age', fixed: 'left' },
-        { title: 'Column 1', dataIndex: 'address', key: '1', width: 150 },
-        { title: 'Column 2', dataIndex: 'address', key: '2', width: 150 },
-        { title: 'Column 3', dataIndex: 'address', key: '3', width: 150 },
-        { title: 'Column 4', dataIndex: 'address', key: '4', width: 150 },
-        { title: 'Column 5', dataIndex: 'address', key: '5', width: 150 },
-        { title: 'Column 6', dataIndex: 'address', key: '6', width: 150 },
-        { title: 'Column 7', dataIndex: 'address', key: '7', width: 150 },
-        { title: 'Column 8', dataIndex: 'address', key: '8' },
-        {
-            title: 'Action',
-            key: 'operation',
-            fixed: 'right',
-            width: 100,
-            scopedSlots: { customRender: 'action' },
-        },
-    ];
+    </template>
 
-    const data = [];
-    for (let i = 0; i < 100; i++) {
-        data.push({
-            key: i,
-            name: `Edrward ${i}`,
-            age: 32,
-            address: `London Park no. ${i}`,
-        });
+<style>
+
+
+    .header {
+        font-size: 23px;
     }
 
-    export default {
-        data() {
-            return {
-                data,
-                columns,
-                visible: false,//抽屉默认状态
-                labelCol: {
-                    xs: { span: 24 },
-                    sm: { span: 5 },
-                },
-                wrapperCol: {
-                    xs: { span: 24 },
-                    sm: { span: 12 },
-                },
-            }
-        },
-        methods: {
-            showDrawer() {
-                this.visible = true
-            },
-            onClose() {
-                this.visible = false
-            },
-        }
-    }
-</script>
+    .text {
+        font-size: 26px;
 
-<style scoped>
+        color: #3399ff;
+    }
+
+    .hover:hover {
+        color: #3399ff;
+        /*margin-right: 5px;*/
+        font-weight: bolder;
+    }
+
+    .box-card {
+        width: 30%;
+        display: inline-block;
+        margin: 15px;
+    }
+
+    .item {
+        float: right;
+        display: inline-block;
+    }
+
+    .remark {
+        /*float: right;*/
+        color: #c8cbcf;
+        padding-bottom: 10px;
+    }
+
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+
+    .clearfix:after {
+        clear: both
+    }
+
 
 </style>

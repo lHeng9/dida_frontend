@@ -64,7 +64,7 @@
 
     .box-card {
         width: 100%;
-        margin-top: 50px;
+        margin-top: 70px;
     }
 
     /*卡片原始样式结束*/

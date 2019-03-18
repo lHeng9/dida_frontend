@@ -21,14 +21,21 @@ import blogTagsMenu from '../components/frontEnd/blog/index/tagsMenu'
 import Vuex from 'vuex'
 import personalTagsMenu from '../components/frontEnd/blog/personalBlog/personalTagsMenu'
 import forumDetail from '../components/frontEnd/forum/forumDetail/forumDetail'
-import test from '../components/afterEnd/userManage/userIndex'
+import test from '../components/frontEnd/blog/index/test'
 import test2 from '../components/frontEnd/blog/index/test2'
 import clickBar from '../components/frontEnd/blog/blogArticle/clickBar'
 import forumEditIndex from '../components/frontEnd/forum/forumEdit/index'
+// 后台管理
 import afterEnd from '../components/afterEnd/homePage/home'
 import afterEnd_menu from '../components/afterEnd/common/menu'
 import afterEnd_index from '../components/afterEnd/homePage/index'
 import afterEnd_breadcrumb from '../components/afterEnd/homePage/breadcrumb'
+import afterEnd_userList from '../components/afterEnd/userManage/userList'
+import afterEnd_userInsert from '../components/afterEnd/userManage/userInsert'
+import afterEnd_userSelect from '../components/afterEnd/userManage/userSelect'
+
+
+
 // 编辑器
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
@@ -62,6 +69,9 @@ Vue.component('test', test)
 Vue.component('afterEnd_menu', afterEnd_menu)
 Vue.component('afterEnd_index', afterEnd_index)
 Vue.component('afterEnd_breadcrumb', afterEnd_breadcrumb)
+Vue.component('afterEnd_userList', afterEnd_userList)
+Vue.component('afterEnd_userInsert', afterEnd_userInsert)
+Vue.component('afterEnd_userSelect', afterEnd_userSelect)
 
 const router = new Router({
     routes: [
@@ -142,14 +152,46 @@ const router = new Router({
         },
         // 后台路由集合开始
         {
-            name: 'afterEnd',
             path: '/afterEnd',
-            component: afterEnd
+            name: 'afterEnd',
+            redirect: {
+                name: 'afterEnd_index'//重定向
+            }
         },
         {
-            name: 'afterEnd_index',
-            path: 'afterEnd_index',
-            component: afterEnd_index
+            name: 'afterEnd',
+            path: '/afterEnd',
+            component: afterEnd,
+            children:[
+                {
+                    name: 'afterEnd_index',
+                    path: 'afterEnd_index',
+                    component: afterEnd_index
+                },
+                {
+                    name: 'afterEnd_userList',
+                    path: 'afterEnd_userList',
+                    component: afterEnd_userList
+                },
+                {
+                    name: 'afterEnd_userInsert',
+                    path: 'afterEnd_userInsert',
+                    component: afterEnd_userInsert
+                },
+                {
+                    name: 'afterEnd_userSelect',
+                    path: 'afterEnd_userSelect',
+                    component: afterEnd_userSelect
+                }
+            ]
+
+
+        },
+
+        {
+            name: 'afterEnd_breadcrumb',
+            path: 'afterEnd_breadcrumb',
+            component: afterEnd_breadcrumb
         },
         // 后台路由集合结束
         {

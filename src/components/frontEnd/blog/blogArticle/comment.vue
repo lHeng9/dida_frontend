@@ -6,23 +6,8 @@
                 说出你的想法吧~
             </el-card>
         </div>
+
         <div>
-            <a-list
-                    v-if="comments.length"
-                    :dataSource="comments"
-                    :header="`${comments.length} ${comments.length > 1 ? 'replies' : '条评论'}`"
-                    itemLayout="horizontal"
-            >
-                <a-list-item slot="renderItem" slot-scope="item, index">
-                    <a-comment
-                            :author="item.author"
-                            :avatar="item.avatar"
-                            :content="item.content"
-                            :datetime="item.datetime"
-                    >
-                    </a-comment>
-                </a-list-item>
-            </a-list>
             <a-comment>
                 <a-avatar
                         slot="avatar"
@@ -45,6 +30,25 @@
                     </a-form-item>
                 </div>
             </a-comment>
+
+            <a-list
+                    v-if="comments.length"
+                    :dataSource="comments"
+                    :header="`${comments.length} ${comments.length > 1 ? 'replies' : '条评论'}`"
+                    itemLayout="horizontal"
+            >
+                <a-list-item slot="renderItem" slot-scope="item, index">
+                    <a-comment
+                            :author="item.author"
+                            :avatar="item.avatar"
+                            :content="item.content"
+                            :datetime="item.datetime"
+                    >
+                    </a-comment>
+                </a-list-item>
+            </a-list>
+
+
         </div>
     </div>
 
