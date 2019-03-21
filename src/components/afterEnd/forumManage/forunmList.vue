@@ -1,60 +1,27 @@
 <template>
 
     <div>
-        <h1>用户列表</h1>
+        <h1>帖子列表</h1>
         <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
 
 
         <a-table :columns="columns" :dataSource="data" :scroll="{ x: 1500, y: 470 }">
-            <a slot="delete" @click="showDeleteConfirm">封印</a>
+            <a slot="delete" @click="showDeleteConfirm">删除</a>
 
             <a slot="more" @click="showDrawer">更多</a>
         </a-table>
 
 
         <a-drawer
-                width=50%
+                width=640
                 placement="right"
                 :closable="false"
                 @close="onClose"
                 :visible="visible"
-
         >
             <!--抽屉页面-->
-            <div style=" margin: 0 auto">
+            <div>
 
-                <div style="background: #001529; width: 100%; height: 200px; line-height: 100px">
-                    <div class="name">
-                        <img src="../../../../static/images/face.jpg" class="face" style="width: 100%"><br>
-                    </div>
-                </div>
-
-
-
-                <div style="width: 90% ; margin: 0 auto; ">
-
-                    <div class="a-input">
-                        <div class="item">ID</div>
-                        <a-input placeholder="default size" class=""/>
-                    </div>
-                    <div class="a-input">
-                        <div class="item">姓名</div>
-                        <a-input placeholder="default size" class=""/>
-                    </div>
-                    <div class="a-input">
-                        <div class="item">学院</div>
-                        <a-input placeholder="default size" class=""/>
-                    </div>
-                    <div class="a-input">
-                        <div class="item">QQ</div>
-                        <a-input placeholder="default size" class=""/>
-                    </div>
-                    <div class="a-input">
-                        <div class="item">邮箱</div>
-                        <a-input placeholder="default size" class=""/>
-                    </div>
-
-                </div>
 
 
 
@@ -65,16 +32,22 @@
 </template>
 <script>
 
+    // import descriptionItem from './descriptionItem'
     const columns = [
         {title: 'ID', width: 100, dataIndex: 'number', key: 'number', fixed: 'left'},
-        {title: '姓名', width: 100, dataIndex: 'name', key: 'name'},
-        {title: '学院', dataIndex: 'college', key: 'college', width: 100},
+        {title: '贴主', width: 100, dataIndex: 'name', key: 'name'},
+        {title: '标题', dataIndex: 'college', key: 'college', width: 100},
         {title: '班级', dataIndex: 'class', key: 'class', width: 130},
+        {title: '是否置顶', dataIndex: 'phone', key: 'phone', width: 130},
+        {title: '被邀请人', dataIndex: 'phone', key: 'phone', width: 130},
+        {title: '标签', dataIndex: 'email', key: 'email', width: 200},
+        {title: '领域', dataIndex: 'email', key: 'email', width: 200},
+        {title: '被收藏数', dataIndex: 'type', key: 'type', width: 80},
+        {title: '获赞数', dataIndex: 'QQ', key: 'QQ', width: 100},
         {title: '是否正常', dataIndex: 'status', key: 'status', width: 100},
-        {title: '加入时间', dataIndex: 'gmt_time', key: 'gmt_time',width: 100},
-        {title: '修改时间', dataIndex: 'gmt_time', key: 'gmt_time',width: 100},
+        {title: '发布时间', dataIndex: 'gmt_time', key: 'gmt_time',width: 170},
         {
-            title: '是否违规',
+            title: '删除',
             key: 'delete',
             fixed: "right",
             width: 100,
@@ -138,8 +111,8 @@
             },
             showDeleteConfirm() {
                 this.$confirm({
-                    title: '封印',
-                    content: '确定封印吗？',
+                    title: '删除',
+                    content: '确定删除吗？',
                     okText: 'Yes',
                     okType: 'danger',
                     cancelText: 'No',
@@ -154,16 +127,3 @@
         },
     }
 </script>
-
-<style>
-    .a-input{
-        background-color: rgba(255,255,255,0.2);
-        margin-bottom: 15px;
-    }
-    .item{
-        font-weight: bolder;
-        /*color: white;*/
-        font-size: 16px;
-        margin-bottom: 5px;
-    }
-</style>

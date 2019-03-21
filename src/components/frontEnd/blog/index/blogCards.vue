@@ -52,7 +52,7 @@
                     {
                         title: 'webstorm、pycharm、IDEA等JetBrains家族软件的自定义代码快捷补全',
                         time: '2017',
-                        introduction: '在js中，console.log() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
+                        introduction: '在js中，console.logManage() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
                             '\n' +
                             '（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）',
                         author: ' 玄青丶丶',
@@ -67,11 +67,11 @@
                     {
                         title: 'webstorm、pycharm、IDEA等JetBrains家族软件的自定义代码快捷补全',
                         time: '2017',
-                        introduction: '在js中，console.log() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
+                        introduction: '在js中，console.logManage() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
                             '\n' +
-                            '（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）在js中，console.log() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\\n\' +\n' +
+                            '（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）在js中，console.logManage() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\\n\' +\n' +
                             '                            \'\\n\' +\n' +
-                            '                            \'（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）在js中，console.log() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\\n\' +\n' +
+                            '                            \'（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）在js中，console.logManage() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\\n\' +\n' +
                             '                            \'\\n\' +\n' +
                             '                            \'（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）',
                         author: ' 玄青丶丶',
@@ -86,7 +86,7 @@
                     {
                         title: 'webstorm、pycharm、IDEA等JetBrains家族软件的自定义代码快捷补全',
                         time: '2017',
-                        introduction: '在js中，console.log() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
+                        introduction: '在js中，console.logManage() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
                             '\n' +
                             '（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）',
                         author: ' 玄青丶丶',
@@ -101,7 +101,7 @@
                     {
                         title: 'webstorm、pycharm、IDEA等JetBrains家族软件的自定义代码快捷补全',
                         time: '2017',
-                        introduction: '在js中，console.log() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
+                        introduction: '在js中，console.logManage() 这样的结构写的非常多，这时我们可以设置快捷键，写csl，按Tab来一键补全。\n' +
                             '\n' +
                             '（这里以webstorm举例，IDEA等JetBrains家族软件都是这样）',
                         author: ' 玄青丶丶',

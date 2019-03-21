@@ -61,13 +61,13 @@
     //   this.$Axios.get('vue.php?title=banner')
     //     .then((res) => {
     //       this.banner1 = res.data
-    //       // console.log(this.banner1)
+    //       // console.logManage(this.banner1)
     //     });
     //
-    //   // console.log(this.dataURL('vue.php', 'vueTitle'));
+    //   // console.logManage(this.dataURL('vue.php', 'vueTitle'));
     //   this.$Axios.get(this.dataURL('vue.php', 'vueTitle'))
     //     .then((res) => {
-    //       console.log(res.data)
+    //       console.logManage(res.data)
     //       this.title = res.data
     //     });
     // },
