@@ -163,7 +163,7 @@
         template: '<router-link></router-link>',
         methods: {
             handleSelect(key, keyPath) {
-                // console.log(key, keyPath);
+                // console.logManage(key, keyPath);
             }
         }
     }

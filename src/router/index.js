@@ -33,6 +33,10 @@ import afterEnd_breadcrumb from '../components/afterEnd/homePage/breadcrumb'
 import afterEnd_userList from '../components/afterEnd/userManage/userList'
 import afterEnd_userInsert from '../components/afterEnd/userManage/userInsert'
 import afterEnd_userSelect from '../components/afterEnd/userManage/userSelect'
+import afterEnd_blogList from '../components/afterEnd/blogManage/blogList'
+import afterEnd_forumList from '../components/afterEnd/forumManage/forunmList'
+import afterEnd_labelList from '../components/afterEnd/lableManage/labelList'
+import afterEnd_reportList from '../components/afterEnd/reportManage/reportList'
 
 
 
@@ -66,12 +70,17 @@ Vue.component('personalTagsMenu', personalTagsMenu)
 Vue.component('forumDetail', forumDetail)
 Vue.component('clickBar', clickBar)
 Vue.component('test', test)
+//后台管理
 Vue.component('afterEnd_menu', afterEnd_menu)
 Vue.component('afterEnd_index', afterEnd_index)
 Vue.component('afterEnd_breadcrumb', afterEnd_breadcrumb)
 Vue.component('afterEnd_userList', afterEnd_userList)
 Vue.component('afterEnd_userInsert', afterEnd_userInsert)
 Vue.component('afterEnd_userSelect', afterEnd_userSelect)
+Vue.component('afterEnd_blogList', afterEnd_blogList)
+Vue.component('afterEnd_forumList', afterEnd_forumList)
+Vue.component('afterEnd_labelList', afterEnd_labelList)
+Vue.component('afterEnd_reportList', afterEnd_reportList)
 
 const router = new Router({
     routes: [
@@ -140,7 +149,8 @@ const router = new Router({
             name: 'personalBlogList',
             path: '/personalBlogList',
             component: personalBlogList
-        }, {
+        },
+        {
             name: 'personalInformation',
             path: '/personalInformation',
             component: personalInformation
@@ -182,6 +192,26 @@ const router = new Router({
                     name: 'afterEnd_userSelect',
                     path: 'afterEnd_userSelect',
                     component: afterEnd_userSelect
+                },
+                {
+                    name: 'afterEnd_blogList',
+                    path: 'afterEnd_blogList',
+                    component: afterEnd_blogList
+                },
+                {
+                    name: 'afterEnd_forumList',
+                    path: 'afterEnd_forumList',
+                    component: afterEnd_forumList
+                },
+                {
+                    name: 'afterEnd_labelList',
+                    path: 'afterEnd_labelList',
+                    component: afterEnd_labelList
+                },
+                {
+                    name: 'afterEnd_reportList',
+                    path: 'afterEnd_reportList',
+                    component: afterEnd_reportList
                 }
             ]
 
@@ -207,10 +237,10 @@ const router = new Router({
 // router.beforeEach((to,from,next)=>{
 //     if(to.path === '/login'){
 //         next()
-//         console.log(123)
+//         console.logManage(123)
 //     }else{
 //         let token = localStorage.getItem('Authorization')
-//         console.log(token)
+//         console.logManage(token)
 //         if(token === null || token === ''){
 //             next('/login')
 //         }else{

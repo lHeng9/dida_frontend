@@ -32,15 +32,15 @@
                 //     this.$store.dispatch('showFooter')
                 // };
 
-                // if(
-                //     to.name == 'afterEnd_index' ||
-                //      'afterEnd_userList' ||
-                //      'afterEnd_userInsert'
-                // ){
-                //     this.$store.dispatch('hideFooter')
-                // }else{
-                //     this.$store.dispatch('showFooter')
-                // }
+                if(
+                    to.name == 'afterEnd_index' ||
+                     'afterEnd_userList' ||
+                     'afterEnd_userInsert'
+                ){
+                    this.$store.dispatch('hideFooter')
+                }else{
+                    this.$store.dispatch('showFooter')
+                }
 
 
 
