@@ -13,7 +13,7 @@
 
 
         <a-drawer
-                width=640
+                width=50%
                 placement="right"
                 :closable="false"
                 @close="onClose"
@@ -22,7 +22,85 @@
             <!--抽屉页面-->
             <div>
 
+                <div style="width: 90% ; margin: 0 auto; ">
 
+                    <div class="a-input">
+                        <div class="items">文章编号</div>
+                        <a-input />
+                    </div>
+                    <div class="a-input">
+                        <div class="items">作者编号</div>
+                        <a-input />
+                    </div>
+                    <div class="a-input">
+                        <div class="items">博主</div>
+                        <a-input/>
+                    </div>
+                    <div class="a-input">
+                        <div class="items">标题</div>
+                        <a-input/>
+                    </div>
+                    <div class="a-input">
+                        <div class="items">内容<span style=" color: #779ecb;  padding-left: 10px">(点击查看全文)</span></div>
+                        <a-textarea placeholder="Autosize height with minimum and maximum number of lines" :autosize="{ minRows: 2, maxRows: 10 }" />
+
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">标签</div>
+                        <div>
+                            <a-tag color="#f50">Ant UI</a-tag>
+                            <a-tag color="#2db7f5">Element UI</a-tag>
+                            <a-tag color="#87d068">Vue</a-tag>
+                        </div>
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">浏览计数</div>
+                        <a-input />
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">回复计数</div>
+                        <a-input />
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">获赞数</div>
+                        <a-input />
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">收藏数</div>
+                        <a-input />
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">是否置顶</div>
+                        <a-input />
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">当前状态</div>
+                        <a-input />
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">创建时间</div>
+                        <a-input />
+                    </div>
+
+                    <div class="a-input">
+                        <div class="items">修改时间</div>
+                        <a-input disable />
+                    </div>
+
+                    <div class="a-input">
+                        <a-button type="primary" id="update">编辑</a-button>
+                        <a-button type="primary" >确定</a-button>
+                    </div>
+
+                </div>
 
 
             </div>
@@ -32,18 +110,15 @@
 </template>
 <script>
 
-    // import descriptionItem from './descriptionItem'
     const columns = [
-        {title: 'ID', width: 100, dataIndex: 'number', key: 'number', fixed: 'left'},
-        {title: '标签名', dataIndex: 'college', key: 'college', width: 100},
-        {title: '路径', dataIndex: 'class', key: 'class', width: 130},
-        {title: '课内/课外', dataIndex: 'phone', key: 'phone', width: 130},
-        {title: '创建人', dataIndex: 'phone', key: 'phone', width: 130},
-        {title: '标签', dataIndex: 'email', key: 'email', width: 200},
-        {title: '等级', dataIndex: 'email', key: 'email', width: 200},
-        // {title: '被引用数', dataIndex: 'type', key: 'type', width: 80},
-        {title: '发布时间', dataIndex: 'gmt_time', key: 'gmt_time',width: 170},
-        {title: '修改时间', dataIndex: 'gmt_time', key: 'gmt_time',width: 170},
+        {title: '标签ID', width: 100, dataIndex: 'label_id', key: 'label_id', fixed: 'left'},
+        {title: '标签名', dataIndex: 'name', key: 'name', width: 100},
+        {title: '路径', dataIndex: 'path', key: 'path', width: 180},
+        {title: '课内/课外', dataIndex: 'in_class', key: 'in_class', width: 100},
+        {title: '是否系统给定', dataIndex: 'is_system', key: 'is_system', width: 100},
+        {title: '等级', dataIndex: 'rank', key: 'rank', width: 80},
+        {title: '发布时间', dataIndex: 'gmt_create', key: 'gmt_create',width: 100},
+        {title: '修改时间', dataIndex: 'gmt_modified', key: 'gmt_modified',width: 100},
         {
             title: '删除',
             key: 'delete',
@@ -51,32 +126,21 @@
             width: 100,
             scopedSlots: {customRender: 'delete'},
         },
-        {
-            title: '详情',
-            key: 'more',
-            fixed: 'right',
-            width: 100,
-            scopedSlots: {customRender: 'more'},
-        },
+
     ];
 
     const data = [];
     for (let i = 0; i < 100; i++) {
         data.push({
-            key: i,
+            label_id: i,
             name: `人造人${i}号`,
-            number: `16140101${i}`,
-            college: '软件学院',
-            class: '16140Y02班',
-            phone: '15534399695',
-            email: '924070845@qq.com',
-            type: '学生',
-            QQ: '924070845',
-            status: '正常',
-            gmt_time: '2019-3-15',
-            address: `中北大学文澜苑2号楼. ${i} 宿舍`,
-            operation: 'delete',
-            more: 'more'
+            path: `/操作系统/内存管理`,
+            in_class: '课内',
+            is_system: '系统',
+            rank:'2',
+            gmt_create: '2019-3-15',
+            gmt_modified: '2019-3-15',
+
         });
     }
 
