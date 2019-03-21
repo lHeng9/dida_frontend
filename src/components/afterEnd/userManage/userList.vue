@@ -34,25 +34,28 @@
                 <div style="width: 90% ; margin: 0 auto; ">
 
                     <div class="a-input">
-                        <div class="item">ID</div>
+                        <div class="items">ID</div>
                         <a-input placeholder="default size" class=""/>
                     </div>
                     <div class="a-input">
-                        <div class="item">姓名</div>
+                        <div class="items">姓名</div>
                         <a-input placeholder="default size" class=""/>
                     </div>
                     <div class="a-input">
-                        <div class="item">学院</div>
+                        <div class="items">学院</div>
                         <a-input placeholder="default size" class=""/>
                     </div>
                     <div class="a-input">
-                        <div class="item">QQ</div>
+                        <div class="items">QQ</div>
                         <a-input placeholder="default size" class=""/>
                     </div>
                     <div class="a-input">
-                        <div class="item">邮箱</div>
+                        <div class="items">邮箱</div>
                         <a-input placeholder="default size" class=""/>
                     </div>
+
+
+
 
                 </div>
 
@@ -160,7 +163,7 @@
         background-color: rgba(255,255,255,0.2);
         margin-bottom: 15px;
     }
-    .item{
+    .items{
         font-weight: bolder;
         /*color: white;*/
         font-size: 16px;
