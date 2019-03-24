@@ -1,6 +1,6 @@
 <template>
     <div id="app" style="background: #f5f5f5">
-        <head-nav  v-if="isshowhead"></head-nav>
+        <head-nav v-if="isshowhead"></head-nav>
         <!--<br>-->
         <router-view/>
         <foot-nav v-if="isshow" title="这是底部导航"></foot-nav>
@@ -11,38 +11,42 @@
 <script>
     export default {
         name: 'App',
-        data(){
-            return {
-
-            }
+        data() {
+            return {}
         },
-        computed:{
-            isshow(){
+        computed: {
+            isshow() {
                 return this.$store.getters.isShow
             },
-            isshowhead(){
+            isshowhead() {
                 return this.$store.getters.isShow
             }
         },
-        watch:{
-            $route(to,from){
+        watch: {
+            $route(to, from) {
                 // if(to.name == 'Forum' ){
                 //     this.$store.dispatch('hideFooter')
                 // }else{
                 //     this.$store.dispatch('showFooter')
                 // };
 
-                if(
+                if (
                     to.name == 'afterEnd_index' ||
-                     'afterEnd_userList' ||
-                     'afterEnd_userInsert'
-                ){
+                    to.name == 'afterEnd_userList' ||
+                    to.name == 'afterEnd_userInsert' ||
+                    to.name == 'afterEnd_userSelect' ||
+                    to.name == 'afterEnd_blogList' ||
+                    to.name == 'afterEnd_forumList' ||
+                    to.name == 'afterEnd_labelList' ||
+                    to.name == 'afterEnd_labelInsert' ||
+                    to.name == 'afterEnd_labelSelect' ||
+                    to.name == 'afterEnd_blogSelect' ||
+                    to.name == 'afterEnd_reportList'
+                ) {
                     this.$store.dispatch('hideFooter')
-                }else{
+                } else {
                     this.$store.dispatch('showFooter')
                 }
-
-
 
 
             }

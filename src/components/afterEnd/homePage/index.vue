@@ -411,7 +411,7 @@
 
     </template>
 
-<style>
+<style scoped>
 
 
     .header {
