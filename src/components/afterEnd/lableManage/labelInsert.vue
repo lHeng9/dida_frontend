@@ -1,6 +1,7 @@
 <template>
+
     <div>
-        <h1>添加用户</h1>
+        <h1>添加标签</h1>
         <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
 
         <div style="width: 80%; height: 800px">
@@ -62,12 +63,15 @@
                     />
                 </a-form-item>
 
+
                 <a-form-item v-bind="tailFormItemLayout">
                     <a-button type="primary" html-type="submit" >提交</a-button>
                 </a-form-item>
             </a-form>
         </div>
+
     </div>
+
 </template>
 
 <script>
@@ -76,6 +80,7 @@
         data() {
             return {
                 confirmDirty: false,
+                // residences,
                 autoCompleteResult: [],
                 formItemLayout: {
                     labelCol: {

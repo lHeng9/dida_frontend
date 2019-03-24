@@ -55,7 +55,8 @@
                     <a-sub-menu key="sub4">
                         <span slot="title">
                             <a-icon type="read"/><span>博客管理</span></span>
-                        <a-menu-item key="7">搜索文章</a-menu-item>
+                        <a-menu-item key="7">
+                            <router-link :to="{name:'afterEnd_blogSelect'}">搜索文章</router-link></a-menu-item>
                         <a-menu-item key="8">
                             <router-link :to="{name:'afterEnd_blogList'}">博客列表</router-link></a-menu-item>
                     </a-sub-menu>
@@ -73,10 +74,12 @@
 
                     <a-sub-menu key="sub7">
                         <span slot="title"><a-icon type="tag"/><span>标签管理</span></span>
-                        <a-menu-item key="12">标签查询</a-menu-item>
+                        <a-menu-item key="12">
+                            <router-link :to="{name:'afterEnd_labelSelect'}">标签查询</router-link></a-menu-item>
                         <a-menu-item key="13">
                             <router-link :to="{name:'afterEnd_labelList'}">标签列表</router-link></a-menu-item>
-                        <a-menu-item key="14">添加标签</a-menu-item>
+                        <a-menu-item key="14">
+                            <router-link :to="{name:'afterEnd_labelInsert'}">添加标签</router-link></a-menu-item>
                     </a-sub-menu>
                     <a-sub-menu key="sub8">
                         <span slot="title"><a-icon type="key"/><span>保留词管理</span></span>

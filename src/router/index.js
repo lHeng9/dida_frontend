@@ -34,8 +34,11 @@ import afterEnd_userList from '../components/afterEnd/userManage/userList'
 import afterEnd_userInsert from '../components/afterEnd/userManage/userInsert'
 import afterEnd_userSelect from '../components/afterEnd/userManage/userSelect'
 import afterEnd_blogList from '../components/afterEnd/blogManage/blogList'
+import afterEnd_blogSelect from '../components/afterEnd/blogManage/blogSelect'
 import afterEnd_forumList from '../components/afterEnd/forumManage/forunmList'
 import afterEnd_labelList from '../components/afterEnd/lableManage/labelList'
+import afterEnd_labelInsert from '../components/afterEnd/lableManage/labelInsert'
+import afterEnd_labelSelect from '../components/afterEnd/lableManage/labelSelect'
 import afterEnd_reportList from '../components/afterEnd/reportManage/reportList'
 
 
@@ -80,6 +83,9 @@ Vue.component('afterEnd_userSelect', afterEnd_userSelect)
 Vue.component('afterEnd_blogList', afterEnd_blogList)
 Vue.component('afterEnd_forumList', afterEnd_forumList)
 Vue.component('afterEnd_labelList', afterEnd_labelList)
+Vue.component('afterEnd_labelInsert', afterEnd_labelInsert)
+Vue.component('afterEnd_labelSelect', afterEnd_labelSelect)
+Vue.component('afterEnd_blogSelect', afterEnd_blogSelect)
 Vue.component('afterEnd_reportList', afterEnd_reportList)
 
 const router = new Router({
@@ -199,6 +205,12 @@ const router = new Router({
                     component: afterEnd_blogList
                 },
                 {
+                    name: 'afterEnd_blogSelect',
+                    path: 'afterEnd_blogSelect',
+                    component: afterEnd_blogSelect
+                }
+                ,
+                {
                     name: 'afterEnd_forumList',
                     path: 'afterEnd_forumList',
                     component: afterEnd_forumList
@@ -207,6 +219,16 @@ const router = new Router({
                     name: 'afterEnd_labelList',
                     path: 'afterEnd_labelList',
                     component: afterEnd_labelList
+                },
+                {
+                    name: 'afterEnd_labelInsert',
+                    path: 'afterEnd_labelInsert',
+                    component: afterEnd_labelInsert
+                },
+                {
+                    name: 'afterEnd_labelSelect',
+                    path: 'afterEnd_labelSelect',
+                    component: afterEnd_labelSelect
                 },
                 {
                     name: 'afterEnd_reportList',
