@@ -5,7 +5,7 @@
         <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
         <!--表格右侧悬停的栏-->
         <a-table :columns="columns" :dataSource="data" :scroll="{ x: 1500, y: 470 }">
-            <a slot="delete" @click="showDeleteConfirm">封印</a>
+            <a slot="banned" @click="showDeleteConfirm">封印</a>
             <a slot="more" @click="showDrawer">更多</a>
         </a-table>
         <!--右侧详情抽屉-->
@@ -15,7 +15,7 @@
                 <div style="width: 90% ; margin: 0 auto; ">
                     <span style="font-weight: bolder; font-size: 20px; color: #3399ff;">用户详情</span>
                     <div style="width: 100%;height: 1px; background-color: #3399ff; margin-bottom: 10px "></div>
-                    <div >
+                    <div>
                         <img src="../../../../static/images/face.jpg" class="face"><br>
                     </div>
                     <div class="a-input">
@@ -24,23 +24,23 @@
                     </div>
                     <div class="a-input">
                         <div class="items">学号/工号</div>
-                        <a-input disabled />
+                        <a-input disabled/>
                     </div>
                     <div class="a-input">
                         <div class="items">姓名</div>
-                        <a-input  :disabled="disabled" />
+                        <a-input :disabled="disabled"/>
                     </div>
                     <div class="a-input">
                         <div class="items">学院</div>
-                        <a-input  :disabled="disabled" />
+                        <a-input :disabled="disabled"/>
                     </div>
                     <div class="a-input">
                         <div class="items">电话</div>
-                        <a-input  :disabled="disabled" />
+                        <a-input :disabled="disabled"/>
                     </div>
                     <div class="a-input">
                         <div class="items">邮箱</div>
-                        <a-input disabled />
+                        <a-input disabled/>
                     </div>
                     <div class="a-input">
                         <div class="items">账号状态</div>
@@ -51,19 +51,19 @@
                     </div>
                     <div class="a-input">
                         <div class="items">个人简介</div>
-                        <a-textarea :disabled="disabled" :autosize="{ minRows: 2, maxRows: 15 }" />
+                        <a-textarea :disabled="disabled" :autosize="{ minRows: 2, maxRows: 15 }"/>
                     </div>
                     <div class="a-input">
                         <div class="items">背景图</div>
-                        <a-input  :disabled="disabled" />
+                        <a-input :disabled="disabled"/>
                     </div>
                     <div class="a-input">
                         <div class="items">QQ</div>
-                        <a-input  :disabled="disabled" />
+                        <a-input :disabled="disabled"/>
                     </div>
                     <div class="a-input">
                         <div class="items">用户类型</div>
-                        <a-select  :disabled="disabled" defaultValue="学生" style="width: 100%" @change="handleChange">
+                        <a-select :disabled="disabled" defaultValue="学生" style="width: 100%" @change="handleChange">
                             <a-select-option value="student">学生</a-select-option>
                             <a-select-option value="teacher">教师</a-select-option>
                         </a-select>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="a-input">
                         <a-button @click="Disabled" type="primary" id="update">编辑</a-button>
-                        <a-button type="primary" >确定</a-button>
+                        <a-button type="primary">确定</a-button>
                     </div>
                 </div>
             </div>
@@ -95,40 +95,22 @@
         {title: '班级', dataIndex: 'class', key: 'class', width: 130},
         {title: '是否正常', dataIndex: 'status', key: 'status', width: 100},
         {title: '加入时间', dataIndex: 'gmt_time', key: 'gmt_time', width: 100},
-        {title: '修改时间', dataIndex: 'gmt_time', key: 'gmt_time', width: 100},
-        {
-            title: '是否违规',
-            key: 'delete',
-            fixed: "right",
-            width: 100,
-            scopedSlots: {customRender: 'delete'},
-        },
-        {
-            title: '详情',
-            key: 'more',
-            fixed: 'right',
-            width: 100,
-            scopedSlots: {customRender: 'more'},
-        },
+        {title: '修改时间', dataIndex: 'gmt_modified', key: 'gmt_modified', width: 100},
+        {title: '是否违规', fixed: "right", width: 100, scopedSlots: {customRender: 'banned'},},
+        {title: '详情', fixed: 'right', width: 100, scopedSlots: {customRender: 'more'},},
     ];
 
     const data = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i <50; i++) {
         data.push({
             key: i,
             name: `人造人${i}号`,
             number: `16140101${i}`,
             college: '软件学院',
             class: '16140Y02班',
-            phone: '15534399695',
-            email: '924070845@qq.com',
-            type: '学生',
-            QQ: '924070845',
             status: '正常',
             gmt_time: '2019-3-15',
-            address: `中北大学文澜苑2号楼. ${i} 宿舍`,
-            more: 'more',
-
+            gmt_modified: '2019-3-15',
         });
     }
 
@@ -138,14 +120,53 @@
                 data,
                 columns,
                 visible: false,
-                disabled: true //决定输入框能否输入
-
+                disabled: true, //决定输入框能否输入
+                // data: [
+                //     {
+                //         key: 1,
+                //         name: `人造人1号`,
+                //         number: `161401011`,
+                //         college: '软件学院',
+                //         class: '16140Y02班',
+                //         status: '正常',
+                //         gmt_time: '2019-3-15',
+                //         gmt_modified: '2019-3-15',
+                //     },
+                //     {
+                //         key: 2,
+                //         name: `人造人2号`,
+                //         number: `161401012`,
+                //         college: '软件学院',
+                //         class: '16140Y02班',
+                //         status: '正常',
+                //         gmt_time: '2019-3-15',
+                //         gmt_modified: '2019-3-15',
+                //     }, {
+                //         key: 3,
+                //         name: `人造人3号`,
+                //         number: `161401013`,
+                //         college: '软件学院',
+                //         class: '16140Y02班',
+                //         status: '正常',
+                //         gmt_time: '2019-3-15',
+                //         gmt_modified: '2019-3-15',
+                //     }, {
+                //         key: 4,
+                //         name: `人造人4号`,
+                //         number: `161401014`,
+                //         college: '软件学院',
+                //         class: '16140Y02班',
+                //         status: '正常',
+                //         gmt_time: '2019-3-15',
+                //         gmt_modified: '2019-3-15',
+                //     },
+                // ]
             }
         },
         components: {},
         methods: {
-            Disabled(){
-              this.disabled = false
+            Disabled() {
+                this.disabled = false
             },
             showDrawer() {
                 this.visible = true
@@ -187,12 +208,15 @@
         margin-bottom: 5px;
     }
 
-    .face{
+    /*详细页头像*/
+    .face {
         width: 50%;
         margin: 20px auto;
         border-radius: 10%;
     }
-    #update{
+
+    /*详细页修改按钮*/
+    #update {
         margin-right: 20px;
         background-color: orange;
         border: orange 1px solid
