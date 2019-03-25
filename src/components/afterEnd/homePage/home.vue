@@ -3,7 +3,7 @@
         <div class="left scrollBar">
             <afterEnd_menu></afterEnd_menu>
         </div>
-        <a-affix :offsetTop="this.top">
+        <a-affix >
             <div class="top">
                 <afterEnd_breadcrumb></afterEnd_breadcrumb>
             </div>

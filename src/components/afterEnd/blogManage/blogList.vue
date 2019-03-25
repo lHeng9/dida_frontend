@@ -158,13 +158,13 @@
                 columns,
 
                 visible: false,
-                pStyle: {
-                    fontSize: '16px',
-                    color: 'rgba(0,0,0,0.85)',
-                    lineHeight: '24px',
-                    display: 'block',
-                    marginBottom: '16px',
-                },
+                // pStyle: {
+                //     fontSize: '16px',
+                //     color: 'rgba(0,0,0,0.85)',
+                //     lineHeight: '24px',
+                //     display: 'block',
+                //     marginBottom: '16px',
+                // },
                 pStyle2: {
                     marginBottom: '24px'
                 }
