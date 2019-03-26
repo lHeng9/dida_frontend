@@ -1,11 +1,12 @@
 <template>
     <div class="body">
 
+        <back-top></back-top>
         <div class="main">
             <div class="left">
                 <div class="main-top">
-                    <Affix class="top" :offset-top="0" >
-                        <Card class="titleCard" :bordered="false">
+                    <Affix class="top" :offset-top="0">
+                        <Card class="titleCard" :bordered="true">
                             <p slot="title">关于肺结节检测相关的FROC曲线和目标检测</p>
                             <el-tag type="info" size="mini">人工智能</el-tag>
                             <el-tag type="info" size="mini">FROC</el-tag>
@@ -24,7 +25,9 @@
                     </div>
                     <div class="contentRight">
                         <div class="authorName">lheng</div>
-                        <div class="time"> <Time :time="time3" :interval="1" /></div>
+                        <div class="time">
+                            <Time :time="time3" :interval="1"/>
+                        </div>
                         <div class="context">
                             <p>导语，如果你被裁了...咖啡我请！
 
@@ -68,36 +71,38 @@
                     </div>
                 </Card>
                 <div class="answer">
-                    <!--<img src="../../../../../static/images/植物.png" height="200" width="200"/>-->
+                    <img src="../../../../../static/images/植物.png" height="200" width="200"/>
                     answer
-                    <a-radio-group class="btn" defaultValue="a" size="small">
-                        <a-radio-button value="a">按时间排序</a-radio-button>
-                        <a-radio-button value="b">按赞数排序</a-radio-button>
-                    </a-radio-group>
+                    <el-radio-group class="radio" v-model="redio" size="small">
+                        <el-radio-button label="按时间排序"></el-radio-button>
+                        <el-radio-button label="按赞数排序"></el-radio-button>
+                    </el-radio-group>
                 </div>
-                <forum-body></forum-body>
+                <forum-body ></forum-body>
+                <pagination class="pagination"></pagination>
                 <send-comment></send-comment>
             </div>
-            <Affix>
             <div class="right">
-                <person class="person"></person>
-                <forum-news></forum-news>
+                <Affix>
+                    <person class="person"></person>
+                    <forum-news></forum-news>
+                </Affix>
             </div>
-            </Affix>
 
         </div>
-        <back-top></back-top>
 
     </div>
 </template>
 
 <script>
     export default {
-        data(){
+        data() {
             return {
-                time3:new Date()
+                time3: new Date(),
+                redio: '按赞数排序'
             }
-        }
+        },
+        methods: {}
     }
 </script>
 
@@ -108,13 +113,13 @@
         width: 100%;
         height: 100%;
         /*background-color: blue;*/
-        background-color: rgb(245,245,245);
+        background-color: rgb(245, 245, 245);
     }
 
     .main {
         width: 80%;
         height: 100%;
-        margin: 44px auto;
+        margin: 60px auto;
         /*border: 1px solid blue;*/
         display: table;
 
@@ -142,11 +147,14 @@
         float: left;
     }
 
+    .main .left .radio {
+        float: right;
+        margin-top: 10px;
+    }
+
     .main .left .contentLeft {
         width: 10%;
         height: 100%;
-        /*border: 1px solid red;*/
-        /*display:inline-block;*/
         float: left;
     }
 
@@ -170,9 +178,6 @@
     .titleCard .btn {
         display: inline-block;
         float: right;
-        /*border:1px solid red;*/
-        /*margin-bottom:10px;*/
-        /*margin-left:400px;*/
     }
 
     .authorContent {
@@ -184,7 +189,7 @@
         float: right;
         width: 87%;
         /*border:1px solid red;*/
-        padding-right:10px;
+        padding-right: 10px;
     }
 
     .authorContent .contentRight .authorName {
@@ -208,27 +213,38 @@
         /*border:1px solid red;*/
 
     }
-    .left .answer{
-        width:100%;
-        height:50px;
+
+    .left .answer {
+        width: 100%;
+        height: 50px;
         /*border:1px solid red;*/
-        margin-top:10px;
-        font-size:20px;
+        margin-top: 10px;
+        font-size: 20px;
         font-weight: bold;
-        line-height: 40px;
-        border-bottom:1px solid white;
+        line-height: 50px;
+        border-bottom: 1px solid white;
         /*padding:5px;*/
+
     }
-    .left .answer img{
-        width:40px;
-        height:40px;
-        display:inline-block;
+
+    .left .answer img {
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        /*border:1px solid red;*/
+
     }
-    .left .answer .btn{
-        float:right;
+
+    .left .answer .btn {
+        float: right;
     }
-    .main .right .person{
-        margin-bottom:10px;
+
+    .left .pagination {
+        margin-top:30px;
+    }
+
+    .main .right .person {
+        margin-bottom: 10px;
     }
 
 </style>

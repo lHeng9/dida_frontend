@@ -25,6 +25,7 @@ import test from '../components/frontEnd/blog/index/test'
 import test2 from '../components/frontEnd/blog/index/test2'
 import clickBar from '../components/frontEnd/blog/blogArticle/clickBar'
 import forumEditIndex from '../components/frontEnd/forum/forumEdit/index'
+import pagination from '../components/frontEnd/forum/forumDetail/pagination'
 // 后台管理
 import afterEnd from '../components/afterEnd/homePage/home'
 import afterEnd_menu from '../components/afterEnd/common/menu'
@@ -73,6 +74,7 @@ Vue.component('personalTagsMenu', personalTagsMenu)
 Vue.component('forumDetail', forumDetail)
 Vue.component('clickBar', clickBar)
 Vue.component('test', test)
+Vue.component('pagination',pagination)
 //后台管理
 Vue.component('afterEnd_menu', afterEnd_menu)
 Vue.component('afterEnd_index', afterEnd_index)
@@ -252,7 +254,7 @@ const router = new Router({
         }
     ]
 });
-
+//
 // 导航守卫
 // 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
 //

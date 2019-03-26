@@ -6,7 +6,9 @@
             </div>
             <div class="contentRight">
                 <div class="authorName">lheng</div>
-                <div class="time"> <Time :time="time3" :interval="1" /></div>
+                <div class="time">
+                    <Time :time="time3" :interval="1"/>
+                </div>
                 <div class="context">
                     <p>导语，如果你被裁了...咖啡我请！
 
@@ -48,25 +50,104 @@
 
                         去吧，朝着瞄准的方向，使出浑身的力气，成就自已！ </p>
                 </div>
-                <div class="contentFoot">
+                <div class="contentFoot" @click="showModal">
                     <star class="star"></star>
-                    <comment class="comment"></comment>
+                    <comment class="comment" @click="showModal"></comment>
                     <report class="report"></report>
                 </div>
             </div>
         </Card>
+        <a-button type="primary" @click="showDrawer">
+            Open
+        </a-button>
+
+        <a-modal
+            title="Basic Modal"
+            v-model="visible"
+            @ok="handleOk"
+            width="700px"
+            bodyStyle="height:500px;overflow-y:scroll;"
+        >
+            <a-list
+                itemLayout="horizontal"
+                :dataSource="data"
+            >
+                <a-list-item slot="renderItem" slot-scope="item, index">
+                    <a-list-item-meta
+                        description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                    >
+                        <a slot="title" href="https://vue.ant.design/">{{item.title}}</a>
+                        <a-avatar slot="avatar" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                    </a-list-item-meta>
+                </a-list-item>
+            </a-list>
+        </a-modal>
+        <!--</el-card>-->
 
     </div>
 </template>
 
 <script>
+    const data = [
+        {
+            title: 'Ant Design Title 1',
+        },
+        {
+            title: 'Ant Design Title 2',
+        },
+        {
+            title: 'Ant Design Title 3',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+        {
+            title: 'Ant Design Title 4',
+        },
+
+    ]
     export default {
-        data(){
+        data() {
             return {
-                time3:new Date()
+                time3: new Date(),
+                visible: false,
+                data
             }
+        },
+        methods: {
+            showModal() {
+                this.visible = true
+            },
+            handleOk(e) {
+                console.log(e);
+                this.visible = false
+            },
+        }}
+
+        var obj = {
+            width: '200px',
+            height: '200px'
         }
-    }
+        // this.$ref.modal.bodyStyle = obj;
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -83,59 +164,74 @@
         width: 100%;
         height: 100%;
     }
+
     .authorContent {
         margin-top: 3px;
-        display:table;
+        display: table;
     }
-    .authorContent .contentRight{
-        float:right;
-        width:87%;
+
+    .authorContent .contentRight {
+        float: right;
+        width: 87%;
         /*border:1px solid red;*/
-        padding-right:10px;
+        padding-right: 10px;
 
     }
+
     .authorContent .contentRight .authorName {
-        font-size:13px;
-        font-weight:bold;
+        font-size: 13px;
+        font-weight: bold;
         /*border:1px solid red;*/
-        padding-left:10px;
-        display:inline-block;
+        padding-left: 10px;
+        display: inline-block;
     }
-    .authorContent .contentRight .time{
-        display:inline-block;
-        font-size:12px;
-        margin-left:20px;
-        color:grey;
+
+    .authorContent .contentRight .time {
+        display: inline-block;
+        font-size: 12px;
+        margin-left: 20px;
+        color: grey;
         /*border:1px solid red;*/
     }
-    .authorContent .contentRight .context{
-        margin-top:10px;
-        margin-bottom:10px;
+
+    .authorContent .contentRight .context {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
-    .contentFoot{
-        width:100%;
-        height:24px;
+
+    .contentFoot {
+        width: 100%;
+        height: 24px;
         /*border:1px solid red;*/
-        float:right;
-        margin-bottom:10px;
+        float: right;
+        margin-bottom: 10px;
 
     }
-    .contentFoot .star{
-        margin-left:10px;
+
+    .contentFoot .star {
+        margin-left: 10px;
         /*border:1px solid red;*/
         /*height:24px;*/
         /*width:50px;*/
         display: inline-block;
-        margin-right:10px;
+        margin-right: 10px;
     }
-    .contentFoot .report{
+
+    .contentFoot .report {
         /*border:1px solid red;*/
         display: inline-block;
-        float:right;
+        float: right;
     }
-    .contentFoot .comment{
-        display:inline-block;
-        cursor:pointer;
+
+    .contentFoot .comment {
+        display: inline-block;
+        /*cursor:pointer;*/
+    }
+
+    .a-modal {
+        width: 200px;
+        height: 300px;
+        overflow-y: scroll;
     }
 
 </style>
