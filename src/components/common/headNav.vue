@@ -22,9 +22,9 @@
                 <el-menu-item index="4">内推</el-menu-item>
                 <el-submenu index="6">
                     <template slot="title">排行榜</template>
-                    <el-menu-item index="2-1">博客排行</el-menu-item>
-                    <el-menu-item index="2-2">论坛排行</el-menu-item>
-                    <el-menu-item index="2-3">活跃度排行</el-menu-item>
+                    <el-menu-item index="6-1">博客排行</el-menu-item>
+                    <el-menu-item index="6-2">论坛排行</el-menu-item>
+                    <el-menu-item index="6-3">活跃度排行</el-menu-item>
                 </el-submenu>
                 <el-submenu index="7">
                     <template slot="title">消息中心</template>

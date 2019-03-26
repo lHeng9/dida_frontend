@@ -2,7 +2,7 @@
     <div>
         <el-card class="card" shadow="hover">
             <div slot="header" class="clearfix">
-                <span><strong>最新发布</strong></span>
+                <span style="font-size:16px;"><strong>最新发布</strong></span>
             </div>
             <div class="content" v-for="index in 8">
                 <div class="inf"  :key="index">

@@ -4,7 +4,7 @@
 
             <el-card class="box-card" shadow="hover">
                 <div slot="header" class="clearfix">
-                    <span><strong>标签专栏</strong></span>
+                    <span style="font-size:16px;"><strong>标签专栏</strong></span>
                 </div>
                 <!--<p slot="title">标签专栏</p>-->
 
