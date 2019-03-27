@@ -5,120 +5,149 @@
         <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
 
 
-        <a-table :columns="columns" :dataSource="data" :scroll="{ x: 1500, y: 470 }">
-            <a slot="delete" @click="showDeleteConfirm">删除</a>
-
-            <a slot="more" @click="showDrawer">更多</a>
+        <a-table :dataSource="data" :columns="columns">
+            <div slot="filterDropdown" slot-scope="{ setSelectedKeys, selectedKeys, confirm, clearFilters, column }" class='custom-filter-dropdown'>
+                <a-input
+                        v-ant-ref="c => searchInput = c"
+                        :placeholder="`Search ${column.dataIndex}`"
+                        :value="selectedKeys[0]"
+                        @change="e => setSelectedKeys(e.target.value ? [e.target.value] : [])"
+                        @pressEnter="() => handleSearch(selectedKeys, confirm)"
+                        style="width: 188px; margin-bottom: 8px; display: block;"
+                />
+                <a-button
+                        type='primary'
+                        @click="() => handleSearch(selectedKeys, confirm)"
+                        icon="search"
+                        size="small"
+                        style="width: 90px; margin-right: 8px"
+                >Search</a-button>
+                <a-button
+                        @click="() => handleReset(clearFilters)"
+                        size="small"
+                        style="width: 90px"
+                >Reset</a-button>
+            </div>
+            <a-icon slot="filterIcon" slot-scope="filtered" type='search' :style="{ color: filtered ? '#108ee9' : undefined }" />
+            <template slot="customRender" slot-scope="text">
+      <span v-if="searchText">
+        <template v-for="(fragment, i) in text.toString().split(new RegExp(`(?<=${searchText})|(?=${searchText})`, 'i'))">
+          <mark v-if="fragment.toLowerCase() === searchText.toLowerCase()" :key="i" class="highlight">{{fragment}}</mark>
+          <template v-else>{{fragment}}</template>
+        </template>
+      </span>
+                <template v-else>{{text}}</template>
+            </template>
         </a-table>
 
-
-        <a-drawer
-                width=640
-                placement="right"
-                :closable="false"
-                @close="onClose"
-                :visible="visible"
-        >
-            <!--抽屉页面-->
-            <div>
-
-
-
-
-            </div>
-
-        </a-drawer>
     </div>
 </template>
 <script>
-
-    // import descriptionItem from './descriptionItem'
-    const columns = [
-        {title: 'ID', width: 100, dataIndex: 'number', key: 'number', fixed: 'left'},
-        {title: '举报人', dataIndex: 'college', key: 'college', width: 100},
-        {title: '举报内容', dataIndex: 'class', key: 'class', width: 130},
-        {title: '举报类型', dataIndex: 'phone', key: 'phone', width: 130},
-        {title: '被举报ID', dataIndex: 'phone', key: 'phone', width: 130},
-        {title: '发布时间', dataIndex: 'gmt_time', key: 'gmt_time',width: 170},
-        {title: '修改时间', dataIndex: 'gmt_time', key: 'gmt_time',width: 170},
-        {
-            title: '删除',
-            key: 'delete',
-            fixed: "right",
-            width: 100,
-            scopedSlots: {customRender: 'delete'},
-        },
-        {
-            title: '详情',
-            key: 'more',
-            fixed: 'right',
-            width: 100,
-            scopedSlots: {customRender: 'more'},
-        },
-    ];
-
-    const data = [];
-    for (let i = 0; i < 100; i++) {
-        data.push({
-            key: i,
-            name: `人造人${i}号`,
-            number: `16140101${i}`,
-            college: '软件学院',
-            class: '16140Y02班',
-            phone: '15534399695',
-            email: '924070845@qq.com',
-            type: '学生',
-            QQ: '924070845',
-            status: '正常',
-            gmt_time: '2019-3-15',
-            address: `中北大学文澜苑2号楼. ${i} 宿舍`,
-            operation: 'delete',
-            more: 'more'
-        });
-    }
+    const data = [{
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+    }, {
+        key: '2',
+        name: 'Joe Black',
+        age: 42,
+        address: 'London No. 1 Lake Park',
+    }, {
+        key: '3',
+        name: 'Jim Green',
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+    }, {
+        key: '4',
+        name: 'Jim Red',
+        age: 32,
+        address: 'London No. 2 Lake Park',
+    }]
 
     export default {
-        data() {
+        data () {
             return {
                 data,
-                columns,
-
-                visible: false,
-                pStyle: {
-                    fontSize: '16px',
-                    color: 'rgba(0,0,0,0.85)',
-                    lineHeight: '24px',
-                    display: 'block',
-                    marginBottom: '16px',
-                },
-                pStyle2: {
-                    marginBottom: '24px'
-                }
+                searchText: '',
+                searchInput: null,
+                columns: [{
+                    title: 'Name',
+                    dataIndex: 'name',
+                    key: 'name',
+                    scopedSlots: {
+                        filterDropdown: 'filterDropdown',
+                        filterIcon: 'filterIcon',
+                        customRender: 'customRender',
+                    },
+                    onFilter: (value, record) => record.name.toLowerCase().includes(value.toLowerCase()),
+                    onFilterDropdownVisibleChange: (visible) => {
+                        if (visible) {
+                            setTimeout(() => {
+                                this.searchInput.focus()
+                            },0)
+                        }
+                    },
+                }, {
+                    title: 'Age',
+                    dataIndex: 'age',
+                    key: 'age',
+                    scopedSlots: {
+                        filterDropdown: 'filterDropdown',
+                        filterIcon: 'filterIcon',
+                        customRender: 'customRender',
+                    },
+                    onFilter: (value, record) => record.age.toLowerCase().includes(value.toLowerCase()),
+                    onFilterDropdownVisibleChange: (visible) => {
+                        if (visible) {
+                            setTimeout(() => {
+                                this.searchInput.focus()
+                            })
+                        }
+                    },
+                }, {
+                    title: 'Address',
+                    dataIndex: 'address',
+                    key: 'address',
+                    scopedSlots: {
+                        filterDropdown: 'filterDropdown',
+                        filterIcon: 'filterIcon',
+                        customRender: 'customRender',
+                    },
+                    onFilter: (value, record) => record.address.toLowerCase().includes(value.toLowerCase()),
+                    onFilterDropdownVisibleChange: (visible) => {
+                        if (visible) {
+                            setTimeout(() => {
+                                this.searchInput.focus()
+                            })
+                        }
+                    },
+                }],
             }
         },
-        components: {},
         methods: {
-            showDrawer() {
-                this.visible = true
+            handleSearch (selectedKeys, confirm) {
+                confirm()
+                this.searchText = selectedKeys[0]
             },
-            onClose() {
-                this.visible = false
-            },
-            showDeleteConfirm() {
-                this.$confirm({
-                    title: '删除',
-                    content: '确定删除吗？',
-                    okText: 'Yes',
-                    okType: 'danger',
-                    cancelText: 'No',
-                    onOk() {
-                        console.log('OK');
-                    },
-                    onCancel() {
-                        console.log('Cancel');
-                    },
-                });
+
+            handleReset (clearFilters) {
+                clearFilters()
+                this.searchText = ''
             },
         },
     }
 </script>
+<style scoped>
+    .custom-filter-dropdown {
+        padding: 8px;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+    }
+
+    .highlight {
+        background-color: rgb(255, 192, 105);
+        padding: 0px;
+    }
+</style>

@@ -3,10 +3,6 @@
         <el-card class="box-card" shadow="hover">
             <img id="face" src="../../../../../static/images/face.jpg" alt=""/>
             <div class="top-message">
-                <!--<span style="font-size: 20px"><strong>玄青丶丶</strong></span>-->
-                <!--<span style="font-size: 10px"><strong>一只摸着石头过河的幼年程序员</strong></span>-->
-                <!--<h6>浏览量：</h6>-->
-                <!--<h6>点赞量：</h6>-->
                 <div >
                     <a-card title="玄青丶丶" :bordered="false" >
 
