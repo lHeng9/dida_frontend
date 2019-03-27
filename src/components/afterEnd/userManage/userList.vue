@@ -121,46 +121,7 @@
                 columns,
                 visible: false,
                 disabled: true, //决定输入框能否输入
-                // data: [
-                //     {
-                //         key: 1,
-                //         name: `人造人1号`,
-                //         number: `161401011`,
-                //         college: '软件学院',
-                //         class: '16140Y02班',
-                //         status: '正常',
-                //         gmt_time: '2019-3-15',
-                //         gmt_modified: '2019-3-15',
-                //     },
-                //     {
-                //         key: 2,
-                //         name: `人造人2号`,
-                //         number: `161401012`,
-                //         college: '软件学院',
-                //         class: '16140Y02班',
-                //         status: '正常',
-                //         gmt_time: '2019-3-15',
-                //         gmt_modified: '2019-3-15',
-                //     }, {
-                //         key: 3,
-                //         name: `人造人3号`,
-                //         number: `161401013`,
-                //         college: '软件学院',
-                //         class: '16140Y02班',
-                //         status: '正常',
-                //         gmt_time: '2019-3-15',
-                //         gmt_modified: '2019-3-15',
-                //     }, {
-                //         key: 4,
-                //         name: `人造人4号`,
-                //         number: `161401014`,
-                //         college: '软件学院',
-                //         class: '16140Y02班',
-                //         status: '正常',
-                //         gmt_time: '2019-3-15',
-                //         gmt_modified: '2019-3-15',
-                //     },
-                // ]
+
             }
         },
         components: {},
@@ -196,7 +157,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .a-input {
         background-color: rgba(255, 255, 255, 0.2);
         margin-bottom: 15px;
