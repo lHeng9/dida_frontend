@@ -1,11 +1,9 @@
 <template>
 
     <div>
-        <h1>用户列表</h1>
-        <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
-
+        <!--标题线-->
+        <a-divider orientation="left" style="font-size: 22px">用户列表</a-divider>
         <a-table :dataSource="data" :columns="columns">
-
             <!--查询框-->
             <div slot="filterDropdown"
                  slot-scope="{ setSelectedKeys, selectedKeys, confirm, clearFilters, column }"
@@ -49,10 +47,7 @@
                 </span>
                 <template v-else>{{text}}</template>
             </template>
-            <!--<div slot="more" slot-scope="text">-->
-            <!--<a href="javascript; @click="showDrawer>more</a>-->
-            <!--<router-link :to="{name:''}"></router-link>-->
-            <!--</div>-->
+
             <a slot="banned" slot-scope="text" @click="showDeleteConfirm">封印</a>
             <a slot="more" slot-scope="text" @click="showDrawer">更多</a>
         </a-table>

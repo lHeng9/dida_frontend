@@ -24,7 +24,7 @@
                             </span>
                             <span class="card-el">
                                 <!--<i class="el-icon-star-off"></i>-->
-                                <a-icon type="heart" spin="true"/>
+                                <a-icon type="heart"/>
                                 点赞量：100
                             </span>
                             <span class="card-el">
