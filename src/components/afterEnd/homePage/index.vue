@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>系统主页</h1>
-        <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
+        <!--标题线-->
+        <a-divider orientation="left" style="font-size: 22px">系统主线</a-divider>
         <div class=" welcome ">
             <el-card class="top-card" shadow="hover">
                 <img id="face" src="../../../../static/images/face.jpg" alt=""/>
