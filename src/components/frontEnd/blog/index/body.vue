@@ -60,7 +60,7 @@
                             <div slot="header" class="clearfix">
                                 <span><strong>标签专栏</strong></span>
                             </div>
-                            <el-collapse v-model="activeNames" @change="handleChange">
+                            <el-collapse v-model="activeNames" >
                                 <el-collapse-item class="content-right-title" title="课外" name="1">
                                     <el-tag>JavaScript</el-tag>
                                     <el-tag type="success">Vue</el-tag>
@@ -87,7 +87,8 @@
                     </div>
                     <!--右侧今日热门文章-->
                     <div class="right-windows">
-                        <a-affix :offsetTop="this.top">
+                        <!--<a-affix :offsetTop="this.top">-->
+                        <a-affix>
                             <el-card class="box-card" shadow="hover">
                                 <div slot="header" class="clearfix">
                                     <span><strong>最新发布</strong></span>
@@ -166,12 +167,7 @@
             }
         },
         methods: {
-            handleSelect(key, keyPath) {
-                console.log(key, keyPath);
-            },
-            handleChange(val) {
-                console.log(val);
-            }
+
         }
     }
 </script>

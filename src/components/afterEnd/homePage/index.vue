@@ -6,7 +6,7 @@
             <el-card class="top-card" shadow="hover">
                 <img id="face" src="../../../../static/images/face.jpg" alt=""/>
                 <div class="top-message">
-                    <h1>上午好呀，玄青丶丶 ，今天也是充满希望的一天~~</h1>
+                    <h1>{{hoursTip}}，玄青丶丶 ，{{greeting}}</h1>
                     <p>评论管理员</p>
                     <p>上次登录时间：2019-3-25 13:12:23</p>
                 </div>
@@ -222,6 +222,40 @@
     </div>
 
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                hoursTip: ' ',
+                greeting: ' '
+            }
+        },
+        created() {
+            this.getMycount();
+        },
+        methods: {
+            getMycount: function () {
+                let self = this;
+                let date = new Date();
+                if (date.getHours() >= 0 && date.getHours() < 12) {
+                    self.hoursTip = "上午好鸭~";
+                    self.greeting = '今天也是充满希望的一天~~'
+                } else if (date.getHours() >= 12 && date.getHours() < 13) {
+                    self.hoursTip = "中午好鸭~";
+                    self.greeting = "答应我，午饭一定要吃。"
+                } else if (date.getHours() >= 13 && date.getHours() < 18) {
+                    self.hoursTip = "下午好鸭~"
+                    self.greeting = "生活再忙也要懂得欣赏午后的阳光。"
+                } else {
+                    self.hoursTip = "晚上好鸭~",
+                    self.greeting = "为了秀发，不能熬夜了呦。。"
+                }
+            }
+        }
+    }
+</script>
+
 
 <style scoped>
 

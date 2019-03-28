@@ -78,7 +78,7 @@
 
 <style scoped>
     .editor {
-        margin-top: 50px;
+        margin-top: 70px;
         height: 600px;
     }
 

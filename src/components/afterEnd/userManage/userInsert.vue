@@ -1,8 +1,7 @@
 <template>
     <div>
-        <h1>添加用户</h1>
-        <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
-
+        <!--标题线-->
+        <a-divider orientation="left" style="font-size: 22px">添加用户</a-divider>
         <div style="width: 80%; height: 800px">
             <a-form :form="form" @submit="handleSubmit">
                 <a-form-item v-bind="formItemLayout" label="邮箱">

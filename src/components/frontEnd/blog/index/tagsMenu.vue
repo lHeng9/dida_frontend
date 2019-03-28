@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu  class="el-menu-demo" mode="horizontal" >
 
             <el-badge  class="item" type="primary">
                 <el-menu-item index="1">数据结构</el-menu-item>
