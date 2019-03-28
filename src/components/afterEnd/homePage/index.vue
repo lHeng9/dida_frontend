@@ -12,8 +12,6 @@
                 </div>
             </el-card>
         </div>
-
-
         <h1>基本统计信息</h1>
         <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
         <div class="message">
@@ -217,8 +215,6 @@
             </el-card>
 
         </div>
-
-
     </div>
 
 </template>
