@@ -184,58 +184,69 @@ const router = new Router({
                 {
                     name: 'afterEnd_index',
                     path: 'afterEnd_index',
-                    component: afterEnd_index
+                    component: afterEnd_index,
+                    meta: {title: '后台首页'}
                 },
                 {
                     name: 'afterEnd_userList',
-                    path: 'afterEnd_userList',
-                    component: afterEnd_userList
+                    path: 'afterEnd_user/afterEnd_userList',
+                    component: afterEnd_userList,
+                    meta: {title: '用户列表'}
                 },
                 {
                     name: 'afterEnd_userInsert',
-                    path: 'afterEnd_userInsert',
-                    component: afterEnd_userInsert
+                    path: 'afterEnd_user/afterEnd_userInsert',
+                    component: afterEnd_userInsert,
+                    meta: {title: '添加用户'}
                 },
                 {
                     name: 'afterEnd_userSelect',
-                    path: 'afterEnd_userSelect',
-                    component: afterEnd_userSelect
+                    path: 'afterEnd_user/afterEnd_userSelect',
+                    component: afterEnd_userSelect,
+                    meta: {title: '查询用户'}
                 },
                 {
                     name: 'afterEnd_blogList',
-                    path: 'afterEnd_blogList',
-                    component: afterEnd_blogList
+                    path: 'afterEnd_blog/afterEnd_blogList',
+                    component: afterEnd_blogList,
+                    meta: {title: '博客列表'}
                 },
                 {
                     name: 'afterEnd_blogSelect',
-                    path: 'afterEnd_blogSelect',
-                    component: afterEnd_blogSelect
+                    path: 'afterEnd_blog/afterEnd_blogSelect',
+                    component: afterEnd_blogSelect,
+                    meta: {title: '查询博客'}
                 }
                 ,
                 {
                     name: 'afterEnd_forumList',
-                    path: 'afterEnd_forumList',
-                    component: afterEnd_forumList
+                    path: 'afterEnd_forum/afterEnd_forumList',
+                    component: afterEnd_forumList,
+                    meta: {title: '论坛列表'}
                 },
                 {
                     name: 'afterEnd_labelList',
-                    path: 'afterEnd_labelList',
-                    component: afterEnd_labelList
+                    path: 'afterEnd_label/afterEnd_labelList',
+                    component: afterEnd_labelList,
+                    meta: {title: '标签列表'}
                 },
                 {
                     name: 'afterEnd_labelInsert',
-                    path: 'afterEnd_labelInsert',
-                    component: afterEnd_labelInsert
+                    path: 'afterEnd_label/afterEnd_labelInsert',
+                    component: afterEnd_labelInsert,
+                    meta: {title: '添加标签'}
                 },
                 {
                     name: 'afterEnd_labelSelect',
-                    path: 'afterEnd_labelSelect',
-                    component: afterEnd_labelSelect
+                    path: 'afterEnd_label/afterEnd_labelSelect',
+                    component: afterEnd_labelSelect,
+                    meta: {title: '查询标签'}
                 },
                 {
                     name: 'afterEnd_reportList',
-                    path: 'afterEnd_reportList',
-                    component: afterEnd_reportList
+                    path: 'afterEnd_repor/afterEnd_reportList',
+                    component: afterEnd_reportList,
+                    meta: {title: '举报列表'}
                 }
             ]
 

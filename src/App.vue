@@ -47,7 +47,7 @@
                 } else {
                     this.$store.dispatch('showFooter')
                 }
-
+                // this.getBreadcrumb();
 
             }
         }
