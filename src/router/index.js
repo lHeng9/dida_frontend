@@ -41,6 +41,7 @@ import afterEnd_labelList from '../components/afterEnd/lableManage/labelList'
 import afterEnd_labelInsert from '../components/afterEnd/lableManage/labelInsert'
 import afterEnd_labelSelect from '../components/afterEnd/lableManage/labelSelect'
 import afterEnd_reportList from '../components/afterEnd/reportManage/reportList'
+import afterEnd_adminLogin from '../components/afterEnd/common/adminLogin'
 
 
 
@@ -89,6 +90,7 @@ Vue.component('afterEnd_labelInsert', afterEnd_labelInsert)
 Vue.component('afterEnd_labelSelect', afterEnd_labelSelect)
 Vue.component('afterEnd_blogSelect', afterEnd_blogSelect)
 Vue.component('afterEnd_reportList', afterEnd_reportList)
+Vue.component('afterEnd_adminLogin', afterEnd_adminLogin)
 
 const router = new Router({
     routes: [
@@ -109,7 +111,7 @@ const router = new Router({
             }
         },
         {
-            path: '/login',
+            path: '/adminLogin',
             name: 'login',
             component: login
         },
@@ -175,6 +177,11 @@ const router = new Router({
             redirect: {
                 name: 'afterEnd_index'//重定向
             }
+        },
+        {
+            name: 'afterEnd_adminLogin',
+            path: '/afterEnd_adminLogin',
+            component: afterEnd_adminLogin
         },
         {
             name: 'afterEnd',
@@ -270,14 +277,14 @@ const router = new Router({
 // 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
 //
 // router.beforeEach((to,from,next)=>{
-//     if(to.path === '/login'){
+//     if(to.path === '/adminLogin'){
 //         next()
 //         console.logManage(123)
 //     }else{
 //         let token = localStorage.getItem('Authorization')
 //         console.logManage(token)
 //         if(token === null || token === ''){
-//             next('/login')
+//             next('/adminLogin')
 //         }else{
 //             next()
 //         }
