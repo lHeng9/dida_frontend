@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--标题线-->
-        <a-divider orientation="left" style="font-size: 22px">系统主线</a-divider>
+        <a-divider orientation="left" style="font-size: 22px">系统主页</a-divider>
         <div class=" welcome ">
             <el-card class="top-card" shadow="hover">
                 <img id="face" src="../../../../static/images/face.jpg" alt=""/>
@@ -13,8 +13,9 @@
                 </div>
             </el-card>
         </div>
-        <h1>基本统计信息</h1>
-        <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
+        <!--标题线-->
+        <a-divider orientation="left" style="font-size: 22px">基本统计信息</a-divider>
+
         <div class="message">
             <!--单个卡片-->
 
