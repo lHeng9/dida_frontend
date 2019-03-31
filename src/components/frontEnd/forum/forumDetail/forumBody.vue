@@ -57,9 +57,6 @@
                 </div>
             </div>
         </Card>
-        <a-button type="primary" @click="showDrawer">
-            Open
-        </a-button>
 
         <a-modal
             title="Basic Modal"

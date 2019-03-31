@@ -28,6 +28,9 @@
         methods: {
             onSearch(value) {
                 console.log(value)
+                this.$Axios.get('/system/sysuser/user/'+value).then(res=>{
+                    console.log(res)
+                })
             },
         },
     }
