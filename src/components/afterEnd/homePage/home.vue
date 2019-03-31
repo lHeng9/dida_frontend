@@ -3,9 +3,36 @@
         <div class="left scrollBar">
             <afterEnd_menu></afterEnd_menu>
         </div>
-        <a-affix >
+        <a-affix>
             <div class="top">
                 <afterEnd_breadcrumb></afterEnd_breadcrumb>
+                <div class="top_right">
+                    <span>
+                        <a-dropdown>
+                            <img class="face ant-dropdown-link" src="../../../../static/images/face.jpg" alt="">
+                            <a-menu slot="overlay" class="a-menu">
+                              <a-menu-item>
+                                <a href="javascript:;"><a-icon type="user"/>&nbsp;个人中心</a>
+                              </a-menu-item>
+                              <a-menu-item>
+                                <a href="javascript:;"><a-icon type="setting"/>&nbsp;设置</a>
+                              </a-menu-item>
+                              <a-menu-item>
+                                <router-link :to="{name:'afterEnd_adminLogin'}"><a-icon type="lock" />&nbsp;锁定</router-link>
+                              </a-menu-item>
+                                <a-menu-item>
+                                    <router-link :to="{name:'afterEnd_adminLogin'}"><a-icon
+                                            type="poweroff"/>&nbsp;注销</router-link>
+                              </a-menu-item>
+                            </a-menu>
+                        </a-dropdown>
+
+                    </span>
+                    <span class="top_right_content" @click="openNotification">
+                        <a-badge :count="100"><a href="#" class="head-example"></a></a-badge>
+                        <a-icon type="bell" style="fontSize :20px; float: right;margin: 7px"/>
+                    </span>
+                </div>
             </div>
         </a-affix>
         <div class="right">
@@ -24,10 +51,54 @@
                 collapsed: false,
             }
         },
+
+        methods: {
+            //提示消息的方法
+            openNotification() {
+                this.$notification.open({
+                    message: '新消息',
+                    description: '您的余额已不足，请及时充值！！.',
+                    placement: 'bottomRight',
+                    duration: 10,
+                    style: {
+                        width: '400px',
+                    },
+                },)
+            },
+        }
+
     }
 </script>
 <style scoped>
+    .a-menu {
+        margin-top: 10px;
+        width: 100px;
+    }
 
+    .top_right {
+        float: right;
+        width: 300px;
+        height: 40px;
+        margin: 12px 50px 12px 12px;
+    }
+
+    .top_right .face {
+        float: right;
+        height: 40px;
+        width: 40px;
+        margin-left: 30px;
+        display: inline-block;
+        border-radius: 20%;
+    }
+
+    .top_right_content {
+        margin-left: 30px;
+        width: 40px;
+        height: 40px;
+        /*background-color: #3399ff;*/
+        float: right;
+        display: inline-block;
+    }
 
     .left {
         width: 16%;
@@ -35,23 +106,22 @@
         position: fixed;
         height: 100%;
         overflow: auto;
-
     }
 
     .right {
         width: 84%;
         float: right;
-        padding:0  25px;
+        padding: 0 25px;
         background-color: white;
     }
 
     .top {
         width: 84%;
         height: 65px;
-        background-color: white;
         float: right;
+        background-color: rgba(255,255,255,0.8);
         /*添加阴影*/
-        -webkit-box-shadow: #666  0 0 30px ;
+        -webkit-box-shadow: #666 0 0 30px;
     }
 
 
@@ -61,7 +131,7 @@
     }
 
     ::-webkit-scrollbar {
-    / / 滚动条的宽度 width: 15px;
+    / / 滚动条的宽度 width: 15 px;
         height: 15px;
     }
 

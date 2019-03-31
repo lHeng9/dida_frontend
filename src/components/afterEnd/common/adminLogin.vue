@@ -1,13 +1,13 @@
 <template>
     <div class="main">
         <div class="bgc">
-            <img src="../../../../static/images/bgc.jpg" alt="">
+            <img src="../../../../static/images/星空.jpg" alt="">
             <form action="">
                 <span class="title">welcome</span>
-                <el-input class="input username" v-model="username" placeholder="请输入账号"></el-input>
-                <el-input class="input password" v-model="password" placeholder="请输入密码" show-password></el-input>
+                <el-input class="input username" v-model="username" placeholder="请输入账号" ></el-input>
+                <el-input class="input password" v-model="password" placeholder="请输入密码" style="border-radius: 20px;" show-password></el-input>
 
-                <el-button class="input submit" type="primary" @click="submit">登录</el-button>
+                <el-button class=" submit" type="primary" @click="submit" style="border-radius: 20px;">登录</el-button>
                 <br>
                 <span class="forget">忘记密码</span>
             </form>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-
+    var k = 0 //用来记录输入密码错误的次数
     import {mapMutations} from 'vuex';
 
     export default {
@@ -33,7 +33,8 @@
                 // this.username = this.$refs.username.value
                 // this.password = this.$refs.password.value
                 if (this.username === '' || this.password === '') {
-                    alert('用户名或密码不能为空')
+                    // alert('用户名或密码不能为空')
+                    this.$message.warning('用户名或密码不能为空');
                 } else {
                     console.log(this.username, this.password)
                     this.$Axios.post('/adminLogin', {
@@ -46,7 +47,14 @@
                         this.$router.push('/')
                         console.log(this.token)
                     }).catch(error => {
-                        alert('用户名或密码不正确')
+                        // alert('用户名或密码不正确')
+                        k +=1
+                        if (k<5){
+                            this.$message.error('用户名或密码不正确');
+                        }else{
+                            this.$message.error('您输入错误次数太多，请稍后重试');
+                        }
+
                     })
                 }
 
@@ -58,7 +66,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .main {
-        margin-top: 40px;
+        /*margin-top: 40px;*/
         overflow-x: hidden;
         overflow-y: hidden;
     }
@@ -69,19 +77,19 @@
 
     .main .bgc img{
         width:100%;
-        height:700px;
+        height:720px;
         /*margin-top:-20px;*/
     }
     .main form {
         /*border: 1px solid red;*/
-        width: 20%;
+        width: 25%;
         height: 350px;
-        /*float:right;*/
+        border-radius: 10px;
         background-color:rgba(255,255,255,0.5);
         position: absolute;
         top: 50%;
-        left: 50%;
-        margin-top: -150px;
+        left: 48%;
+        margin-top: -200px;
         margin-left: -10%;
     }
     .main form .title{
@@ -89,14 +97,17 @@
         font-weight:bold;
         position:absolute;
         top:10px;
-        left:50%;
+        left:48%;
         /*border:1px solid red;*/
         margin-left:-100px;
     }
     .main form .input {
         width: 80%;
+        height: 40px;
         margin-bottom:25px;
         margin-left:30px;
+        background-color:rgba(255,255,255,0.5);
+        border-radius: 20px;
 
     }
     .main form .username{
@@ -105,6 +116,10 @@
     }
     .main form .submit{
         margin-bottom:20px;
+        width: 80%;
+        height: 40px;
+        margin-bottom:25px;
+        margin-left:30px;
     }
     .main form .forget{
         color:black;

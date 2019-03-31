@@ -40,6 +40,7 @@ Axios.interceptors.request.use(
         if (localStorage.getItem('Authorization')) {
             config.headers.Authorization = localStorage.getItem('Authorization');
         }
+
         return config;
     },
     error => {
@@ -55,7 +56,9 @@ Axios.interceptors.response.use(
                 case 403:
                     // 返回 403 清除token信息并跳转到登录页面
                     localStorage.removeItem('Authorization');
+
                     this.$route.push('/login');
+
             }
         }
         return Promise.reject(error.response.data)
