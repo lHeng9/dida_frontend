@@ -36,7 +36,7 @@
                     alert('用户名或密码不能为空')
                 } else {
                     console.log(this.username, this.password)
-                    this.$Axios.post('/adminLogin', {
+                    this.$Axios.post('/login', {
                         username: this.username,
                         password: this.password
                     }).then(res => {

@@ -6,7 +6,7 @@
             <el-card class="top-card" shadow="hover">
                 <img id="face" src="../../../../static/images/face.jpg" alt=""/>
                 <div class="top-message">
-                    <h1>{{hoursTip}}，玄青丶丶 ，{{greeting}}</h1>
+                    <h1>{{hoursTip}}，<span style="color: #3399ff">{{adminName}} </span>，{{greeting}}</h1>
                     <p>评论管理员</p>
                     <p>上次登录时间：2019-3-25 13:12:23</p>
 
@@ -224,7 +224,8 @@
         data() {
             return {
                 hoursTip: ' ',
-                greeting: ' '
+                greeting: ' ',
+                adminName: ' ',
             }
         },
         created() {
@@ -234,6 +235,7 @@
             getMycount: function () {
                 let self = this;
                 let date = new Date();
+                this.adminName = "玄青丶丶"
                 if (date.getHours() >= 0 && date.getHours() < 12) {
                     self.hoursTip = "上午好鸭~";
                     self.greeting = '今天也是充满希望的一天~~'

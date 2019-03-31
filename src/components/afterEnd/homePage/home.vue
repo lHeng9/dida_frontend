@@ -3,10 +3,11 @@
         <div class="left scrollBar">
             <afterEnd_menu></afterEnd_menu>
         </div>
-        <a-affix>
-            <div class="top">
-                <afterEnd_breadcrumb></afterEnd_breadcrumb>
-                <div class="top_right">
+        <div>
+            <a-affix>
+                <div class="top">
+                    <afterEnd_breadcrumb></afterEnd_breadcrumb>
+                    <div class="top_right">
                     <span>
                         <a-dropdown>
                             <img class="face ant-dropdown-link" src="../../../../static/images/face.jpg" alt="">
@@ -28,16 +29,17 @@
                         </a-dropdown>
 
                     </span>
-                    <span class="top_right_content" @click="openNotification">
+                        <span class="top_right_content" @click="openNotification">
                         <a-badge :count="100"><a href="#" class="head-example"></a></a-badge>
                         <a-icon type="bell" style="fontSize :20px; float: right;margin: 7px"/>
                     </span>
+                    </div>
                 </div>
-            </div>
-        </a-affix>
+            </a-affix>
+        </div>
+
         <div class="right">
             <div class="content">
-
                 <router-view/>
             </div>
         </div>

@@ -43,7 +43,7 @@
                     <router-link :to="{name:'ForumEdit'}"><i class="el-icon-edit"></i>发帖</router-link>
                 </el-menu-item>
                 <el-menu-item index="10">
-                    <router-link :to="{name:'test'}">测试接口</router-link>
+                    <router-link :to="{name:'selectEdit'}">测试接口</router-link>
                 </el-menu-item>
                 <el-menu-item index="11">
                     <router-link :to="{name:'afterEnd'}">后台入口</router-link>
