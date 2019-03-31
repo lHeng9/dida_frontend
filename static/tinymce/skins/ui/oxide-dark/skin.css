@@ -2041,6 +2041,7 @@ body.tox-dialog__disable-scroll {
 }
 .tox .tox-tooltip__arrow {
   position: absolute;
+    /*123*/
 }
 .tox .tox-tooltip--down .tox-tooltip__arrow {
   border-left: 8px solid transparent;
