@@ -28,7 +28,6 @@ import forumEdit from './components/frontEnd/forum/forumEdit/forumEdit'
 // import MyCropper from 'cropper'
 import selectTag from './components/frontEnd/forum/forumEdit/selectTag'
 
-// Axios.defaults.baseURL = 'http://tanzhouweb.com/vueProject/'
 Axios.defaults.baseURL = 'http://localhost:8080'
 Vue.prototype.$Axios = Axios
 Vue.prototype.dataURL = function (file, title, id) {
@@ -41,7 +40,6 @@ Axios.interceptors.request.use(
         if (localStorage.getItem('Authorization')) {
             config.headers.Authorization = localStorage.getItem('Authorization');
         }
-        
         return config;
     },
     error => {
@@ -57,7 +55,7 @@ Axios.interceptors.response.use(
                 case 403:
                     // 返回 403 清除token信息并跳转到登录页面
                     localStorage.removeItem('Authorization');
-                    this.$router.push('/login');
+                    this.$route.push('/login');
             }
         }
         return Promise.reject(error.response.data)

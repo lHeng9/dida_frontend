@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main">
         <forum-edit class="edit"></forum-edit>
         <select-tag class="tag"></select-tag>
         <div class="foot">
@@ -16,9 +16,14 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .main {
+        margin-top:60px;
+        /*border:1px solid red;*/
+    }
     .edit{
         width:80%;
         margin:0 auto;
+        /*margin-top:38px;*/
 
     }
     .tag{

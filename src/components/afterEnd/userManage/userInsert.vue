@@ -4,23 +4,19 @@
         <a-divider orientation="left" style="font-size: 22px">添加用户</a-divider>
         <div style="width: 80%; height: 800px">
             <a-form :form="form" @submit="handleSubmit">
-                <a-form-item v-bind="formItemLayout" label="邮箱">
+                <a-form-item v-bind="formItemLayout" label="手机">
                     <a-input
-                            v-decorator="[
-          'email',
+                        v-decorator="[
+          'phone',
           {
-            rules: [{
-              type: 'email', message: '您输入的不是邮箱!',
-            }, {
-              required: true, message: '请输入您的邮箱!',
-            }]
+            rules: [{ required: true, message: 'Please input your phone number!' }],
           }
         ]"
                     />
                 </a-form-item>
                 <a-form-item v-bind="formItemLayout" label="密码">
                     <a-input
-                            v-decorator="[
+                        v-decorator="[
           'password',
           {
             rules: [{
@@ -30,12 +26,12 @@
             }],
           }
         ]"
-                            type="password"
+                        type="password"
                     />
                 </a-form-item>
                 <a-form-item v-bind="formItemLayout" label="重复密码">
                     <a-input
-                            v-decorator="[
+                        v-decorator="[
                             'confirm',
           {
             rules: [{
@@ -45,24 +41,45 @@
             }],
           }
         ]"
-                            type="password"
-                            @blur="handleConfirmBlur"
+                        type="password"
+                        @blur="handleConfirmBlur"
                     />
                 </a-form-item>
                 <a-form-item v-bind="formItemLayout">
                     <span slot="label">姓名</span>
                     <a-input
-                            v-decorator="[
-          'nickname',
+                        v-decorator="[
+          'name',
           {
             rules: [{ required: true, message: '请输入姓名!', whitespace: true }]
           }
         ]"
                     />
                 </a-form-item>
-
+                <a-form-item v-bind="formItemLayout">
+                    <span slot="label">状态</span>
+                    <a-input
+                        v-decorator="[
+          'status',
+          {
+            rules: [{ required: true, message: '请输入姓名!', whitespace: true }]
+          }
+        ]"
+                    />
+                </a-form-item>
+                <a-form-item v-bind="formItemLayout">
+                    <span slot="label">学号</span>
+                    <a-input
+                        v-decorator="[
+          'number',
+          {
+            rules: [{ required: true, message: '请输入姓名!', whitespace: true }]
+          }
+        ]"
+                    />
+                </a-form-item>
                 <a-form-item v-bind="tailFormItemLayout">
-                    <a-button type="primary" html-type="submit" >提交</a-button>
+                    <a-button type="primary" html-type="submit">提交</a-button>
                 </a-form-item>
             </a-form>
         </div>
@@ -70,7 +87,7 @@
 </template>
 
 <script>
-
+    import qs from 'qs'
     export default {
         data() {
             return {
@@ -109,6 +126,16 @@
                 this.form.validateFieldsAndScroll((err, values) => {
                     if (!err) {
                         console.log('Received values of form: ', values);
+                        this.$Axios.post('/system/sysuser/user',{
+                                name:values.name,
+                                number:values.number,
+                                status:values.status,
+                                phone:values.phone,
+                        })
+                        .then(res=>{
+                            console.log(res)
+                        })
+
                     }
                 });
             },
@@ -135,3 +162,7 @@
         },
     };
 </script>
+<style scoped>
+
+
+</style>
