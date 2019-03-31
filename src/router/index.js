@@ -112,6 +112,11 @@ const router = new Router({
         },
         {
             path: '/adminLogin',
+            name: 'adminLogin',
+            component: afterEnd_adminLogin
+        },
+        {
+            path: '/login',
             name: 'login',
             component: login
         },

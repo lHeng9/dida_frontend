@@ -307,9 +307,9 @@
                             this.user.status = 1
                         }
                         if(this.user.type == '学生'){
-                            this.user.type = 1
-                        }else if(this.user.type =='教师'){
                             this.user.type = 0
+                        }else if(this.user.type =='教师'){
+                            this.user.type = 1
                         }
                         this.$Axios.put('/system/sysuser/user/'+this.user.id,{
                             "backgroundImage":form.backgroundImage.value,
@@ -333,9 +333,9 @@
                             } else if (item.status == 1) {
                                 item.status = '正常'
                             }
-                            if (item.type == 0) {
+                            if (item.type == 1) {
                                 item.type = '教师'
-                            } else if (item.type == 1) {
+                            } else if (item.type == 0) {
                                 item.type = '学生'
                             }
                         })
@@ -357,9 +357,9 @@
                                     item.status = '正常'
                                 }
                                 if (item.type == 0) {
-                                    item.type = '教师'
-                                } else if (item.type == 1) {
                                     item.type = '学生'
+                                } else if (item.type == 1) {
+                                    item.type = '教师'
                                 }
                             })
                             console.log(res)
@@ -384,9 +384,9 @@
                     } else if (item.status == 1) {
                         item.status = '正常'
                     }
-                    if (item.type == 0) {
+                    if (item.type == 1) {
                         item.type = '教师'
-                    } else if (item.type == 1) {
+                    } else if (item.type == 0) {
                         item.type = '学生'
                     }
                 })
