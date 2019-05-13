@@ -116,12 +116,7 @@
                         <a-menu-item key="27">系统日志</a-menu-item>
                         <a-menu-item key="28">管理日志</a-menu-item>
                     </a-sub-menu>
-
                 </a-menu>
-
-                <div style="background: #001529; width: 100%; height: 40px">
-
-                </div>
             </div>
         </div>
     </div>
