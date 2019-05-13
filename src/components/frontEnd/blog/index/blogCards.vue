@@ -9,11 +9,11 @@
                     <div class="text item">
                         <div class="card-introduction overflow-hidden">&emsp;&emsp;{{item.introduction}}</div>
                         <div class="card-author-time">
-                            <span>
-                                <img class="face" src="../../../../../static/images/face.jpg">
-                            </span>
-                            <span class="card-el "><router-link
-                                    :to="{name:'personalBlogList'}">{{item.author}}</router-link></span>
+                            <span class="card-el ">
+                                <router-link :to="{name:'personalBlogList'}">
+                                    <img class="face" src="../../../../../static/images/face.jpg">&emsp;
+                                    {{item.author}}
+                                </router-link></span>
                             <span class="card-el">
                                 <i class="el-icon-time"></i>
                                 {{item.time}}

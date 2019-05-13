@@ -14,6 +14,15 @@
             </el-card>
         </div>
         <!--标题线-->
+        <a-divider orientation="left" style="font-size: 22px">数据分析</a-divider>
+        <div class=" welcome ">
+            <el-card class="top-card " shadow="hover">
+
+
+
+            </el-card>
+        </div>
+        <!--标题线-->
         <a-divider orientation="left" style="font-size: 22px">基本统计信息</a-divider>
 
         <div class="message">
@@ -220,6 +229,7 @@
 </template>
 
 <script>
+    // import "static/js/echarts.min"
     export default {
         data() {
             return {

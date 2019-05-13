@@ -93,8 +93,6 @@
                             <router-link :to="{name:'afterEnd_reportList'}">被举报列表</router-link>
                         </a-menu-item>
                         <a-menu-item key="18">添加举报类型</a-menu-item>
-                        <a-menu-item key="19">已处理</a-menu-item>
-                        <a-menu-item key="20">未处理</a-menu-item>
                     </a-sub-menu>
                     <a-sub-menu key="sub10">
                         <span slot="title"><a-icon type="gateway"/><span>其他管理</span></span>
