@@ -11,7 +11,6 @@
                 <span>未读：<span style="color: #F56C6C;">10条</span></span>
                 <span style="color: #409EFF;float: right"><a href=""><a-icon type="check" />&nbsp;全部标为已读</a></span>
             </div>
-
             <!--内容列表-->
             <div class="cards">
                 <ul>
@@ -43,23 +42,12 @@
                                 <span style="margin: 15px"><a-tag color="#409EFF">垃圾广告</a-tag></span>
                                 <div class="card-introduction overflow-hidden">&emsp;{{item.introduction}}</div>
                                 <div class="card-author-time">
-
-                            <!--<span class="card-el treatment-state ">-->
-                                <!--<i class="el-icon-view"></i>-->
-                                <!--<span style="color: #67C23A">&nbsp;已读</span>-->
-                                <!---->
-                            <!--</span>-->
-
-
-                                </div>
-
+                            </div>
                             </div>
                         </el-card>
-
                     </li>
                 </ul>
             </div>
-
             <!--分页模块-->
             <div class="page">
                 <a-pagination showQuickJumper :defaultCurrent="2" :total="500" @change="onChange"/>
