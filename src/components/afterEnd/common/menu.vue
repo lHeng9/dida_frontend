@@ -93,8 +93,6 @@
                             <router-link :to="{name:'afterEnd_reportList'}">被举报列表</router-link>
                         </a-menu-item>
                         <a-menu-item key="18">添加举报类型</a-menu-item>
-                        <a-menu-item key="19">已处理</a-menu-item>
-                        <a-menu-item key="20">未处理</a-menu-item>
                     </a-sub-menu>
                     <a-sub-menu key="sub10">
                         <span slot="title"><a-icon type="gateway"/><span>其他管理</span></span>
@@ -118,12 +116,7 @@
                         <a-menu-item key="27">系统日志</a-menu-item>
                         <a-menu-item key="28">管理日志</a-menu-item>
                     </a-sub-menu>
-
                 </a-menu>
-
-                <div style="background: #001529; width: 100%; height: 40px">
-
-                </div>
             </div>
         </div>
     </div>

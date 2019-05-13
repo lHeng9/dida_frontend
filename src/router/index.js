@@ -26,6 +26,7 @@ import test2 from '../components/frontEnd/blog/index/test2'
 import clickBar from '../components/frontEnd/blog/blogArticle/clickBar'
 import forumEditIndex from '../components/frontEnd/forum/forumEdit/index'
 import pagination from '../components/frontEnd/forum/forumDetail/pagination'
+import selectEdit from '../components/frontEnd/blog/editor/selectEdit'
 // 后台管理
 import afterEnd from '../components/afterEnd/homePage/home'
 import afterEnd_menu from '../components/afterEnd/common/menu'
@@ -76,6 +77,7 @@ Vue.component('forumDetail', forumDetail)
 Vue.component('clickBar', clickBar)
 Vue.component('test', test)
 Vue.component('pagination',pagination)
+Vue.component('selectEdit',selectEdit)
 //后台管理
 Vue.component('afterEnd_menu', afterEnd_menu)
 Vue.component('afterEnd_index', afterEnd_index)
@@ -161,9 +163,21 @@ const router = new Router({
             component: editor
         },
         {
+          name: 'selectEdit',
+          path: 'selectEdit',
+          component: selectEdit
+        },
+        {
             name: 'personalBlogList',
             path: '/personalBlogList',
-            component: personalBlogList
+            component: personalBlogList,
+            // children: [
+            //     {
+                    // name: '文章',
+                    // path: '',
+                    // component: bolg
+                // }
+            // ]
         },
         {
             name: 'personalInformation',

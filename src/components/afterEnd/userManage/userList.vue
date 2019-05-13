@@ -7,8 +7,6 @@
             <!--查询框-->
             <h1>用户列表</h1>
             <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
-
-
             查询框
             <div slot="filterDropdown"
                  slot-scope="{ setSelectedKeys, selectedKeys, confirm, clearFilters, column }"
@@ -52,18 +50,9 @@
                 </span>
                 <template v-else>{{text}}</template>
             </template>
-
-            <!--表格右侧悬停的栏-->
-            <!--<template slot="banned" slot-scope="value,record">-->
-                <!--<a slot="banned" @click="showDeleteConfirm" v-if="record.status ==='正常'">封印</a>-->
-                <!--<a slot="banned" @click="showDeleteConfirm" v-if="record.status ==='封禁'">解封</a>-->
-                <!--&lt;!&ndash;<a slot="banned" @click="showDeleteConfirm">解封</a>&ndash;&gt;-->
-                <!--<div></div>-->
-            <!--</template>-->
             <template slot="more" slot-scope="value, record">
                 <a href="javascript:;" @click="() => showDrawer(value,record)">更多</a>
             </template>
-            <!--</a-table>-->
 
         </a-table>
         <!--右侧详情抽屉-->
