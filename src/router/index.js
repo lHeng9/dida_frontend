@@ -43,6 +43,7 @@ import afterEnd_labelInsert from '../components/afterEnd/lableManage/labelInsert
 import afterEnd_labelSelect from '../components/afterEnd/lableManage/labelSelect'
 import afterEnd_reportList from '../components/afterEnd/reportManage/reportList'
 import afterEnd_adminLogin from '../components/afterEnd/common/adminLogin'
+import afterEnd_personalCenter from '../components/afterEnd/personal/personalCenter'
 
 
 
@@ -93,6 +94,8 @@ Vue.component('afterEnd_labelSelect', afterEnd_labelSelect)
 Vue.component('afterEnd_blogSelect', afterEnd_blogSelect)
 Vue.component('afterEnd_reportList', afterEnd_reportList)
 Vue.component('afterEnd_adminLogin', afterEnd_adminLogin)
+Vue.component('afterEnd_personalCenter', afterEnd_personalCenter)
+
 
 const router = new Router({
     routes: [
@@ -207,6 +210,12 @@ const router = new Router({
             path: '/afterEnd',
             component: afterEnd,
             children:[
+                {
+                  name: 'afterEnd_personalCenter'  ,
+                    path: 'afterEnd_personalCenter',
+                    component: afterEnd_personalCenter,
+                    meta: {title: '个人中心'}
+                },
                 {
                     name: 'afterEnd_index',
                     path: 'afterEnd_index',

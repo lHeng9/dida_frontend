@@ -13,10 +13,7 @@
                             <img class="face ant-dropdown-link" src="../../../../static/images/face.jpg" alt="">
                             <a-menu slot="overlay" class="a-menu">
                               <a-menu-item>
-                                <a href="javascript:;"><a-icon type="user"/>&nbsp;个人中心</a>
-                              </a-menu-item>
-                              <a-menu-item>
-                                <a href="javascript:;"><a-icon type="setting"/>&nbsp;设置</a>
+                                <router-link :to="{name:'afterEnd_personalCenter'}"><a-icon type="user"/>&nbsp;个人中心</router-link>
                               </a-menu-item>
                               <a-menu-item>
                                 <router-link :to="{name:'afterEnd_adminLogin'}"><a-icon type="lock" />&nbsp;锁定</router-link>
