@@ -29,8 +29,6 @@
                                     {{item.title}}</h3>
                                 </router-link>
 
-
-
                             </div>
                             <span class="my-operation">
                                 <a href=""><a-icon type="check" />&nbsp;标为已读</a>&emsp;|&emsp;
@@ -146,7 +144,7 @@
     }
 
     .item {
-        margin-bottom: 18px;
+        /*margin-bottom: 18px;*/
     }
 
     .clearfix:before,

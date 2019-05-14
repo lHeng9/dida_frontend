@@ -229,7 +229,6 @@
 </template>
 
 <script>
-    // import "static/js/echarts.min"
     export default {
         data() {
             return {

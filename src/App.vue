@@ -42,7 +42,9 @@
                     to.name == 'afterEnd_labelSelect' ||
                     to.name == 'afterEnd_blogSelect' ||
                     to.name == 'afterEnd_reportList'||
-                    to.name == 'afterEnd_adminLogin'
+                    to.name == 'afterEnd_adminLogin'||
+                    to.name == 'afterEnd_personalCenter'
+
                 ) {
                     this.$store.dispatch('hideFooter')
                 } else {

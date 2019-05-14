@@ -41,11 +41,18 @@
                         path: '/afterEnd/afterEnd_blog/afterEnd_blogList',
                         meta: {title: '博客管理'}
                     }].concat(matched)
+                } else if (secondPath == 'afterEnd_repor') {
+                    matched = [{
+                        path: '/afterEnd/afterEnd_repor/afterEnd_reportList',
+                        meta: {title: '举报管理'},
+
+                    }].concat(matched)
                 }
                 if (secondPath !== '后台') {
                     matched = [{path: '/afterEnd', meta: {title: '后台'}}].concat(matched)
                 }
                 this.levelList = matched
+                console.log("点击举报管理后的第二级路径："+secondPath)
             }
         }
     }

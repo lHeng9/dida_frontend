@@ -1,16 +1,12 @@
 <template>
-
     <div>
         <h1>帖子列表</h1>
         <div style="width: 100%;height: 1px; background-color: #909399; margin-bottom: 20px "></div>
 
-
         <a-table :columns="columns" :dataSource="data" :scroll="{ x: 1500, y: 470 }">
             <a slot="delete" @click="showDeleteConfirm">删除</a>
-
             <a slot="more" @click="showDrawer">更多</a>
         </a-table>
-
 
         <a-drawer
                 width=640
